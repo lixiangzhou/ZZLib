@@ -87,7 +87,7 @@ public extension NSObject {
             guard let pCname = property_getName(property) else {
                 continue
             }
-            guard let pName = NSString(cString: pCname, encoding: String.Encoding.utf8.rawValue) as? String else {
+            guard let pName = NSString(cString: pCname, encoding: String.Encoding.utf8.rawValue) as String? else {
                 continue
             }
             
