@@ -34,6 +34,7 @@
 		970491751E837D250032355B /* UIScrollView+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9704915F1E837D250032355B /* UIScrollView+ZZExtension.swift */; };
 		970491761E837D250032355B /* UITextField+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970491601E837D250032355B /* UITextField+ZZExtension.swift */; };
 		970491771E837D250032355B /* UIView+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970491611E837D250032355B /* UIView+ZZExtension.swift */; };
+		9736E4731E9012180050B8EA /* ZZLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4721E9012180050B8EA /* ZZLib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		9704915F1E837D250032355B /* UIScrollView+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ZZExtension.swift"; sourceTree = "<group>"; };
 		970491601E837D250032355B /* UITextField+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ZZExtension.swift"; sourceTree = "<group>"; };
 		970491611E837D250032355B /* UIView+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ZZExtension.swift"; sourceTree = "<group>"; };
+		9736E4721E9012180050B8EA /* ZZLib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZLib.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				970491481E837D250032355B /* ZZCustom */,
 				9704914A1E837D250032355B /* ZZExtension */,
+				9736E4721E9012180050B8EA /* ZZLib.swift */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -262,6 +265,7 @@
 				970491631E837D250032355B /* Calendar+ZZExtension.swift in Sources */,
 				970491661E837D250032355B /* Date+ZZExtension.swift in Sources */,
 				9704916F1E837D250032355B /* UIColor+ZZExtension.swift in Sources */,
+				9736E4731E9012180050B8EA /* ZZLib.swift in Sources */,
 				970491761E837D250032355B /* UITextField+ZZExtension.swift in Sources */,
 				970491751E837D250032355B /* UIScrollView+ZZExtension.swift in Sources */,
 				970491711E837D250032355B /* UIImage+ZZExtension.swift in Sources */,
