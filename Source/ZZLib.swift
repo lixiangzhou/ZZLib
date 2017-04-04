@@ -16,6 +16,6 @@ import Foundation
 ///   - file: 文件
 ///   - line: 行数
 ///   - method: 方法名
-func zz_print<T>(_ msg: T, file: String = #file, line: String = #line, method: String = #function) {
+func zz_print<T>(_ msg: T, file: String = #file, line: Int = #line, method: String = #function) {
     print("\((file as NSString).lastPathComponent) \(method):\(line) \(msg)")
 }

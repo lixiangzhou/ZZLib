@@ -35,6 +35,7 @@
 		9736E4C61E9015790050B8EA /* UITextField+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4AF1E9015790050B8EA /* UITextField+ZZExtension.swift */; };
 		9736E4C71E9015790050B8EA /* UIView+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4B01E9015790050B8EA /* UIView+ZZExtension.swift */; };
 		9736E4C81E9015790050B8EA /* ZZLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4B11E9015790050B8EA /* ZZLib.swift */; };
+		97E322371E931E5E0043D8E9 /* UITableView+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E322361E931E5E0043D8E9 /* UITableView+ZZExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		9736E4AF1E9015790050B8EA /* UITextField+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ZZExtension.swift"; sourceTree = "<group>"; };
 		9736E4B01E9015790050B8EA /* UIView+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ZZExtension.swift"; sourceTree = "<group>"; };
 		9736E4B11E9015790050B8EA /* ZZLib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZLib.swift; sourceTree = "<group>"; };
+		97E322361E931E5E0043D8E9 /* UITableView+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ZZExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				9736E4AE1E9015780050B8EA /* UIScrollView+ZZExtension.swift */,
 				9736E4AF1E9015790050B8EA /* UITextField+ZZExtension.swift */,
 				9736E4B01E9015790050B8EA /* UIView+ZZExtension.swift */,
+				97E322361E931E5E0043D8E9 /* UITableView+ZZExtension.swift */,
 			);
 			path = ZZUIExtension;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9736E4C71E9015790050B8EA /* UIView+ZZExtension.swift in Sources */,
+				97E322371E931E5E0043D8E9 /* UITableView+ZZExtension.swift in Sources */,
 				9736E4B71E9015790050B8EA /* DateFormatter+ZZExtension.swift in Sources */,
 				9736E4BC1E9015790050B8EA /* UIAlertController+ZZExtension.swift in Sources */,
 				9736E4C31E9015790050B8EA /* UILabel+ZZExtension.swift in Sources */,
@@ -434,6 +438,7 @@
 				9736E4911E90153D0050B8EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
