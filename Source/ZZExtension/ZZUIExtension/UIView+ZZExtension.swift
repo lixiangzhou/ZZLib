@@ -61,6 +61,7 @@ public extension UIView {
     /// - parameter subview: 子控件
     ///
     /// - returns: 添加的子控件
+    @discardableResult
     func zz_add(subview: UIView) -> UIView {
         addSubview(subview)
         return subview
@@ -73,6 +74,7 @@ public extension UIView {
     /// - parameter frame:   子控件的frame
     ///
     /// - returns: 添加的子控件
+    @discardableResult
     func zz_add(subview: UIView, frame: CGRect) -> UIView {
         addSubview(subview)
         subview.frame = frame

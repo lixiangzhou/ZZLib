@@ -60,5 +60,14 @@ public extension CGRect {
     var zz_y: CGFloat {
         return origin.y
     }
+    
+    var zz_center: CGPoint {
+        get {
+            return CGPoint(x: midX, y: midY)
+        }
+        set {
+            origin = CGPoint(x: newValue.x - width * 0.5, y: newValue.y - height * 0.5)
+        }
+    }
 }
 

@@ -36,6 +36,7 @@
 		970491771E837D250032355B /* UIView+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970491611E837D250032355B /* UIView+ZZExtension.swift */; };
 		97CAA4961E951DEB00FAFC9E /* ZZProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4951E951DEB00FAFC9E /* ZZProgressHud.swift */; };
 		97CAA4981E960EDC00FAFC9E /* UIFont+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4971E960EDC00FAFC9E /* UIFont+ZZExtension.swift */; };
+		97CAA49C1E962DD300FAFC9E /* ZZCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA49B1E962DD300FAFC9E /* ZZCircleProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		970491611E837D250032355B /* UIView+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ZZExtension.swift"; sourceTree = "<group>"; };
 		97CAA4951E951DEB00FAFC9E /* ZZProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZProgressHud.swift; sourceTree = "<group>"; };
 		97CAA4971E960EDC00FAFC9E /* UIFont+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+ZZExtension.swift"; sourceTree = "<group>"; };
+		97CAA49B1E962DD300FAFC9E /* ZZCircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZCircleProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			children = (
 				970491491E837D250032355B /* ZZButton.swift */,
 				97CAA4951E951DEB00FAFC9E /* ZZProgressHud.swift */,
+				97CAA49B1E962DD300FAFC9E /* ZZCircleProgressView.swift */,
 			);
 			path = ZZCustom;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				970491651E837D250032355B /* Data+ZZExtension.swift in Sources */,
 				9704916B1E837D250032355B /* String+ZZExtension.swift in Sources */,
 				9704916E1E837D250032355B /* UIButton+ZZExtension.swift in Sources */,
+				97CAA49C1E962DD300FAFC9E /* ZZCircleProgressView.swift in Sources */,
 				970491641E837D250032355B /* CGRect+ZZExtension.swift in Sources */,
 				970491741E837D250032355B /* UISceen+ZZExtension.swift in Sources */,
 				970491701E837D250032355B /* UIDevice+ZZExtension.swift in Sources */,
