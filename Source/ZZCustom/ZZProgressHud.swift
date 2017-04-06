@@ -10,7 +10,6 @@ import UIKit
 
 private var huds = [Int: ZZProgressHud]()
 
-
 struct ZZProgressHud {
     
     private init() { }
@@ -44,7 +43,7 @@ struct ZZProgressHud {
     ///
     /// - returns: 返回一个自定义的 hud, 如果 hud, image, text 都没有提供，将返回一个无效的 hud
     @discardableResult
-    static func showHud(from view: UIView = UIApplication.shared.keyWindow!, animated: Bool,
+    static func showHud(from view: UIView = UIApplication.shared.keyWindow!, animated: Bool = true,
                         identifier: Int, bgColor: UIColor? = nil, offsetCenterY: CGFloat = 0,
                         hud: UIView? = nil,
                         image: UIImage? = nil, imageSize: CGSize = CGSize.zero, imageCornerRadius: CGFloat = 0,
@@ -156,7 +155,6 @@ struct ZZProgressHud {
     /// - parameter animated:   是否执行动画
     /// - parameter identifier: hud 的ID，必须要设置
     static func hide(animated: Bool, identifier: Int) {
-        
         if let hud = huds[identifier] {
             hud.bgView.alpha = 1
             huds[identifier] = nil
@@ -165,6 +163,36 @@ struct ZZProgressHud {
                 }, completion: { (_) in
                     hud.bgView.removeFromSuperview()
             })
+        }
+    }
+}
+
+/// 自定义案例
+extension ZZProgressHud {
+    static func show(text: String, duration: TimeInterval = 2) {
+        let id = Int(arc4random())
+        showHud(identifier: id, text: text, textLineNum: 2, textFontSize: 16, textColor: UIColor.white, textMaxWidth: 160, edgeInset: UIEdgeInsetsMake(12, 12, 12, 12), contentBgColor: UIColor(white: 0, alpha: 0.8))
+        DispatchQueue.main.zz_after(duration) {
+            hide(animated: true, identifier: id)
+        }
+    }
+    
+    static func show(image: UIImage, duration: TimeInterval = 2) {
+        let id = Int(arc4random())
+        showHud(identifier: id, image: image)
+        DispatchQueue.main.zz_after(duration) {
+            hide(animated: true, identifier: id)
+        }
+    }
+    
+    static func showProgressing(duration: TimeInterval = Double(MAXFLOAT)) {
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        indicator.startAnimating()
+        
+        let id = Int(arc4random())
+        showHud(identifier: id, hud: indicator)
+        DispatchQueue.main.zz_after(duration) {
+            hide(animated: true, identifier: id)
         }
     }
 }

@@ -20,12 +20,14 @@ class ViewController: UIViewController {
     var tiped = false
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if tiped {
-            ZZProgressHud.hide(animated: true, identifier: 1)
-        } else {
-            ZZProgressHud.showHud(from: view, animated: true, identifier: 1, bgColor: UIColor.blue, offsetCenterY: 0, hud: nil, image: UIImage(named: "ok"), imageSize: CGSize(width: 30, height: 30), imageCornerRadius: 20, text: "loading...loading...loading...loading...loading...loading...", textLineNum: 3, textFontSize: 14, textColor: UIColor.red, textMaxWidth: 150, margin: 30, edgeInset: UIEdgeInsetsMake(0, 0, 0, 0), contentBgColor: UIColor.lightGray, contentBgCornerRadius: 10)
-        }
-        tiped = !tiped
+        
+//            ZZProgressHud.showHud(from: view, animated: true, identifier: 1, bgColor: nil, offsetCenterY: 0, hud: nil, image: nil, imageSize: CGSize(width: 30, height: 30), imageCornerRadius: 20, text: "loading...loading...loading...loading...loading...loading...", textLineNum: 3, textFontSize: 14, textColor: UIColor.red, textMaxWidth: 150, margin: 30, edgeInset: UIEdgeInsetsMake(0, 0, 0, 0), contentBgColor: UIColor.lightGray, contentBgCornerRadius: 10)
+            
+//            ZZProgressHud.show(text: "Tomorrow is better")
+            
+//            ZZProgressHud.show(image: UIImage(named: "ok")!)
+        
+        ZZProgressHud.showProgressing(duration: 3)
     }
 
 
