@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let progressView = view.zz_add(subview: ZZCircleProgress(frame: view.bounds)) as! ZZCircleProgress
+        let progressView = view.zz_add(subview: ZZCircleProgressView(frame: view.bounds)) as! ZZCircleProgressView
         progressView.progress = 0.75;
     }
     
