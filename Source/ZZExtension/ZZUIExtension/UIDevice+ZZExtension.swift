@@ -1,6 +1,6 @@
 //
 //  UIDevice+ZZExtension.swift
-//  ZZSwiftTool
+//  ZZLib
 //
 //  Created by lixiangzhou on 2017/3/21.
 //  Copyright © 2017年 lixiangzhou. All rights reserved.
