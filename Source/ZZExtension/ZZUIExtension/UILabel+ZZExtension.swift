@@ -18,13 +18,14 @@ public extension UILabel {
     /// - parameter textColor: 字体颜色
     ///
     /// - returns: Label
-    convenience init(text: String = "", fontSize: CGFloat = 12, textColor: UIColor? = UIColor.darkGray) {
+    convenience init(text: String = "", fontSize: CGFloat = 12, textColor: UIColor? = UIColor.darkGray, numOfLines: Int = 0, textAlignment: NSTextAlignment = .left) {
         self.init()
         
         font = UIFont.systemFont(ofSize: fontSize)
         self.textColor = textColor
         self.text = text
-        numberOfLines = 0
+        self.numberOfLines = numOfLines
+        self.textAlignment = textAlignment
         
         sizeToFit()
     }

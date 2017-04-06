@@ -157,5 +157,32 @@ public extension UIView {
             frame.size.height = newValue
         }
     }
+    
+    var zz_size: CGSize {
+        get {
+            return frame.size
+        }
+        set {
+            frame.size = newValue
+        }
+    }
+    
+    var zz_maxX: CGFloat {
+        get {
+            return frame.maxX
+        }
+        set {
+            zz_x = newValue - zz_width
+        }
+    }
+    
+    var zz_maxY: CGFloat {
+        get {
+            return frame.maxY
+        }
+        set {
+            zz_y = newValue - zz_height
+        }
+    }
 }
 

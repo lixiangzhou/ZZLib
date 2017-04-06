@@ -34,6 +34,8 @@
 		970491751E837D250032355B /* UIScrollView+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9704915F1E837D250032355B /* UIScrollView+ZZExtension.swift */; };
 		970491761E837D250032355B /* UITextField+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970491601E837D250032355B /* UITextField+ZZExtension.swift */; };
 		970491771E837D250032355B /* UIView+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970491611E837D250032355B /* UIView+ZZExtension.swift */; };
+		97CAA4961E951DEB00FAFC9E /* ZZProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4951E951DEB00FAFC9E /* ZZProgressHud.swift */; };
+		97CAA4981E960EDC00FAFC9E /* UIFont+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4971E960EDC00FAFC9E /* UIFont+ZZExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		9704915F1E837D250032355B /* UIScrollView+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ZZExtension.swift"; sourceTree = "<group>"; };
 		970491601E837D250032355B /* UITextField+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ZZExtension.swift"; sourceTree = "<group>"; };
 		970491611E837D250032355B /* UIView+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ZZExtension.swift"; sourceTree = "<group>"; };
+		97CAA4951E951DEB00FAFC9E /* ZZProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZProgressHud.swift; sourceTree = "<group>"; };
+		97CAA4971E960EDC00FAFC9E /* UIFont+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+ZZExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				970491491E837D250032355B /* ZZButton.swift */,
+				97CAA4951E951DEB00FAFC9E /* ZZProgressHud.swift */,
 			);
 			path = ZZCustom;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				9704915F1E837D250032355B /* UIScrollView+ZZExtension.swift */,
 				970491601E837D250032355B /* UITextField+ZZExtension.swift */,
 				970491611E837D250032355B /* UIView+ZZExtension.swift */,
+				97CAA4971E960EDC00FAFC9E /* UIFont+ZZExtension.swift */,
 			);
 			path = ZZUIExtension;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 					970491001E837ADE0032355B = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = N33WL6ABHF;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -248,10 +255,12 @@
 				970491671E837D250032355B /* DateFormatter+ZZExtension.swift in Sources */,
 				9704916C1E837D250032355B /* UIAlertController+ZZExtension.swift in Sources */,
 				970491731E837D250032355B /* UILabel+ZZExtension.swift in Sources */,
+				97CAA4981E960EDC00FAFC9E /* UIFont+ZZExtension.swift in Sources */,
 				970491071E837ADE0032355B /* ViewController.swift in Sources */,
 				970491621E837D250032355B /* ZZButton.swift in Sources */,
 				970491051E837ADE0032355B /* AppDelegate.swift in Sources */,
 				970491681E837D250032355B /* DispatchQueue+ZZExtension.swift in Sources */,
+				97CAA4961E951DEB00FAFC9E /* ZZProgressHud.swift in Sources */,
 				970491651E837D250032355B /* Data+ZZExtension.swift in Sources */,
 				9704916B1E837D250032355B /* String+ZZExtension.swift in Sources */,
 				9704916E1E837D250032355B /* UIButton+ZZExtension.swift in Sources */,
@@ -390,11 +399,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = N33WL6ABHF;
 				INFOPLIST_FILE = ZZLibDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zz.ZZLibDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -403,6 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = N33WL6ABHF;
 				INFOPLIST_FILE = ZZLibDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -431,6 +443,7 @@
 				970491151E837ADE0032355B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
