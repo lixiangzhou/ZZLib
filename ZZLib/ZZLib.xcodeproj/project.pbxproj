@@ -39,6 +39,11 @@
 		97CAA4D51E96315900FAFC9E /* UITextField+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4BA1E96315900FAFC9E /* UITextField+ZZExtension.swift */; };
 		97CAA4D61E96315900FAFC9E /* UIView+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4BB1E96315900FAFC9E /* UIView+ZZExtension.swift */; };
 		97CAA4D71E96315900FAFC9E /* ZZLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4BC1E96315900FAFC9E /* ZZLib.swift */; };
+		97E322531E9AFAE30043D8E9 /* UIScrollView+ZZRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E3224E1E9AFAE30043D8E9 /* UIScrollView+ZZRefresh.swift */; };
+		97E322541E9AFAE30043D8E9 /* ZZRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E3224F1E9AFAE30043D8E9 /* ZZRefresh.swift */; };
+		97E322551E9AFAE30043D8E9 /* ZZRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E322501E9AFAE30043D8E9 /* ZZRefreshFooter.swift */; };
+		97E322561E9AFAE30043D8E9 /* ZZRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E322511E9AFAE30043D8E9 /* ZZRefreshHeader.swift */; };
+		97E322571E9AFAE30043D8E9 /* ZZRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E322521E9AFAE30043D8E9 /* ZZRefreshView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +81,11 @@
 		97CAA4BA1E96315900FAFC9E /* UITextField+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ZZExtension.swift"; sourceTree = "<group>"; };
 		97CAA4BB1E96315900FAFC9E /* UIView+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ZZExtension.swift"; sourceTree = "<group>"; };
 		97CAA4BC1E96315900FAFC9E /* ZZLib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZLib.swift; sourceTree = "<group>"; };
+		97E3224E1E9AFAE30043D8E9 /* UIScrollView+ZZRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ZZRefresh.swift"; sourceTree = "<group>"; };
+		97E3224F1E9AFAE30043D8E9 /* ZZRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefresh.swift; sourceTree = "<group>"; };
+		97E322501E9AFAE30043D8E9 /* ZZRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefreshFooter.swift; sourceTree = "<group>"; };
+		97E322511E9AFAE30043D8E9 /* ZZRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefreshHeader.swift; sourceTree = "<group>"; };
+		97E322521E9AFAE30043D8E9 /* ZZRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefreshView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +132,7 @@
 		97CAA49D1E96315900FAFC9E /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				97E3224D1E9AFAE30043D8E9 /* ZZRefresh */,
 				97CAA49E1E96315900FAFC9E /* ZZCustom */,
 				97CAA4A21E96315900FAFC9E /* ZZExtension */,
 				97CAA4BC1E96315900FAFC9E /* ZZLib.swift */,
@@ -184,6 +195,19 @@
 				97CAA4BB1E96315900FAFC9E /* UIView+ZZExtension.swift */,
 			);
 			path = ZZUIExtension;
+			sourceTree = "<group>";
+		};
+		97E3224D1E9AFAE30043D8E9 /* ZZRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				97E3224E1E9AFAE30043D8E9 /* UIScrollView+ZZRefresh.swift */,
+				97E3224F1E9AFAE30043D8E9 /* ZZRefresh.swift */,
+				97E322501E9AFAE30043D8E9 /* ZZRefreshFooter.swift */,
+				97E322511E9AFAE30043D8E9 /* ZZRefreshHeader.swift */,
+				97E322521E9AFAE30043D8E9 /* ZZRefreshView.swift */,
+			);
+			name = ZZRefresh;
+			path = ZZCustom/ZZRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +285,9 @@
 			files = (
 				9736E4831E90153D0050B8EA /* ViewController.swift in Sources */,
 				97CAA4D41E96315900FAFC9E /* UITableView+ZZExtension.swift in Sources */,
+				97E322551E9AFAE30043D8E9 /* ZZRefreshFooter.swift in Sources */,
 				97CAA4CC1E96315900FAFC9E /* UIColor+ZZExtension.swift in Sources */,
+				97E322531E9AFAE30043D8E9 /* UIScrollView+ZZRefresh.swift in Sources */,
 				97CAA4BD1E96315900FAFC9E /* ZZButton.swift in Sources */,
 				97CAA4CF1E96315900FAFC9E /* UIImage+ZZExtension.swift in Sources */,
 				97CAA4D01E96315900FAFC9E /* UIImageView+ZZExtension.swift in Sources */,
@@ -270,6 +296,7 @@
 				97CAA4C91E96315900FAFC9E /* UIAlertController+ZZExtension.swift in Sources */,
 				97CAA4C51E96315900FAFC9E /* DispatchQueue+ZZExtension.swift in Sources */,
 				97CAA4D11E96315900FAFC9E /* UILabel+ZZExtension.swift in Sources */,
+				97E322561E9AFAE30043D8E9 /* ZZRefreshHeader.swift in Sources */,
 				97CAA4C01E96315900FAFC9E /* Calendar+ZZExtension.swift in Sources */,
 				97CAA4C11E96315900FAFC9E /* CGRect+ZZExtension.swift in Sources */,
 				97CAA4D31E96315900FAFC9E /* UIScrollView+ZZExtension.swift in Sources */,
@@ -282,11 +309,13 @@
 				97CAA4CB1E96315900FAFC9E /* UIButton+ZZExtension.swift in Sources */,
 				97CAA4C31E96315900FAFC9E /* Date+ZZExtension.swift in Sources */,
 				97CAA4BE1E96315900FAFC9E /* ZZCircleProgressView.swift in Sources */,
+				97E322571E9AFAE30043D8E9 /* ZZRefreshView.swift in Sources */,
 				97CAA4D71E96315900FAFC9E /* ZZLib.swift in Sources */,
 				97CAA4D21E96315900FAFC9E /* UISceen+ZZExtension.swift in Sources */,
 				97CAA4D61E96315900FAFC9E /* UIView+ZZExtension.swift in Sources */,
 				97CAA4C41E96315900FAFC9E /* DateFormatter+ZZExtension.swift in Sources */,
 				97CAA4C21E96315900FAFC9E /* Data+ZZExtension.swift in Sources */,
+				97E322541E9AFAE30043D8E9 /* ZZRefresh.swift in Sources */,
 				97CAA4C71E96315900FAFC9E /* NSObject+ZZExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
