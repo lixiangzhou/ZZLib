@@ -14,7 +14,7 @@ class ZZRefreshFooter: ZZRefreshView {
             switch state {
             case .refreshing:
                 UIView.animate(withDuration: zz_RefreshConstant.footerRefreshDuration, animations: {
-                    self.scrollView.contentInset.bottom = self.originInset.bottom + zz_RefreshConstant.footerHeight
+                    self.scrollView.contentInset.bottom = zz_RefreshConstant.footerHeight
                 })
             default: break
             }
@@ -34,7 +34,7 @@ class ZZRefreshFooter: ZZRefreshView {
             distance = scrollView.contentSize.height - scrollView.frame.height - offsetY
         }
         
-        var y = max(scrollView.contentSize.height, scrollView.frame.height - originInset.bottom)
+        var y = max(scrollView.contentSize.height, scrollView.frame.height)
         
         let footerHeight = zz_RefreshConstant.footerHeight
         
@@ -43,35 +43,39 @@ class ZZRefreshFooter: ZZRefreshView {
         case .top:
             if notFull {  // 不满一屏幕的情况
                 if state == .refreshing {
-                    y = scrollView.frame.height - originInset.bottom - footerHeight //scrollView.contentSize.height
+                    y = scrollView.frame.height - footerHeight //scrollView.contentSize.height
                 } else {
-                    y = scrollView.frame.height - originInset.bottom
+                    y = scrollView.frame.height
                 }
                 height = footerHeight
             } else {
-                height = min(abs(distance), footerHeight)
+                height = footerHeight//min(abs(distance), footerHeight)
             }
             frame = CGRect(x: 0, y: y, width: width, height: footerHeight)
         case .bottom:
             if notFull {  // 不满一屏幕的情况
-                
-                // 和满屏的情况一样
-                y += distance < -footerHeight ? -distance - footerHeight : 0
-                height = min(abs(distance), footerHeight)
+                if state == .refreshing {
+                    y = scrollView.frame.height - footerHeight
+                } else {
+                    // 和满屏的情况一样
+                    y += distance < -footerHeight ? -distance - footerHeight : 0
+                }
+                height = footerHeight//min(abs(distance), footerHeight)
             } else {
                 y += distance < -footerHeight ? -distance - footerHeight : 0
-                height = min(abs(distance), footerHeight)
+                height = footerHeight//min(abs(distance), footerHeight)
             }
             
             frame = CGRect(x: 0, y: y, width: width, height: footerHeight)
         case .scaleToFill:
-            //            height = abs(distance) < footerHeight ? abs(distance) : abs(distance)
-            height = abs(distance)
+            if notFull, state == .refreshing {
+                y = scrollView.frame.height - footerHeight
+                height = footerHeight
+            } else {
+                height = abs(distance)
+            }
             frame = CGRect(x: 0, y: y, width: width, height: height)
         }
-        
-        //        print("\(abs(height)) / \(footerHeight) = \(abs(height) / footerHeight)) \(frame)")
-        //        update(progress: abs(height) / footerHeight)
         
         if state == .refreshing || distance > 0 {
             return
@@ -93,6 +97,6 @@ class ZZRefreshFooter: ZZRefreshView {
     
     // 屏幕的情况
     private var notFull: Bool {
-        return scrollView.contentSize.height < scrollView.frame.height - originInset.bottom
+        return scrollView.contentSize.height < scrollView.frame.height
     }
 }

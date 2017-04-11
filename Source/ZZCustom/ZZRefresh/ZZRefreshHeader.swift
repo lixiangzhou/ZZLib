@@ -15,7 +15,7 @@ class ZZRefreshHeader: ZZRefreshView {
             switch state {
             case .refreshing:
                 UIView.animate(withDuration: zz_RefreshConstant.headerRefreshDuration, animations: { 
-                    self.scrollView.contentInset.top = self.originInset.top + zz_RefreshConstant.headerHeight
+                    self.scrollView.contentInset.top = zz_RefreshConstant.headerHeight
                 })
             default: break
             }
@@ -32,15 +32,15 @@ class ZZRefreshHeader: ZZRefreshView {
         // 处理 style
         switch style {
         case .bottom:
-            frame = CGRect(x: 0, y: originInset.top - headerHeight, width: width, height: headerHeight)
+            frame = CGRect(x: 0, y: -headerHeight, width: width, height: headerHeight)
         case .scaleToFill:
             var height: CGFloat = min(headerHeight, abs(min(offsetY, 0)))
-            let y = min(offsetY, 0)
+            let y = min(offsetY, 0);
             height = offsetY < 0 ? abs(offsetY) : 0
-            frame = CGRect(x: 0, y: originInset.top + y, width: width, height: height)
+            frame = CGRect(x: 0, y: y, width: width, height: height)
         case .top:
             let y = offsetY < -headerHeight ? offsetY : -headerHeight
-            frame = CGRect(x: 0, y: originInset.top + y, width: width, height: headerHeight)
+            frame = CGRect(x: 0, y: y, width: width, height: headerHeight)
         }
         
         // 处理状态变化

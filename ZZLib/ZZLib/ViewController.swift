@@ -16,12 +16,12 @@ class ViewController: UIViewController {
         
         tableView = UITableView(frame: view.bounds)
         tableView.dataSource = self
-        tableView.contentInset = UIEdgeInsetsMake(40, 0, 40, 0)
+//        tableView.contentInset = UIEdgeInsetsMake(40, 0, 40, 0)
         self.view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ID")
         
 //        tableView.header = ZZRefreshHeader(target: self, action: #selector(headerAction), style: .scaleToFill)
-        tableView.footer = ZZRefreshFooter(target: self, action: #selector(footerAction), style: .top )
+        tableView.footer = ZZRefreshFooter(target: self, action: #selector(footerAction), style: .scaleToFill)
         
         for i in 0..<10 {
             self.dataList.append(i)
