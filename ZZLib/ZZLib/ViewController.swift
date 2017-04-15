@@ -20,8 +20,8 @@ class ViewController: UIViewController {
         self.view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ID")
         
-//        tableView.header = ZZRefreshHeader(target: self, action: #selector(headerAction), style: .scaleToFill)
-        tableView.footer = ZZRefreshFooter(target: self, action: #selector(footerAction), style: .scaleToFill)
+        tableView.header = ZZRefreshHeader(target: self, action: #selector(headerAction), style: .bottom)
+        tableView.footer = ZZRefreshFooter(target: self, action: #selector(footerAction), style: .bottom)
         
         for i in 0..<10 {
             self.dataList.append(i)

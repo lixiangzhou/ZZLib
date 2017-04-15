@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		971006211EA06FC100DE3A34 /* ZZCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971006201EA06FC100DE3A34 /* ZZCollection.swift */; };
 		9736E4811E90153D0050B8EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4801E90153D0050B8EA /* AppDelegate.swift */; };
 		9736E4831E90153D0050B8EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4821E90153D0050B8EA /* ViewController.swift */; };
 		9736E4861E90153D0050B8EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9736E4841E90153D0050B8EA /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		971006201EA06FC100DE3A34 /* ZZCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZCollection.swift; sourceTree = "<group>"; };
 		9736E47D1E90153D0050B8EA /* ZZLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9736E4801E90153D0050B8EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9736E4821E90153D0050B8EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				97CAA49E1E96315900FAFC9E /* ZZCustom */,
 				97CAA4A21E96315900FAFC9E /* ZZExtension */,
 				97CAA4BC1E96315900FAFC9E /* ZZLib.swift */,
+				971006201EA06FC100DE3A34 /* ZZCollection.swift */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -313,6 +316,7 @@
 				97CAA4D71E96315900FAFC9E /* ZZLib.swift in Sources */,
 				97CAA4D21E96315900FAFC9E /* UISceen+ZZExtension.swift in Sources */,
 				97CAA4D61E96315900FAFC9E /* UIView+ZZExtension.swift in Sources */,
+				971006211EA06FC100DE3A34 /* ZZCollection.swift in Sources */,
 				97CAA4C41E96315900FAFC9E /* DateFormatter+ZZExtension.swift in Sources */,
 				97CAA4C21E96315900FAFC9E /* Data+ZZExtension.swift in Sources */,
 				97E322541E9AFAE30043D8E9 /* ZZRefresh.swift in Sources */,
