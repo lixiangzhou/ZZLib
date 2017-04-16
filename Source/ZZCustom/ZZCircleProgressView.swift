@@ -30,8 +30,8 @@ class ZZCircleProgressView: UIView {
         trackPath.stroke()
         
         // 画进度圆
-        let start: CGFloat = CGFloat(-M_PI_2)
-        let end = start + progress * CGFloat(M_PI * 2)
+        let start: CGFloat = CGFloat(-Double.pi * 0.5)
+        let end = start + progress * CGFloat(Double.pi * 2)
         let progressPath = UIBezierPath(arcCenter: rect.zz_center, radius: radius, startAngle: start, endAngle: end, clockwise: true)
         progressColor.setStroke()
         progressPath.lineWidth = progressWidth
