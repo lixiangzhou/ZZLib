@@ -44,11 +44,6 @@
  https://github.com/SwiftyJSON/SwiftyJSON.git
  */
 
-/*
- SwiftyJSON
- 最为开发者认可的JSON解析类
- https://github.com/SwiftyJSON/SwiftyJSON.git
- */
 
 /*
  Async
@@ -162,3 +157,31 @@
  最小代价获取图片的大小和类型
  https://github.com/kaishin/ImageScout.git
  */
+
+
+/*
+ ViewMonitor
+ 在运行的时候查看控件的位置\字体大小、颜色等信息
+ https://github.com/daisuke0131/ViewMonitor.git
+ */
+
+/*
+ Peek
+ 在运行的时候动态查看控件的布局信息
+ https://github.com/shaps80/Peek.git
+ */
+
+
+/*
+ Spring
+ 动画库
+ https://github.com/MengTo/Spring.git
+ */
+
+
+/*
+ GPUImage2
+ 图像处理和视频处理的库
+ https://github.com/BradLarson/GPUImage2.git
+ */
+
