@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		971006211EA06FC100DE3A34 /* ZZCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971006201EA06FC100DE3A34 /* ZZCollection.swift */; };
+		97168A541F34256600567E29 /* NSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97168A531F34256600567E29 /* NSNumber.swift */; };
 		9736E4811E90153D0050B8EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4801E90153D0050B8EA /* AppDelegate.swift */; };
 		9736E4831E90153D0050B8EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4821E90153D0050B8EA /* ViewController.swift */; };
 		9736E4861E90153D0050B8EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9736E4841E90153D0050B8EA /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		971006201EA06FC100DE3A34 /* ZZCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZCollection.swift; sourceTree = "<group>"; };
+		97168A531F34256600567E29 /* NSNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumber.swift; sourceTree = "<group>"; };
 		9736E47D1E90153D0050B8EA /* ZZLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9736E4801E90153D0050B8EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9736E4821E90153D0050B8EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				97CAA4AA1E96315900FAFC9E /* Locale+ZZExtension.swift */,
 				97CAA4AB1E96315900FAFC9E /* NSObject+ZZExtension.swift */,
 				97CAA4AC1E96315900FAFC9E /* String+ZZExtension.swift */,
+				97168A531F34256600567E29 /* NSNumber.swift */,
 			);
 			path = ZZNSExtension;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				97CAA4D31E96315900FAFC9E /* UIScrollView+ZZExtension.swift in Sources */,
 				97CAA4CD1E96315900FAFC9E /* UIDevice+ZZExtension.swift in Sources */,
 				97CAA4BF1E96315900FAFC9E /* ZZProgressHud.swift in Sources */,
+				97168A541F34256600567E29 /* NSNumber.swift in Sources */,
 				97CAA4D51E96315900FAFC9E /* UITextField+ZZExtension.swift in Sources */,
 				97CAA4CA1E96315900FAFC9E /* UIApplication+ZZExtension.swift in Sources */,
 				97CAA4C61E96315900FAFC9E /* Locale+ZZExtension.swift in Sources */,

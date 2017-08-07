@@ -100,4 +100,16 @@ public extension String {
     func zz_size(withLimitHeight height: CGFloat, fontSize: CGFloat) -> CGSize {
         return zz_size(withLimitSize: CGSize(width: CGFloat.leastNormalMagnitude, height: height), fontSize: fontSize)
     }
+    
+    /// 获取子字符串的
+    ///
+    /// - parameter range:       范围
+    ///
+    /// - returns: 子字符串
+    func zz_substring(range: NSRange) -> String {
+        let startIdx = index(startIndex, offsetBy: range.location)
+        let endIdx = index(startIdx, offsetBy: range.length)
+
+        return substring(with: startIdx..<endIdx)
+    }
 }
