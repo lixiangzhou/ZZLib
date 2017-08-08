@@ -15,7 +15,7 @@ struct ZZProgressHud {
     private init() { }
     
     // MARK - 私有属性
-    private let bgView = UIView()
+//    private var bgView: UIView!
     private lazy var contentView = UIView()
     
     // MARK - 最基本的访问方法，根据需求设置自己需要的样式
@@ -43,15 +43,35 @@ struct ZZProgressHud {
     ///
     /// - returns: 返回一个自定义的 hud, 如果 hud, image, text 都没有提供，将返回一个无效的 hud
     @discardableResult
-    static func showHud(from view: UIView = UIApplication.shared.keyWindow!, animated: Bool = true,
-                        identifier: Int, bgColor: UIColor? = nil, offsetCenterY: CGFloat = 0,
+    static func showHud(from view: UIView = UIApplication.shared.keyWindow!,
+                        animated: Bool = true,
+                        identifier: Int,
+                        bgColor: UIColor? = nil,
+                        offsetCenterY: CGFloat = 0,
                         hud: UIView? = nil,
-                        image: UIImage? = nil, imageSize: CGSize = CGSize.zero, imageCornerRadius: CGFloat = 0,
-                        text: String? = nil, textLineNum: Int = 1, textFontSize: CGFloat = 14, textColor: UIColor = .darkGray, textMaxWidth: CGFloat = 0,
-                        margin: CGFloat = 10, edgeInset: UIEdgeInsets = .zero, contentBgColor: UIColor = UIColor.white, contentBgCornerRadius: CGFloat = 0) -> ZZProgressHud {
+                        
+                        image: UIImage? = nil,
+                        imageSize: CGSize = CGSize.zero,
+                        imageCornerRadius: CGFloat = 0,
+                        
+                        text: String? = nil,
+                        textLineNum: Int = 1,
+                        textFontSize: CGFloat = 14,
+                        textColor: UIColor = .darkGray,
+                        textMaxWidth: CGFloat = 0,
+                        
+                        margin: CGFloat = 10,
+                        edgeInset: UIEdgeInsets = .zero,
+                        contentBgColor: UIColor = UIColor.white,
+                        contentBgCornerRadius: CGFloat = 0) -> ZZProgressHud {
+        
+        
+        if let hud = huds[identifier] {
+            return hud
+        }
         
         var progressHud = ZZProgressHud()
-        let bgView = progressHud.bgView
+        let bgView = view
         
         bgView.frame = view.bounds
         bgView.backgroundColor = bgColor
@@ -137,13 +157,13 @@ struct ZZProgressHud {
             }
         }
         
-        view.addSubview(progressHud.bgView)
+//        view.addSubview(progressHud.bgView)
         huds[identifier] = progressHud
         
         if animated {
-            bgView.alpha = 0
+            progressHud.contentView.alpha = 0
             UIView.animate(withDuration: 0.25, animations: { 
-                bgView.alpha = 1
+                progressHud.contentView.alpha = 1
             })
         }
         
@@ -155,44 +175,94 @@ struct ZZProgressHud {
     /// - parameter animated:   是否执行动画
     /// - parameter identifier: hud 的ID，必须要设置
     static func hide(animated: Bool, identifier: Int) {
-        if let hud = huds[identifier] {
-            hud.bgView.alpha = 1
-            huds[identifier] = nil
-            UIView.animate(withDuration: 0.25, animations: { 
-                hud.bgView.alpha = 0
-                }, completion: { (_) in
-                    hud.bgView.removeFromSuperview()
+        if var hud = huds[identifier] {
+            hud.contentView.alpha = 1;
+            UIView.animate(withDuration: 0.25, animations: {
+                hud.contentView.alpha = 0
+            }, completion: { (_) in
+                hud.contentView.removeFromSuperview()
+                huds[identifier] = nil
             })
+        }
+    }
+    
+    /// 隐藏 hud
+    ///
+    /// - parameter animated:   是否执行动画
+    /// - parameter identifier: hud 的ID
+    mutating func hide(animated: Bool) {
+        for (id, var hud) in huds {
+            if contentView.isEqual(hud.contentView) {
+                self.contentView.alpha = 1
+                UIView.animate(withDuration: 0.25, animations: {
+                    hud.contentView.alpha = 0
+                }, completion: { (_) in
+                    hud.contentView.removeFromSuperview()
+                    huds[id] = nil
+                })
+            }
         }
     }
 }
 
 /// 自定义案例
 extension ZZProgressHud {
-    static func show(text: String, duration: TimeInterval = 2) {
-        let id = Int(arc4random())
-        showHud(identifier: id, text: text, textLineNum: 2, textFontSize: 16, textColor: UIColor.white, textMaxWidth: 160, edgeInset: UIEdgeInsetsMake(12, 12, 12, 12), contentBgColor: UIColor(white: 0, alpha: 0.8))
+    
+    /// 显示文本
+    ///
+    /// - Parameters:
+    ///   - text: 文本内容
+    ///   - duration: 显示时间
+    /// - Returns: ZZProgressHud
+    @discardableResult
+    static func show(text: String, duration: TimeInterval = 2) -> ZZProgressHud {
+        let id = 1
+        if let hud = huds[id] {
+            return hud
+        }
+        let hud = showHud(identifier: id, text: text, textLineNum: 2, textFontSize: 16, textColor: UIColor.white, textMaxWidth: 160, edgeInset: UIEdgeInsetsMake(12, 12, 12, 12), contentBgColor: UIColor(white: 0, alpha: 0.8))
         DispatchQueue.main.zz_after(duration) {
             hide(animated: true, identifier: id)
         }
+        return hud
     }
     
-    static func show(image: UIImage, duration: TimeInterval = 2) {
-        let id = Int(arc4random())
-        showHud(identifier: id, image: image)
+    
+    /// 显示图片
+    ///
+    /// - Parameters:
+    ///   - image: 图片内容
+    ///   - duration: 显示时间
+    /// - Returns: ZZProgressHud
+    @discardableResult
+    static func show(image: UIImage, duration: TimeInterval = 2) -> ZZProgressHud {
+        let id = 2
+        if let hud = huds[id] {
+            return hud
+        }
+        let hud = showHud(identifier: id, image: image)
         DispatchQueue.main.zz_after(duration) {
             hide(animated: true, identifier: id)
         }
+        return hud
     }
     
-    static func showProgressing(duration: TimeInterval = Double(MAXFLOAT)) {
+    
+    /// 显示进度 UIActivityIndicatorView
+    ///
+    /// - Parameter duration: 显示时间
+    /// - Returns: ZZProgressHud
+    @discardableResult
+    static func showProgressing(duration: TimeInterval = Double(MAXFLOAT)) -> ZZProgressHud {
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         indicator.startAnimating()
         
-        let id = Int(arc4random())
-        showHud(identifier: id, hud: indicator)
-        DispatchQueue.main.zz_after(duration) {
-            hide(animated: true, identifier: id)
+        let id = 3
+        if let hud = huds[id] {
+            return hud
         }
+        let hud = showHud(identifier: id, hud: indicator)
+
+        return hud
     }
 }

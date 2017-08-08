@@ -18,8 +18,15 @@ class ViewController: UIViewController {
         let num = 12345
         print(num[4] ?? 1_000_000_000)
         print(num.length)
+        view.backgroundColor = UIColor.blue
+        
+        
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        ZZProgressHud.show(text: "hahafdklsjfdkl;jfkdlsa;fjdklsfjdklsfjkdlsa;fjalsfjsalf;jadksfljdsakfl;jsakfl;jsakfsafsfsafsafsafsafsafsfsafasfsafsafasffsfsafsffl;jsakl;")
+        ZZProgressHud.showProgressing()
+    }
 }
 
 
