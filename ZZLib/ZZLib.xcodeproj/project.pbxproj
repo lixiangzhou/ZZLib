@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		971006211EA06FC100DE3A34 /* ZZCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971006201EA06FC100DE3A34 /* ZZCollection.swift */; };
-		97168A541F34256600567E29 /* NSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97168A531F34256600567E29 /* NSNumber.swift */; };
 		9736E4811E90153D0050B8EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4801E90153D0050B8EA /* AppDelegate.swift */; };
 		9736E4831E90153D0050B8EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4821E90153D0050B8EA /* ViewController.swift */; };
 		9736E4861E90153D0050B8EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9736E4841E90153D0050B8EA /* Main.storyboard */; };
@@ -46,11 +45,11 @@
 		97E322551E9AFAE30043D8E9 /* ZZRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E322501E9AFAE30043D8E9 /* ZZRefreshFooter.swift */; };
 		97E322561E9AFAE30043D8E9 /* ZZRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E322511E9AFAE30043D8E9 /* ZZRefreshHeader.swift */; };
 		97E322571E9AFAE30043D8E9 /* ZZRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E322521E9AFAE30043D8E9 /* ZZRefreshView.swift */; };
+		97F7194A1F39B47D0094BFE5 /* NSNumber+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F719491F39B47D0094BFE5 /* NSNumber+ZZExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		971006201EA06FC100DE3A34 /* ZZCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZCollection.swift; sourceTree = "<group>"; };
-		97168A531F34256600567E29 /* NSNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumber.swift; sourceTree = "<group>"; };
 		9736E47D1E90153D0050B8EA /* ZZLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9736E4801E90153D0050B8EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9736E4821E90153D0050B8EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		97E322501E9AFAE30043D8E9 /* ZZRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefreshFooter.swift; sourceTree = "<group>"; };
 		97E322511E9AFAE30043D8E9 /* ZZRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefreshHeader.swift; sourceTree = "<group>"; };
 		97E322521E9AFAE30043D8E9 /* ZZRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefreshView.swift; sourceTree = "<group>"; };
+		97F719491F39B47D0094BFE5 /* NSNumber+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumber+ZZExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +177,7 @@
 				97CAA4AA1E96315900FAFC9E /* Locale+ZZExtension.swift */,
 				97CAA4AB1E96315900FAFC9E /* NSObject+ZZExtension.swift */,
 				97CAA4AC1E96315900FAFC9E /* String+ZZExtension.swift */,
-				97168A531F34256600567E29 /* NSNumber.swift */,
+				97F719491F39B47D0094BFE5 /* NSNumber+ZZExtension.swift */,
 			);
 			path = ZZNSExtension;
 			sourceTree = "<group>";
@@ -300,6 +300,7 @@
 				9736E4811E90153D0050B8EA /* AppDelegate.swift in Sources */,
 				97CAA4CE1E96315900FAFC9E /* UIFont+ZZExtension.swift in Sources */,
 				97CAA4C91E96315900FAFC9E /* UIAlertController+ZZExtension.swift in Sources */,
+				97F7194A1F39B47D0094BFE5 /* NSNumber+ZZExtension.swift in Sources */,
 				97CAA4C51E96315900FAFC9E /* DispatchQueue+ZZExtension.swift in Sources */,
 				97CAA4D11E96315900FAFC9E /* UILabel+ZZExtension.swift in Sources */,
 				97E322561E9AFAE30043D8E9 /* ZZRefreshHeader.swift in Sources */,
@@ -308,7 +309,6 @@
 				97CAA4D31E96315900FAFC9E /* UIScrollView+ZZExtension.swift in Sources */,
 				97CAA4CD1E96315900FAFC9E /* UIDevice+ZZExtension.swift in Sources */,
 				97CAA4BF1E96315900FAFC9E /* ZZProgressHud.swift in Sources */,
-				97168A541F34256600567E29 /* NSNumber.swift in Sources */,
 				97CAA4D51E96315900FAFC9E /* UITextField+ZZExtension.swift in Sources */,
 				97CAA4CA1E96315900FAFC9E /* UIApplication+ZZExtension.swift in Sources */,
 				97CAA4C61E96315900FAFC9E /* Locale+ZZExtension.swift in Sources */,

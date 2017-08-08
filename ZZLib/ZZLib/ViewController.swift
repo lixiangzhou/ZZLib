@@ -14,7 +14,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("hello".zz_substring(range: NSRange(location: 3, length: 2)))
+//        print("hello".zz_substring(range: NSRange(location: 3, length: 2)))
+        let num = 12345
+        print(num[4] ?? 1_000_000_000)
+        print(num.length)
     }
 
 }

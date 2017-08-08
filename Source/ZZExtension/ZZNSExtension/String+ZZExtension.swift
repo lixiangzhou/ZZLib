@@ -110,6 +110,7 @@ public extension String {
         let startIdx = index(startIndex, offsetBy: range.location)
         let endIdx = index(startIdx, offsetBy: range.length)
 
+//        return self[startIdx..<endIdx]
         return substring(with: startIdx..<endIdx)
     }
 }
