@@ -47,7 +47,7 @@ extension UITableView {
 
 extension UITableView: UIGestureRecognizerDelegate {
     // MARK: 监听
-    func gestureProcess(gesture: UILongPressGestureRecognizer) {
+    @objc func gestureProcess(gesture: UILongPressGestureRecognizer) {
         let point = gesture.location(in: self)
         
         // 如果超出了范围，就取消返回
@@ -135,7 +135,8 @@ extension UITableView: UIGestureRecognizerDelegate {
             if startIndexPath.section == indexPath.section,
                 var sectionData = originData[startIndexPath.section] as? [Any]
             {
-                swap(&sectionData[startIndexPath.row], &sectionData[indexPath.row])
+                sectionData.swapAt(startIndexPath.row, indexPath.row)
+//                swap(&sectionData[startIndexPath.row], &sectionData[indexPath.row])
                 originData[startIndexPath.section] = sectionData
             } else {    // 不同组
                 guard   // 获取cell上的数据
@@ -155,7 +156,8 @@ extension UITableView: UIGestureRecognizerDelegate {
                 originData[indexPath.section] = currentSectionData
             }
         } else {    // 只有一组
-            swap(&originData[startIndexPath.row], &originData[indexPath.row])
+            originData.swapAt(startIndexPath.row, indexPath.row)
+//            swap(&originData[startIndexPath.row], &originData[indexPath.row])
         }
         
         movableDelegate?.zz_tableView(self, didMoveWith: originData)

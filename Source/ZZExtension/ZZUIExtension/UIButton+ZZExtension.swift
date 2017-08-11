@@ -25,7 +25,7 @@ public extension UIButton {
     /// - parameter target:                       target
     /// - parameter action:                       action
     ///
-    /// - returns: <#return value description#>
+    /// - returns: UIButton
     convenience init(title: String? = nil,
                      fontSize: CGFloat = 12,
                      titleColor: UIColor = UIColor.darkText,

@@ -83,7 +83,7 @@ public extension String {
     ///
     /// - returns: 字符串的size
     func zz_size(withLimitSize size: CGSize, fontSize: CGFloat) -> CGSize {
-        let size = (self as NSString).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)], context: nil).size
+        let size = (self as NSString).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: fontSize)], context: nil).size
         return CGSize(width: ceil(size.width), height: ceil(size.height))
     }
     
