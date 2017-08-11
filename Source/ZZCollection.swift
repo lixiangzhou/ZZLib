@@ -185,3 +185,8 @@
  https://github.com/BradLarson/GPUImage2.git
  */
 
+/*
+ PinYin4Objc
+ 汉字的拼音
+ https://github.com/kimziv/PinYin4Objc
+ */

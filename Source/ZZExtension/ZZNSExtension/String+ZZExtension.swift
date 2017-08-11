@@ -15,6 +15,8 @@ public extension String {
     }
 }
 
+
+// MARK: - Date
 public extension String {
     
     /// 根据格式获取字符串的Date对象
@@ -68,7 +70,11 @@ public extension String {
         zz_dateFormatter.dateFormat = format
         return zz_dateFormatter.date(from: self)
     }
-    
+}
+
+
+// MARK: - 子字符串
+public extension String {
     
     /// 获取字符串的size
     ///
@@ -101,7 +107,7 @@ public extension String {
         return zz_size(withLimitSize: CGSize(width: CGFloat.leastNormalMagnitude, height: height), fontSize: fontSize)
     }
     
-    /// 获取子字符串的
+    /// 获取子字符串
     ///
     /// - parameter range:       范围
     ///
@@ -109,8 +115,14 @@ public extension String {
     func zz_substring(range: NSRange) -> String {
         let startIdx = index(startIndex, offsetBy: range.location)
         let endIdx = index(startIdx, offsetBy: range.length)
-
-//        return self[startIdx..<endIdx]
+        
+        //        return self[startIdx..<endIdx]
         return substring(with: startIdx..<endIdx)
+    }
+}
+
+public extension String {
+    func pinyin() {
+        
     }
 }
