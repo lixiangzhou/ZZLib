@@ -8,14 +8,14 @@
 
 import Foundation
 
-extension NSNumber {
+public extension NSNumber {
     /// 是否Bool值
     var zz_isBool: Bool {
         return CFBooleanGetTypeID() == CFGetTypeID(self)
     }
 }
 
-extension Int {
+public extension Int {
     
     /// 从低位到高位，从左到右，获取对应索引的数字
     ///
