@@ -135,8 +135,8 @@ extension UITableView: UIGestureRecognizerDelegate {
             if startIndexPath.section == indexPath.section,
                 var sectionData = originData[startIndexPath.section] as? [Any]
             {
-                sectionData.swapAt(startIndexPath.row, indexPath.row)
-//                swap(&sectionData[startIndexPath.row], &sectionData[indexPath.row])
+//                sectionData.swapAt(startIndexPath.row, indexPath.row)
+                swap(&sectionData[startIndexPath.row], &sectionData[indexPath.row])
                 originData[startIndexPath.section] = sectionData
             } else {    // 不同组
                 guard   // 获取cell上的数据
@@ -156,8 +156,8 @@ extension UITableView: UIGestureRecognizerDelegate {
                 originData[indexPath.section] = currentSectionData
             }
         } else {    // 只有一组
-            originData.swapAt(startIndexPath.row, indexPath.row)
-//            swap(&originData[startIndexPath.row], &originData[indexPath.row])
+//            originData.swapAt(startIndexPath.row, indexPath.row)
+            swap(&originData[startIndexPath.row], &originData[indexPath.row])
         }
         
         movableDelegate?.zz_tableView(self, didMoveWith: originData)

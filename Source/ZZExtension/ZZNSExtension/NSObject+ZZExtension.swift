@@ -81,14 +81,14 @@ public extension NSObject {
         var propertyValues = [String]()
         
         for i in 0..<count {
-//            guard let property = properties[Int(i)] else {
-//                continue
-//            }
-//            guard let pCname = property_getName(property) else {
-//                continue
-//            }
-            let property = properties[Int(i)]
-            let pCname = property_getName(property)
+            guard let property = properties[Int(i)] else {
+                continue
+            }
+            guard let pCname = property_getName(property) else {
+                continue
+            }
+//            let property = properties[Int(i)]
+//            let pCname = property_getName(property)
             guard let pName = NSString(cString: pCname, encoding: String.Encoding.utf8.rawValue) as String? else {
                 continue
             }
