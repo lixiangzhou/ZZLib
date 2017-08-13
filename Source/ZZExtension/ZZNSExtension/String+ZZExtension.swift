@@ -8,10 +8,28 @@
 
 import UIKit
 
+
+// MARK: - Other
 public extension String {
     /// 去掉空白字符串
     var zz_trim: String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    /// 转成NSString
+    var zz_ns: NSString {
+        return self as NSString
+    }
+    
+    /// emoji表情
+    var zz_emoji: String? {
+        let scanner = Scanner(string: self)
+        var value: UInt32 = 0
+        scanner.scanHexInt32(&value)
+        guard let scalar = UnicodeScalar(value) else {
+            return nil
+        }
+        return Character(scalar).description
     }
 }
 
@@ -121,8 +139,4 @@ public extension String {
     }
 }
 
-public extension String {
-    func pinyin() {
-        
-    }
-}
+
