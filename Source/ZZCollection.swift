@@ -190,3 +190,10 @@
  汉字的拼音
  https://github.com/kimziv/PinYin4Objc
  */
+
+/*
+ HandyJSON
+ Swift字典转模型
+ https://github.com/alibaba/HandyJSON
+ */
+
