@@ -61,7 +61,14 @@ extension ZZHud {
     ///   - showDuration: toast视图显示时长
     ///   - showAnimation: toast视图显示动画
     ///   - hideAnimation: toast视图隐藏动画
-    func show(toast hud: UIView, toView: UIView, contentInset: UIEdgeInsets = .zero, position: ZZHudPosition = .center, offsetY: CGFloat = 0, showDuration: TimeInterval = 2, showAnimation: (() -> CAAnimation)? = nil, hideAnimation: (() -> CAAnimation)? = nil) {
+    func show(toast hud: UIView,
+              toView: UIView,
+              contentInset: UIEdgeInsets = .zero,
+              position: ZZHudPosition = .center,
+              offsetY: CGFloat = 0,
+              showDuration: TimeInterval = 2,
+              showAnimation: (() -> CAAnimation)? = nil,
+              hideAnimation: (() -> CAAnimation)? = nil) {
         
         let hudView = wrap(hud, contentInset: contentInset)
         add(hud: hudView, toView: toView, position: position, offsetY: offsetY)
@@ -83,7 +90,13 @@ extension ZZHud {
     ///   - animation: progress视图显示的动画
     /// - Returns: progress视图
     @discardableResult
-    func show(progress hud: UIView, toView: UIView, contentInset: UIEdgeInsets = .zero, position: ZZHudPosition = .center, offsetY: CGFloat = 0, showDuration: TimeInterval = 2, animation: (() -> CAAnimation)? = nil) -> UIView {
+    func show(progress hud: UIView,
+              toView: UIView,
+              contentInset: UIEdgeInsets = .zero,
+              position: ZZHudPosition = .center,
+              offsetY: CGFloat = 0,
+              showDuration: TimeInterval = 2,
+              animation: (() -> CAAnimation)? = nil) -> UIView {
         
         let hudView = wrap(hud, contentInset: contentInset)
         add(hud: hudView, toView: toView, position: position, offsetY: offsetY)
@@ -99,7 +112,8 @@ extension ZZHud {
     /// - Parameters:
     ///   - view: progress视图所在的View
     ///   - animation: progress视图显示的动画
-    func hideProgress(for view: UIView, animation: (() -> CAAnimation)? = nil) {
+    func hideProgress(for view: UIView,
+                      animation: (() -> CAAnimation)? = nil) {
         for subView in view.subviews {
             if subView is ZZView {
                 subView.hideProgress(animation: animation)
@@ -119,7 +133,10 @@ extension ZZHud {
     ///   - showDuration:  toast视图显示时长
     ///   - showAnimation: toast视图显示动画
     ///   - hideAnimation: toast视图隐藏动画
-    fileprivate func toast(hud: UIView, showDuration: TimeInterval, showAnimation: CAAnimation, hideAnimation: CAAnimation) {
+    fileprivate func toast(hud: UIView,
+                           showDuration: TimeInterval,
+                           showAnimation: CAAnimation,
+                           hideAnimation: CAAnimation) {
         var duration = max(0, showDuration)
         
         duration = duration + showAnimation.duration
@@ -136,7 +153,8 @@ extension ZZHud {
     /// - Parameters:
     ///   - hud: progress视图
     ///   - showAnimation: toast视图显示动画
-    fileprivate func showProgress(hud: UIView, showAnimation: CAAnimation) {
+    fileprivate func showProgress(hud: UIView,
+                                  showAnimation: CAAnimation) {
         hud.layer.add(showAnimation, forKey: nil)
     }
     
@@ -147,7 +165,10 @@ extension ZZHud {
     ///   - toView: hud将添加到的视图
     ///   - position: hud在toView的位置
     ///   - offsetY: hud在toView位置的偏移量
-    fileprivate func add(hud: UIView, toView: UIView, position: ZZHudPosition, offsetY: CGFloat) {
+    fileprivate func add(hud: UIView,
+                         toView: UIView,
+                         position: ZZHudPosition,
+                         offsetY: CGFloat) {
         var hudFrame = hud.frame
         let toViewFrame = toView.bounds
         
@@ -172,7 +193,8 @@ extension ZZHud {
     /// - Parameter hud: 要包装的hud
     /// - Parameter contentInset: 要包装的hud的contentInset
     /// - Returns: 包装好的hud
-    fileprivate func wrap(_ hud: UIView, contentInset: UIEdgeInsets) -> ZZView {
+    fileprivate func wrap(_ hud: UIView,
+                          contentInset: UIEdgeInsets) -> ZZView {
         let hudView = ZZView(frame: CGRect(x: 0,
                                            y: 0,
                                            width: contentInset.left + contentInset.right + hud.bounds.width,
