@@ -63,6 +63,8 @@ public extension Date {
     }
 }
 
+
+// MARK: - 获取时间信息
 public extension Date {
     
     /// 获取年份
@@ -144,8 +146,15 @@ public extension Date {
         let day = self.zz_day
         return (day % 400 == 0) || (day % 100 != 0 && day % 4 == 0)
     }
+    
+    /// 是否是周末，时间间隔 DateInterval，date 不是周末时返回 nil
+    var zz_dateIntervalOfWeekend: DateInterval? {
+        return zz_calendar.dateIntervalOfWeekend(containing: self)
+    }
 }
 
+
+// MARK: - 设置时间
 public extension Date {
     
     /// 在当前时间基础上添加一定时间
@@ -193,6 +202,8 @@ public extension Date {
     }
 }
 
+
+// MARK: - 获取月份和星期
 public extension Date {
     /// 获取月份
     /// 中文 zh： ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
@@ -270,12 +281,4 @@ public extension Date {
     
 }
 
-public extension Date {
-    
-    /// 是否是周末，以及周末的 DateInterval 对象，包含 起始时间 和 结束时间
-    ///
-    /// - returns: 时间间隔 DateInterval，date 不是周末时返回 nil
-    func zz_dateIntervalOfWeekend() -> DateInterval? {
-        return zz_calendar.dateIntervalOfWeekend(containing: self)
-    }
-}
+

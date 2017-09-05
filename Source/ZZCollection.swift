@@ -197,3 +197,20 @@
  https://github.com/alibaba/HandyJSON
  */
 
+/*
+ ESTabBarController
+ 以后要用的TabBarController，支持很多效果
+ https://github.com/eggswift/ESTabBarController
+ */
+
+/*
+ TBActionSheet
+ 100% 可自定义的ActionSheet
+ https://github.com/yulingtianxia/TBActionSheet
+ */
+
+/*
+ PMAlertController
+ UIAlertController的一个替代作品
+ https://github.com/Codeido/PMAlertController
+ */

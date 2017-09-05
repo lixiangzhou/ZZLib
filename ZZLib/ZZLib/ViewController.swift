@@ -16,6 +16,24 @@ class ViewController: UIViewController {
         
         
     }
+    
+    var i = 0
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        v.backgroundColor = UIColor.red
+        
+        
+        if i % 2 == 0 {
+            ZZHud.shared.show(progress: v, toView: view, position: .top, offsetY: 100)
+        } else {
+            ZZHud.shared.hideProgress(for: view)
+        }
+        i = i + 1
+        
+//        ZZHud.shared.show(toast: v, toView: view)
+    }
 }
 
 
