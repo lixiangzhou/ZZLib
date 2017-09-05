@@ -27,8 +27,6 @@ struct ZZHud {
     
     private init() { }
     
-    var contentInset: UIEdgeInsets = UIEdgeInsets.zero
-    
     /// 默认的显示动画
     var defaultShowAnimation: CAAnimation = {
         let anim = CABasicAnimation(keyPath: "opacity")
@@ -57,16 +55,15 @@ extension ZZHud {
     /// - Parameters:
     ///   - hud: toast视图
     ///   - toView: toast视图所在的View
+    ///   - contentInset: toast视图所在的View的contentInset
     ///   - position: toast视图显示的位置
     ///   - offsetY: toast视图显示的位置的垂直偏移量
     ///   - showDuration: toast视图显示时长
     ///   - showAnimation: toast视图显示动画
     ///   - hideAnimation: toast视图隐藏动画
-    func show(toast hud: UIView, toView: UIView, position: ZZHudPosition = .center, offsetY: CGFloat = 0, showDuration: TimeInterval = 2, showAnimation: (() -> CAAnimation)? = nil, hideAnimation: (() -> CAAnimation)? = nil) {
+    func show(toast hud: UIView, toView: UIView, contentInset: UIEdgeInsets = .zero, position: ZZHudPosition = .center, offsetY: CGFloat = 0, showDuration: TimeInterval = 2, showAnimation: (() -> CAAnimation)? = nil, hideAnimation: (() -> CAAnimation)? = nil) {
         
-        let hudView = ZZView(frame: hud.bounds)
-        hudView.addSubview(hud)
-        
+        let hudView = wrap(hud, contentInset: contentInset)
         add(hud: hudView, toView: toView, position: position, offsetY: offsetY)
         
         let showAnim = showAnimation != nil ? showAnimation!() : defaultShowAnimation
@@ -79,17 +76,16 @@ extension ZZHud {
     /// - Parameters:
     ///   - hud: progress视图
     ///   - toView: progress视图所在的View
+    ///   - contentInset: toast视图所在的View的contentInset
     ///   - position: progress视图显示的位置
     ///   - offsetY: progress视图显示的位置的垂直偏移量
     ///   - showDuration: progress视图显示时长
     ///   - animation: progress视图显示的动画
     /// - Returns: progress视图
     @discardableResult
-    func show(progress hud: UIView, toView: UIView, position: ZZHudPosition = .center, offsetY: CGFloat = 0, showDuration: TimeInterval = 2, animation: (() -> CAAnimation)? = nil) -> UIView {
+    func show(progress hud: UIView, toView: UIView, contentInset: UIEdgeInsets = .zero, position: ZZHudPosition = .center, offsetY: CGFloat = 0, showDuration: TimeInterval = 2, animation: (() -> CAAnimation)? = nil) -> UIView {
         
-        let hudView = ZZView(frame: hud.bounds)
-        hudView.addSubview(hud)
-        
+        let hudView = wrap(hud, contentInset: contentInset)
         add(hud: hudView, toView: toView, position: position, offsetY: offsetY)
         
         let showAnim = animation != nil ? animation!() : defaultShowAnimation
@@ -169,6 +165,24 @@ extension ZZHud {
         hudFrame.origin.y += offsetY
         hud.frame = hudFrame
         toView.addSubview(hud)
+    }
+    
+    /// 把hud包装成ZZView
+    ///
+    /// - Parameter hud: 要包装的hud
+    /// - Parameter contentInset: 要包装的hud的contentInset
+    /// - Returns: 包装好的hud
+    fileprivate func wrap(_ hud: UIView, contentInset: UIEdgeInsets) -> ZZView {
+        let hudView = ZZView(frame: CGRect(x: 0,
+                                           y: 0,
+                                           width: contentInset.left + contentInset.right + hud.bounds.width,
+                                           height: contentInset.top + contentInset.bottom + hud.bounds.height))
+        
+        hud.frame.origin.x = contentInset.left
+        hud.frame.origin.y = contentInset.top
+        
+        hudView.addSubview(hud)
+        return hudView
     }
 }
 
