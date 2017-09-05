@@ -44,10 +44,15 @@ struct ZZHud {
         anim.toValue = 0
         return anim
     }()
-
+    
 }
 
-// MARK: - Method
+// MARK: - Commmon
+extension ZZHud {
+    
+}
+
+// MARK: - Core Method
 extension ZZHud {
     
     /// 显示toast
@@ -55,6 +60,9 @@ extension ZZHud {
     /// - Parameters:
     ///   - hud: toast视图
     ///   - toView: toast视图所在的View
+    ///   - toViewCornerRadius: toast视图所在的View的cornerRadius
+    ///   - toViewBackground: toast视图所在的View的backgroundColor
+    ///   - toViewAlpha: toast视图所在的View的alpha
     ///   - contentInset: toast视图所在的View的contentInset
     ///   - position: toast视图显示的位置
     ///   - offsetY: toast视图显示的位置的垂直偏移量
@@ -63,6 +71,9 @@ extension ZZHud {
     ///   - hideAnimation: toast视图隐藏动画
     func show(toast hud: UIView,
               toView: UIView,
+              toViewCornerRadius: CGFloat = 3,
+              toViewBackgroundColor: UIColor = .black,
+              toViewAlpha: CGFloat = 0.8,
               contentInset: UIEdgeInsets = .zero,
               position: ZZHudPosition = .center,
               offsetY: CGFloat = 0,
@@ -70,7 +81,12 @@ extension ZZHud {
               showAnimation: (() -> CAAnimation)? = nil,
               hideAnimation: (() -> CAAnimation)? = nil) {
         
-        let hudView = wrap(hud, contentInset: contentInset)
+        let hudView = wrap(hud,
+                           cornerRadius: toViewCornerRadius,
+                           backgroundColor: toViewBackgroundColor,
+                           alpha: toViewAlpha,
+                           contentInset: contentInset)
+        
         add(hud: hudView, toView: toView, position: position, offsetY: offsetY)
         
         let showAnim = showAnimation != nil ? showAnimation!() : defaultShowAnimation
@@ -83,6 +99,9 @@ extension ZZHud {
     /// - Parameters:
     ///   - hud: progress视图
     ///   - toView: progress视图所在的View
+    ///   - toViewCornerRadius: progress视图所在的View的cornerRadius
+    ///   - toViewBackground: progress视图所在的View的backgroundColor
+    ///   - toViewAlpha: progress视图所在的View的alpha
     ///   - contentInset: toast视图所在的View的contentInset
     ///   - position: progress视图显示的位置
     ///   - offsetY: progress视图显示的位置的垂直偏移量
@@ -92,13 +111,21 @@ extension ZZHud {
     @discardableResult
     func show(progress hud: UIView,
               toView: UIView,
+              toViewCornerRadius: CGFloat = 3,
+              toViewBackgroundColor: UIColor = .black,
+              toViewAlpha: CGFloat = 0.8,
               contentInset: UIEdgeInsets = .zero,
               position: ZZHudPosition = .center,
               offsetY: CGFloat = 0,
               showDuration: TimeInterval = 2,
               animation: (() -> CAAnimation)? = nil) -> UIView {
         
-        let hudView = wrap(hud, contentInset: contentInset)
+        let hudView = wrap(hud,
+                           cornerRadius: toViewCornerRadius,
+                           backgroundColor: toViewBackgroundColor,
+                           alpha: toViewAlpha,
+                           contentInset: contentInset)
+        
         add(hud: hudView, toView: toView, position: position, offsetY: offsetY)
         
         let showAnim = animation != nil ? animation!() : defaultShowAnimation
@@ -191,9 +218,15 @@ extension ZZHud {
     /// 把hud包装成ZZView
     ///
     /// - Parameter hud: 要包装的hud
+    /// - Parameter cornerRadius: 包装好的hud的cornerRadius
+    /// - Parameter backgroundColor: 包装好的hud的backgroundColor
+    /// - Parameter alpha: 包装好的hud的alpha
     /// - Parameter contentInset: 要包装的hud的contentInset
     /// - Returns: 包装好的hud
     fileprivate func wrap(_ hud: UIView,
+                          cornerRadius: CGFloat,
+                          backgroundColor: UIColor,
+                          alpha: CGFloat,
                           contentInset: UIEdgeInsets) -> ZZView {
         let hudView = ZZView(frame: CGRect(x: 0,
                                            y: 0,
@@ -202,6 +235,10 @@ extension ZZHud {
         
         hud.frame.origin.x = contentInset.left
         hud.frame.origin.y = contentInset.top
+        
+        hud.layer.cornerRadius = min(hudView.bounds.width * 0.5, cornerRadius)
+        hud.layer.backgroundColor = backgroundColor.cgColor
+        hud.alpha = alpha
         
         hudView.addSubview(hud)
         return hudView
@@ -220,7 +257,7 @@ extension UIView {
             self.layer.add(hideAnimation, forKey: nil)
             self.perform(#selector(UIView.removeFromSuperview), with: nil, afterDelay: hideAnimation.duration, inModes: [.commonModes])
         })
-
+        
     }
 }
 
