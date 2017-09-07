@@ -19,6 +19,8 @@ enum ZZHudPosition {
     case bottom
 }
 
+let stringMaxWidth = UIScreen.main.bounds.width - 140
+
 class ZZView: UIView { }
 
 /// Toast & ProgressHud
@@ -47,9 +49,39 @@ struct ZZHud {
     
 }
 
-// MARK: - Commmon
+// MARK: - Custom
 extension ZZHud {
     
+    /// 显示文本信息
+    ///
+    /// - Parameters:
+    ///   - message: 文本信息
+    ///   - font: 文本字体
+    ///   - color: 文本颜色
+    ///   - toView: 文本信息要显示到的View
+    func show(message: String,
+              font: UIFont = UIFont.systemFont(ofSize: 14),
+              color: UIColor = UIColor.white,
+              toView: UIView) {
+        let msgLabel = hudLabel(message: message, font: font, color: color)
+        show(toast: msgLabel, toView: toView)
+    }
+
+    
+    /// 显示图片
+    ///
+    /// - Parameters:
+    ///   - icon: 图片
+    ///   - size: 图片大小
+    ///   - cornerRadius: 图片圆角
+    ///   - toView: 图片要添加到的View
+    func show(icon: UIImage,
+              size: CGSize = CGSize.zero,
+              cornerRadius: CGFloat,
+              toView: UIView) {
+        let iconView = hudImageView(icon: icon, size: size, cornerRadius: cornerRadius)
+        show(toast: iconView, toView: toView, toViewCornerRadius: 5, toViewBackgroundColor: UIColor.white, toViewAlpha: 1)
+    }
 }
 
 // MARK: - Core Method
@@ -74,7 +106,7 @@ extension ZZHud {
               toViewCornerRadius: CGFloat = 3,
               toViewBackgroundColor: UIColor = .black,
               toViewAlpha: CGFloat = 0.8,
-              contentInset: UIEdgeInsets = .zero,
+              contentInset: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),
               position: ZZHudPosition = .center,
               offsetY: CGFloat = 0,
               showDuration: TimeInterval = 2,
@@ -236,12 +268,57 @@ extension ZZHud {
         hud.frame.origin.x = contentInset.left
         hud.frame.origin.y = contentInset.top
         
-        hud.layer.cornerRadius = min(hudView.bounds.width * 0.5, cornerRadius)
-        hud.layer.backgroundColor = backgroundColor.cgColor
-        hud.alpha = alpha
+        hudView.layer.cornerRadius = min(hudView.bounds.width * 0.5, cornerRadius)
+        hudView.backgroundColor = backgroundColor
+        hudView.alpha = alpha
         
         hudView.addSubview(hud)
         return hudView
+    }
+    
+    /// 快速创建hud要用到的Label
+    ///
+    /// - Parameters:
+    ///   - message: 文本信息
+    ///   - font: 文本字体
+    ///   - color: 文本颜色
+    /// - Returns: 创建好的Label
+    fileprivate func hudLabel(message: String,
+                              font: UIFont,
+                              color: UIColor) -> UILabel {
+        let hudLabel = UILabel()
+        hudLabel.font = font
+        hudLabel.textColor = color
+        hudLabel.text = message
+        hudLabel.numberOfLines = 0
+        hudLabel.frame = (message as NSString).boundingRect(with: CGSize(width: stringMaxWidth, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        return hudLabel
+    }
+    
+    /// 快速穿件hud要用到的ImageView
+    ///
+    /// - Parameters:
+    ///   - icon: 图片
+    ///   - size: 图片大小
+    ///   - cornerRadius: 图片圆角
+    /// - Returns: 创建好的ImageView
+    fileprivate func hudImageView(icon: UIImage,
+                                  size: CGSize,
+                                  cornerRadius: CGFloat) -> UIImageView {
+        let hudImageView = UIImageView()
+        if size == .zero {
+            hudImageView.frame.size = icon.size
+        } else {
+            hudImageView.frame.size = size
+        }
+        
+        hudImageView.image = icon
+        
+        let r = min(size.width, size.height) * 0.5
+        var radius = max(0, cornerRadius)
+        radius = min(r, radius)
+        hudImageView.layer.cornerRadius = radius
+        return hudImageView
     }
 }
 
@@ -260,5 +337,4 @@ extension UIView {
         
     }
 }
-
 

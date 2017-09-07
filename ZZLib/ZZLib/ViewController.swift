@@ -24,11 +24,13 @@ class ViewController: UIViewController {
         let v = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         v.backgroundColor = UIColor.red
         
+//        ZZHud.shared.show(message: "测试测试测试测试测试测试测试测试", toView: view)
+        ZZHud.shared.show(icon: UIImage(named: "icon")!, cornerRadius: 0, toView: view)
         
         if i % 2 == 0 {
-            ZZHud.shared.show(progress: v, toView: view, position: .top, offsetY: 100)
+//            ZZHud.shared.show(progress: v, toView: view, position: .top, offsetY: 100)
         } else {
-            ZZHud.shared.hideProgress(for: view)
+//            ZZHud.shared.hideProgress(for: view)
         }
         i = i + 1
         
