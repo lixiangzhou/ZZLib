@@ -77,10 +77,55 @@ extension ZZHud {
     ///   - toView: 图片要添加到的View
     func show(icon: UIImage,
               size: CGSize = CGSize.zero,
-              cornerRadius: CGFloat,
+              cornerRadius: CGFloat = 0,
               toView: UIView) {
         let iconView = hudImageView(icon: icon, size: size, cornerRadius: cornerRadius)
         show(toast: iconView, toView: toView, toViewCornerRadius: 5, toViewBackgroundColor: UIColor.white, toViewAlpha: 1)
+    }
+    
+    /// 显示图片和文本，图片在上，文本在下
+    ///
+    /// - Parameters:
+    ///   - message: 文本信息
+    ///   - font: 文本字体
+    ///   - color: 文本颜色
+    ///   - icon: 图片
+    ///   - size: 图片大小
+    ///   - cornerRadius: 图片圆角
+    ///   - padding: 图片和文本的间距
+    ///   - toView: 图片要添加到的View
+    func show(message: String,
+              font: UIFont = UIFont.systemFont(ofSize: 14),
+              color: UIColor = UIColor.black,
+              icon: UIImage,
+              size: CGSize = CGSize.zero,
+              cornerRadius: CGFloat = 0,
+              padding: CGFloat = 10,
+              toView: UIView) {
+        let iconView = hudImageView(icon: icon, size: size, cornerRadius: cornerRadius)
+        let msgLabel = hudLabel(message: message, font: font, color: color)
+        
+        let contentView = UIView(frame: CGRect(x: 0, y: 0, width: max(iconView.bounds.width, msgLabel.bounds.width), height: iconView.bounds.height + msgLabel.bounds.height + padding))
+        contentView.addSubview(iconView)
+        contentView.addSubview(msgLabel)
+        
+        iconView.frame.origin.x = (contentView.frame.width - iconView.frame.width) * 0.5
+        
+        msgLabel.frame.origin.x = (contentView.frame.width - msgLabel.frame.width) * 0.5
+        msgLabel.frame.origin.y = iconView.frame.maxY + padding
+        
+        show(toast: contentView, toView: toView, toViewBackgroundColor: UIColor.white)
+    }
+    
+    /// 显示UIActivityIndicatorViewStyle加载
+    ///
+    /// - Parameters:
+    ///   - style: UIActivityIndicatorViewStyle加载样式
+    ///   - toView: 加载视图要添加到的View
+    func showActivity(style: UIActivityIndicatorViewStyle, toView: UIView) {
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: style)
+        activityView.startAnimating()
+        show(progress: activityView, toView: toView, toViewBackgroundColor: UIColor.clear)
     }
 }
 
@@ -103,9 +148,9 @@ extension ZZHud {
     ///   - hideAnimation: toast视图隐藏动画
     func show(toast hud: UIView,
               toView: UIView,
-              toViewCornerRadius: CGFloat = 3,
+              toViewCornerRadius: CGFloat = 0,
               toViewBackgroundColor: UIColor = .black,
-              toViewAlpha: CGFloat = 0.8,
+              toViewAlpha: CGFloat = 1,
               contentInset: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),
               position: ZZHudPosition = .center,
               offsetY: CGFloat = 0,
@@ -137,19 +182,17 @@ extension ZZHud {
     ///   - contentInset: toast视图所在的View的contentInset
     ///   - position: progress视图显示的位置
     ///   - offsetY: progress视图显示的位置的垂直偏移量
-    ///   - showDuration: progress视图显示时长
     ///   - animation: progress视图显示的动画
     /// - Returns: progress视图
     @discardableResult
     func show(progress hud: UIView,
               toView: UIView,
-              toViewCornerRadius: CGFloat = 3,
+              toViewCornerRadius: CGFloat = 0,
               toViewBackgroundColor: UIColor = .black,
-              toViewAlpha: CGFloat = 0.8,
+              toViewAlpha: CGFloat = 1,
               contentInset: UIEdgeInsets = .zero,
               position: ZZHudPosition = .center,
               offsetY: CGFloat = 0,
-              showDuration: TimeInterval = 2,
               animation: (() -> CAAnimation)? = nil) -> UIView {
         
         let hudView = wrap(hud,
