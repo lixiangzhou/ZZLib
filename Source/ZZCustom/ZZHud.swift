@@ -23,7 +23,7 @@ let stringMaxWidth = UIScreen.main.bounds.width - 140
 
 class ZZView: UIView { }
 
-/// Toast & ProgressHud
+/// Toast & LoadingHud
 struct ZZHud {
     static let shared = ZZHud()
     
@@ -122,10 +122,10 @@ extension ZZHud {
     /// - Parameters:
     ///   - style: UIActivityIndicatorViewStyle加载样式
     ///   - toView: 加载视图要添加到的View
-    func showActivity(style: UIActivityIndicatorViewStyle, toView: UIView) {
+    func showActivity(style: UIActivityIndicatorViewStyle = .gray, toView: UIView) {
         let activityView = UIActivityIndicatorView(activityIndicatorStyle: style)
         activityView.startAnimating()
-        show(progress: activityView, toView: toView, toViewBackgroundColor: UIColor.clear)
+        show(loading: activityView, toView: toView, toViewBackgroundColor: UIColor.clear)
     }
 }
 
@@ -171,21 +171,21 @@ extension ZZHud {
         toast(hud: hudView, showDuration: showDuration, showAnimation: showAnim, hideAnimation: hideAnim)
     }
     
-    /// 显示progress
+    /// 显示loading
     ///
     /// - Parameters:
-    ///   - hud: progress视图
-    ///   - toView: progress视图所在的View
-    ///   - toViewCornerRadius: progress视图所在的View的cornerRadius
-    ///   - toViewBackground: progress视图所在的View的backgroundColor
-    ///   - toViewAlpha: progress视图所在的View的alpha
+    ///   - hud: loading视图
+    ///   - toView: loading视图所在的View
+    ///   - toViewCornerRadius: loading视图所在的View的cornerRadius
+    ///   - toViewBackground: loading视图所在的View的backgroundColor
+    ///   - toViewAlpha: loading视图所在的View的alpha
     ///   - contentInset: toast视图所在的View的contentInset
-    ///   - position: progress视图显示的位置
-    ///   - offsetY: progress视图显示的位置的垂直偏移量
-    ///   - animation: progress视图显示的动画
-    /// - Returns: progress视图
+    ///   - position: loading视图显示的位置
+    ///   - offsetY: loading视图显示的位置的垂直偏移量
+    ///   - animation: loading视图显示的动画
+    /// - Returns: loading视图
     @discardableResult
-    func show(progress hud: UIView,
+    func show(loading hud: UIView,
               toView: UIView,
               toViewCornerRadius: CGFloat = 0,
               toViewBackgroundColor: UIColor = .black,
@@ -204,21 +204,36 @@ extension ZZHud {
         add(hud: hudView, toView: toView, position: position, offsetY: offsetY)
         
         let showAnim = animation != nil ? animation!() : defaultShowAnimation
-        showProgress(hud: hudView, showAnimation: showAnim)
+        showLoading(hud: hudView, showAnimation: showAnim)
         
         return hudView
     }
     
-    /// 取消view的所有progress
+    /// 取消view的loading
     ///
     /// - Parameters:
-    ///   - view: progress视图所在的View
-    ///   - animation: progress视图显示的动画
-    func hideProgress(for view: UIView,
+    ///   - view: loading视图所在的View
+    ///   - animation: loading视图显示的动画
+    func hideLoading(for view: UIView,
                       animation: (() -> CAAnimation)? = nil) {
         for subView in view.subviews {
             if subView is ZZView {
-                subView.hideProgress(animation: animation)
+                subView.hideLoading(animation: animation)
+                break
+            }
+        }
+    }
+    
+    /// 取消view的所有loading
+    ///
+    /// - Parameters:
+    ///   - view: loading视图所在的View
+    ///   - animation: loading视图显示的动画
+    func hideAllLoading(for view: UIView,
+                        animation: (() -> CAAnimation)? = nil) {
+        for subView in view.subviews {
+            if subView is ZZView {
+                subView.hideLoading(animation: animation)
             }
         }
     }
@@ -250,12 +265,12 @@ extension ZZHud {
         })
     }
     
-    /// 显示progress
+    /// 显示loading
     ///
     /// - Parameters:
-    ///   - hud: progress视图
+    ///   - hud: loading视图
     ///   - showAnimation: toast视图显示动画
-    fileprivate func showProgress(hud: UIView,
+    fileprivate func showLoading(hud: UIView,
                                   showAnimation: CAAnimation) {
         hud.layer.add(showAnimation, forKey: nil)
     }
@@ -370,8 +385,8 @@ extension UIView {
     
     /// 隐藏
     ///
-    /// - Parameter animation: 隐藏progress动画
-    func hideProgress(animation: (() -> CAAnimation)? = nil) {
+    /// - Parameter animation: 隐藏loading动画
+    func hideLoading(animation: (() -> CAAnimation)? = nil) {
         let hideAnimation = animation != nil ? animation!() : ZZHud.shared.defaultHideAnimation
         DispatchQueue.main.asyncAfter(deadline: .now() + hideAnimation.duration, execute: {
             self.layer.add(hideAnimation, forKey: nil)

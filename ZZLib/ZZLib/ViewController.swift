@@ -29,10 +29,10 @@ class ViewController: UIViewController {
 //        ZZHud.shared.show(message: "测试测试测试测试测试测试测试测试", icon: UIImage(named: "icon")!, cornerRadius: 0, toView: view)
         
         if i % 2 == 0 {
-//            ZZHud.shared.show(progress: v, toView: view, position: .top, offsetY: 100)
-            ZZHud.shared.showActivity(style: .gray, toView: view)
+//            ZZHud.shared.show(loading: v, toView: view, position: .top, offsetY: 100)
+            ZZHud.shared.showActivity(toView: view)
         } else {
-            ZZHud.shared.hideProgress(for: view)
+            ZZHud.shared.hideLoading(for: view)
         }
         i = i + 1
         
