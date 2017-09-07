@@ -8,6 +8,145 @@
 
 import UIKit
 
+// MARK: - Custom
+extension ZZHud {
+    
+    /// 显示文本信息
+    ///
+    /// - Parameters:
+    ///   - message: 文本信息
+    ///   - font: 文本字体
+    ///   - color: 文本颜色
+    ///   - toView: 文本信息要显示到的View
+    func show(message: String,
+              font: UIFont = UIFont.systemFont(ofSize: 14),
+              color: UIColor = UIColor.white,
+              toView: UIView) {
+        let msgLabel = hudLabel(message: message, font: font, color: color)
+        show(toast: msgLabel, toView: toView)
+    }
+    
+    /// 显示文本信息
+    ///
+    /// - Parameters:
+    ///   - message: 文本信息
+    ///   - font: 文本字体
+    ///   - color: 文本颜色
+    ///   - toView: 文本信息要显示到的View
+    static func show(message: String,
+              font: UIFont = UIFont.systemFont(ofSize: 14),
+              color: UIColor = UIColor.white,
+              toView: UIView) {
+        ZZHud.shared.show(message: message, font: font, color: color, toView: toView)
+    }
+    
+    
+    /// 显示图片
+    ///
+    /// - Parameters:
+    ///   - icon: 图片
+    ///   - size: 图片大小
+    ///   - cornerRadius: 图片圆角
+    ///   - toView: 图片要添加到的View
+    func show(icon: UIImage,
+              size: CGSize = CGSize.zero,
+              cornerRadius: CGFloat = 0,
+              toView: UIView) {
+        let iconView = hudImageView(icon: icon, size: size, cornerRadius: cornerRadius)
+        show(toast: iconView, toView: toView, toViewCornerRadius: 5, toViewBackgroundColor: UIColor.white, toViewAlpha: 1)
+    }
+
+    /// 显示图片
+    ///
+    /// - Parameters:
+    ///   - icon: 图片
+    ///   - size: 图片大小
+    ///   - cornerRadius: 图片圆角
+    ///   - toView: 图片要添加到的View
+    static func show(icon: UIImage,
+              size: CGSize = CGSize.zero,
+              cornerRadius: CGFloat = 0,
+              toView: UIView) {
+        ZZHud.shared.show(icon: icon, size: size, cornerRadius: cornerRadius, toView: toView)
+    }
+    
+    /// 显示图片和文本，图片在上，文本在下
+    ///
+    /// - Parameters:
+    ///   - message: 文本信息
+    ///   - font: 文本字体
+    ///   - color: 文本颜色
+    ///   - icon: 图片
+    ///   - size: 图片大小
+    ///   - cornerRadius: 图片圆角
+    ///   - padding: 图片和文本的间距
+    ///   - toView: 图片要添加到的View
+    func show(message: String,
+              font: UIFont = UIFont.systemFont(ofSize: 14),
+              color: UIColor = UIColor.black,
+              icon: UIImage,
+              size: CGSize = CGSize.zero,
+              cornerRadius: CGFloat = 0,
+              padding: CGFloat = 10,
+              toView: UIView) {
+        let iconView = hudImageView(icon: icon, size: size, cornerRadius: cornerRadius)
+        let msgLabel = hudLabel(message: message, font: font, color: color)
+        
+        let contentView = UIView(frame: CGRect(x: 0, y: 0, width: max(iconView.bounds.width, msgLabel.bounds.width), height: iconView.bounds.height + msgLabel.bounds.height + padding))
+        contentView.addSubview(iconView)
+        contentView.addSubview(msgLabel)
+        
+        iconView.frame.origin.x = (contentView.frame.width - iconView.frame.width) * 0.5
+        
+        msgLabel.frame.origin.x = (contentView.frame.width - msgLabel.frame.width) * 0.5
+        msgLabel.frame.origin.y = iconView.frame.maxY + padding
+        
+        show(toast: contentView, toView: toView, toViewBackgroundColor: UIColor.white)
+    }
+    
+    /// 显示图片和文本，图片在上，文本在下
+    ///
+    /// - Parameters:
+    ///   - message: 文本信息
+    ///   - font: 文本字体
+    ///   - color: 文本颜色
+    ///   - icon: 图片
+    ///   - size: 图片大小
+    ///   - cornerRadius: 图片圆角
+    ///   - padding: 图片和文本的间距
+    ///   - toView: 图片要添加到的View
+    static func show(message: String,
+              font: UIFont = UIFont.systemFont(ofSize: 14),
+              color: UIColor = UIColor.black,
+              icon: UIImage,
+              size: CGSize = CGSize.zero,
+              cornerRadius: CGFloat = 0,
+              padding: CGFloat = 10,
+              toView: UIView) {
+        ZZHud.shared.show(message: message, font: font, color: color, icon: icon, size: size, cornerRadius: cornerRadius, padding: padding, toView: toView)
+    }
+    
+    /// 显示UIActivityIndicatorViewStyle加载
+    ///
+    /// - Parameters:
+    ///   - style: UIActivityIndicatorViewStyle加载样式
+    ///   - toView: 加载视图要添加到的View
+    func showActivity(style: UIActivityIndicatorViewStyle = .gray, toView: UIView) {
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: style)
+        activityView.startAnimating()
+        show(loading: activityView, toView: toView, toViewBackgroundColor: UIColor.clear)
+    }
+    
+    /// 显示UIActivityIndicatorViewStyle加载
+    ///
+    /// - Parameters:
+    ///   - style: UIActivityIndicatorViewStyle加载样式
+    ///   - toView: 加载视图要添加到的View
+    static func showActivity(style: UIActivityIndicatorViewStyle = .gray, toView: UIView) {
+        ZZHud.shared.showActivity(style: style, toView: toView)
+    }
+}
+
 /// Hud显示位置
 ///
 /// - top: 最顶部
@@ -47,86 +186,6 @@ struct ZZHud {
         return anim
     }()
     
-}
-
-// MARK: - Custom
-extension ZZHud {
-    
-    /// 显示文本信息
-    ///
-    /// - Parameters:
-    ///   - message: 文本信息
-    ///   - font: 文本字体
-    ///   - color: 文本颜色
-    ///   - toView: 文本信息要显示到的View
-    func show(message: String,
-              font: UIFont = UIFont.systemFont(ofSize: 14),
-              color: UIColor = UIColor.white,
-              toView: UIView) {
-        let msgLabel = hudLabel(message: message, font: font, color: color)
-        show(toast: msgLabel, toView: toView)
-    }
-
-    
-    /// 显示图片
-    ///
-    /// - Parameters:
-    ///   - icon: 图片
-    ///   - size: 图片大小
-    ///   - cornerRadius: 图片圆角
-    ///   - toView: 图片要添加到的View
-    func show(icon: UIImage,
-              size: CGSize = CGSize.zero,
-              cornerRadius: CGFloat = 0,
-              toView: UIView) {
-        let iconView = hudImageView(icon: icon, size: size, cornerRadius: cornerRadius)
-        show(toast: iconView, toView: toView, toViewCornerRadius: 5, toViewBackgroundColor: UIColor.white, toViewAlpha: 1)
-    }
-    
-    /// 显示图片和文本，图片在上，文本在下
-    ///
-    /// - Parameters:
-    ///   - message: 文本信息
-    ///   - font: 文本字体
-    ///   - color: 文本颜色
-    ///   - icon: 图片
-    ///   - size: 图片大小
-    ///   - cornerRadius: 图片圆角
-    ///   - padding: 图片和文本的间距
-    ///   - toView: 图片要添加到的View
-    func show(message: String,
-              font: UIFont = UIFont.systemFont(ofSize: 14),
-              color: UIColor = UIColor.black,
-              icon: UIImage,
-              size: CGSize = CGSize.zero,
-              cornerRadius: CGFloat = 0,
-              padding: CGFloat = 10,
-              toView: UIView) {
-        let iconView = hudImageView(icon: icon, size: size, cornerRadius: cornerRadius)
-        let msgLabel = hudLabel(message: message, font: font, color: color)
-        
-        let contentView = UIView(frame: CGRect(x: 0, y: 0, width: max(iconView.bounds.width, msgLabel.bounds.width), height: iconView.bounds.height + msgLabel.bounds.height + padding))
-        contentView.addSubview(iconView)
-        contentView.addSubview(msgLabel)
-        
-        iconView.frame.origin.x = (contentView.frame.width - iconView.frame.width) * 0.5
-        
-        msgLabel.frame.origin.x = (contentView.frame.width - msgLabel.frame.width) * 0.5
-        msgLabel.frame.origin.y = iconView.frame.maxY + padding
-        
-        show(toast: contentView, toView: toView, toViewBackgroundColor: UIColor.white)
-    }
-    
-    /// 显示UIActivityIndicatorViewStyle加载
-    ///
-    /// - Parameters:
-    ///   - style: UIActivityIndicatorViewStyle加载样式
-    ///   - toView: 加载视图要添加到的View
-    func showActivity(style: UIActivityIndicatorViewStyle = .gray, toView: UIView) {
-        let activityView = UIActivityIndicatorView(activityIndicatorStyle: style)
-        activityView.startAnimating()
-        show(loading: activityView, toView: toView, toViewBackgroundColor: UIColor.clear)
-    }
 }
 
 // MARK: - Core Method
@@ -388,11 +447,8 @@ extension UIView {
     /// - Parameter animation: 隐藏loading动画
     func hideLoading(animation: (() -> CAAnimation)? = nil) {
         let hideAnimation = animation != nil ? animation!() : ZZHud.shared.defaultHideAnimation
-        DispatchQueue.main.asyncAfter(deadline: .now() + hideAnimation.duration, execute: {
-            self.layer.add(hideAnimation, forKey: nil)
-            self.perform(#selector(UIView.removeFromSuperview), with: nil, afterDelay: hideAnimation.duration, inModes: [.commonModes])
-        })
-        
+        layer.add(hideAnimation, forKey: nil)
+        perform(#selector(UIView.removeFromSuperview), with: nil, afterDelay: hideAnimation.duration, inModes: [.commonModes])
     }
 }
 
