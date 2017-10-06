@@ -41,6 +41,8 @@
 		97CAA4D51E96315900FAFC9E /* UITextField+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4BA1E96315900FAFC9E /* UITextField+ZZExtension.swift */; };
 		97CAA4D61E96315900FAFC9E /* UIView+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4BB1E96315900FAFC9E /* UIView+ZZExtension.swift */; };
 		97CAA4D71E96315900FAFC9E /* ZZLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4BC1E96315900FAFC9E /* ZZLib.swift */; };
+		97E16FD71F877833007EF36E /* ZZAudioTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E16FD61F877833007EF36E /* ZZAudioTool.swift */; };
+		97E16FDC1F878577007EF36E /* buyao.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97E16FD91F87839A007EF36E /* buyao.wav */; };
 		97E322531E9AFAE30043D8E9 /* UIScrollView+ZZRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E3224E1E9AFAE30043D8E9 /* UIScrollView+ZZRefresh.swift */; };
 		97E322541E9AFAE30043D8E9 /* ZZRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E3224F1E9AFAE30043D8E9 /* ZZRefresh.swift */; };
 		97E322551E9AFAE30043D8E9 /* ZZRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E322501E9AFAE30043D8E9 /* ZZRefreshFooter.swift */; };
@@ -86,6 +88,8 @@
 		97CAA4BA1E96315900FAFC9E /* UITextField+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ZZExtension.swift"; sourceTree = "<group>"; };
 		97CAA4BB1E96315900FAFC9E /* UIView+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ZZExtension.swift"; sourceTree = "<group>"; };
 		97CAA4BC1E96315900FAFC9E /* ZZLib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZLib.swift; sourceTree = "<group>"; };
+		97E16FD61F877833007EF36E /* ZZAudioTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZAudioTool.swift; sourceTree = "<group>"; };
+		97E16FD91F87839A007EF36E /* buyao.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buyao.wav; sourceTree = "<group>"; };
 		97E3224E1E9AFAE30043D8E9 /* UIScrollView+ZZRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ZZRefresh.swift"; sourceTree = "<group>"; };
 		97E3224F1E9AFAE30043D8E9 /* ZZRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefresh.swift; sourceTree = "<group>"; };
 		97E322501E9AFAE30043D8E9 /* ZZRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefreshFooter.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 				9736E4871E90153D0050B8EA /* Assets.xcassets */,
 				9736E4891E90153D0050B8EA /* LaunchScreen.storyboard */,
 				9736E48C1E90153D0050B8EA /* Info.plist */,
+				97E16FD91F87839A007EF36E /* buyao.wav */,
 			);
 			path = ZZLib;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				97CAA4A01E96315900FAFC9E /* ZZCircleProgressView.swift */,
 				97CAA4A11E96315900FAFC9E /* ZZProgressHud.swift */,
 				973F0F2C1F5E891800BE861F /* ZZHud.swift */,
+				97E16FD61F877833007EF36E /* ZZAudioTool.swift */,
 			);
 			path = ZZCustom;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97E16FDC1F878577007EF36E /* buyao.wav in Resources */,
 				9736E48B1E90153D0050B8EA /* LaunchScreen.storyboard in Resources */,
 				9736E4881E90153D0050B8EA /* Assets.xcassets in Resources */,
 				9736E4861E90153D0050B8EA /* Main.storyboard in Resources */,
@@ -292,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97E16FD71F877833007EF36E /* ZZAudioTool.swift in Sources */,
 				9736E4831E90153D0050B8EA /* ViewController.swift in Sources */,
 				97CAA4D41E96315900FAFC9E /* UITableView+ZZExtension.swift in Sources */,
 				97E322551E9AFAE30043D8E9 /* ZZRefreshFooter.swift in Sources */,

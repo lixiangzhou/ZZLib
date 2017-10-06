@@ -126,24 +126,28 @@ extension ZZHud {
         ZZHud.shared.show(message: message, font: font, color: color, icon: icon, size: size, cornerRadius: cornerRadius, padding: padding, toView: toView)
     }
     
-    /// 显示UIActivityIndicatorViewStyle加载
+    /// 显示UIActivityIndicatorViewStyle加载，，隐藏时调用 hideLoading 或 hideAllLoading
     ///
     /// - Parameters:
     ///   - style: UIActivityIndicatorViewStyle加载样式
     ///   - toView: 加载视图要添加到的View
-    func showActivity(style: UIActivityIndicatorViewStyle = .gray, toView: UIView) {
+    ///   - loadingId: 加载视图的id，方便在删除的时候定位要删除的loadingView
+    @discardableResult
+    func showActivity(style: UIActivityIndicatorViewStyle = .gray, toView: UIView, loadingId: Int = NSNotFound) -> ZZView {
         let activityView = UIActivityIndicatorView(activityIndicatorStyle: style)
         activityView.startAnimating()
-        show(loading: activityView, toView: toView, toViewBackgroundColor: UIColor.clear)
+        return show(loading: activityView, loadingId: loadingId, toView: toView, toViewBackgroundColor: UIColor.clear)
     }
     
-    /// 显示UIActivityIndicatorViewStyle加载
+    /// 显示UIActivityIndicatorViewStyle加载，隐藏时调用 hideLoading 或 hideAllLoading
     ///
     /// - Parameters:
     ///   - style: UIActivityIndicatorViewStyle加载样式
     ///   - toView: 加载视图要添加到的View
-    static func showActivity(style: UIActivityIndicatorViewStyle = .gray, toView: UIView) {
-        ZZHud.shared.showActivity(style: style, toView: toView)
+    ///   - loadingId: 加载视图的id，方便在删除的时候定位要删除的loadingView
+    @discardableResult
+    static func showActivity(style: UIActivityIndicatorViewStyle = .gray, toView: UIView, loadingId: Int = NSNotFound) -> ZZView {
+        return ZZHud.shared.showActivity(style: style, toView: toView, loadingId: loadingId)
     }
 }
 
@@ -234,6 +238,7 @@ extension ZZHud {
     ///
     /// - Parameters:
     ///   - hud: loading视图
+    ///   - loadingId: loading视图的Id
     ///   - toView: loading视图所在的View
     ///   - toViewCornerRadius: loading视图所在的View的cornerRadius
     ///   - toViewBackground: loading视图所在的View的backgroundColor
@@ -245,6 +250,7 @@ extension ZZHud {
     /// - Returns: loading视图
     @discardableResult
     func show(loading hud: UIView,
+              loadingId: Int,
               toView: UIView,
               toViewCornerRadius: CGFloat = 0,
               toViewBackgroundColor: UIColor = .black,
@@ -252,13 +258,14 @@ extension ZZHud {
               contentInset: UIEdgeInsets = .zero,
               position: ZZHudPosition = .center,
               offsetY: CGFloat = 0,
-              animation: (() -> CAAnimation)? = nil) -> UIView {
+              animation: (() -> CAAnimation)? = nil) -> ZZView {
         
         let hudView = wrap(hud,
                            cornerRadius: toViewCornerRadius,
                            backgroundColor: toViewBackgroundColor,
                            alpha: toViewAlpha,
                            contentInset: contentInset)
+        hudView.tag = loadingId
         
         add(hud: hudView, toView: toView, position: position, offsetY: offsetY)
         
@@ -268,28 +275,40 @@ extension ZZHud {
         return hudView
     }
     
-    /// 取消view的loading
+    /// 隐藏view的loading
     ///
     /// - Parameters:
     ///   - view: loading视图所在的View
     ///   - animation: loading视图显示的动画
+    ///   - loadingId: loading视图的id
     func hideLoading(for view: UIView,
-                      animation: (() -> CAAnimation)? = nil) {
-        for subView in view.subviews {
-            if subView is ZZView {
-                subView.hideLoading(animation: animation)
-                break
+                      animation: (() -> CAAnimation)? = nil,
+                      loadingId: Int = NSNotFound) {
+        if loadingId == NSNotFound {    // 隐藏最先添加的 loadview
+            for subView in view.subviews {
+                if subView is ZZView {
+                    subView.hideLoading(animation: animation)
+                    break
+                }
+            }
+        } else {    // 隐藏指定id的loadview
+            for subView in view.subviews {
+                if subView is ZZView && loadingId == subView.tag {
+                    subView.hideLoading(animation: animation)
+                    break
+                }
             }
         }
     }
     
-    /// 取消view的所有loading
+    /// 隐藏view的所有loading
     ///
     /// - Parameters:
     ///   - view: loading视图所在的View
     ///   - animation: loading视图显示的动画
     func hideAllLoading(for view: UIView,
-                        animation: (() -> CAAnimation)? = nil) {
+                        animation: (() -> CAAnimation)? = nil,
+                        loadingId: Int = NSNotFound) {
         for subView in view.subviews {
             if subView is ZZView {
                 subView.hideLoading(animation: animation)
@@ -412,7 +431,7 @@ extension ZZHud {
         return hudLabel
     }
     
-    /// 快速穿件hud要用到的ImageView
+    /// 快速创建hud要用到的ImageView
     ///
     /// - Parameters:
     ///   - icon: 图片
@@ -444,7 +463,7 @@ extension UIView {
     
     /// 隐藏
     ///
-    /// - Parameter animation: 隐藏loading动画
+    /// - Parameter animation: 隐藏loading动画，如果为nil，使用默认的隐藏动画
     func hideLoading(animation: (() -> CAAnimation)? = nil) {
         let hideAnimation = animation != nil ? animation!() : ZZHud.shared.defaultHideAnimation
         layer.add(hideAnimation, forKey: nil)

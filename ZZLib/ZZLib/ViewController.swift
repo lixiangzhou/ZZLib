@@ -14,13 +14,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
     
     var i = 0
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+        
+        ZZAudioTool.shared.playSystemSound(url: Bundle.main.url(forResource: "buyao", withExtension: "wav")!) { (id) in
+            print("over")
+        }
+        
         let v = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         v.backgroundColor = UIColor.red
         
@@ -30,7 +33,7 @@ class ViewController: UIViewController {
         
         if i % 2 == 0 {
 //            ZZHud.shared.show(loading: v, toView: view, position: .top, offsetY: 100)
-            ZZHud.shared.showActivity(toView: view)
+            ZZHud.showActivity(toView: view)
         } else {
             ZZHud.shared.hideLoading(for: view)
         }
