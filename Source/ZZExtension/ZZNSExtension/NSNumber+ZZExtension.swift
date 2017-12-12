@@ -36,6 +36,6 @@ public extension Int {
     
     /// 放回整数的长度，不包括正负符号
     var length: Int {
-        return "\(self)".characters.count - (self < 0 ? 1 : 0)
+        return "\(self)".count - (self < 0 ? 1 : 0)
     }
 }

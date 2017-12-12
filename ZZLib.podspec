@@ -96,7 +96,7 @@ Pod::Spec.new do |s|
                     "Source/ZZCustom/ZZRefresh/*",
                     "Source/ZZExtension/*",
                     "Source/ZZExtension/ZZNSExtension/*",
-                    "Source/ZZExtension/ZZUIExtension*"
+                    "Source/ZZExtension/ZZUIExtension/*"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"

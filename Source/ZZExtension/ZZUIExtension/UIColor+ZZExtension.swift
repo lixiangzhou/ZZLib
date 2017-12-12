@@ -27,11 +27,11 @@ public extension UIColor {
         
         var hexValue = stringHexValue.zz_trim.uppercased()
         if hexValue.hasPrefix("#") {
-            hexValue = hexValue.substring(from: hexValue.index(hexValue.startIndex, offsetBy: 1))
+            hexValue = String(hexValue[hexValue.index(hexValue.startIndex, offsetBy: 1)...])
         } else if hexValue.hasPrefix("0X") {
-            hexValue = hexValue.substring(from: hexValue.index(hexValue.startIndex, offsetBy: 2))
+            hexValue = String(hexValue[hexValue.index(hexValue.startIndex, offsetBy: 2)...])
         }
-        let len = hexValue.characters.count
+        let len = hexValue.count
         // RGB  RGBA    RRGGBB  RRGGBBAA
         if len != 3 && len != 4 && len != 6 && len != 8 {
             return nil

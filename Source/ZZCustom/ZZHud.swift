@@ -427,7 +427,7 @@ extension ZZHud {
         hudLabel.textColor = color
         hudLabel.text = message
         hudLabel.numberOfLines = 0
-        hudLabel.frame = (message as NSString).boundingRect(with: CGSize(width: stringMaxWidth, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        hudLabel.frame = (message as NSString).boundingRect(with: CGSize(width: stringMaxWidth, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
         return hudLabel
     }
     
