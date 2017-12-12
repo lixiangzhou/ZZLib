@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     iOS Swift custom lib, include extensions, custom ui, custom tools, and so on
                     DESC
 
-  s.homepage     = "https://github.com/lixiangzhou/ZZLib"
+  s.homepage     = "https://github.com/lixiangzhou/ZZLib.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -91,7 +91,12 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Source/*"
+  s.source_files  = "Source/*",
+                    "Source/ZZCustom/*",
+                    "Source/ZZCustom/ZZRefresh/*",
+                    "Source/ZZExtension/*",
+                    "Source/ZZExtension/ZZNSExtension/*",
+                    "Source/ZZExtension/ZZUIExtension*"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
