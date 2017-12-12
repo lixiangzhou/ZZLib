@@ -20,10 +20,6 @@ class ViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        ZZAudioTool.shared.playSystemSound(url: Bundle.main.url(forResource: "buyao", withExtension: "wav")!) { (id) in
-            print("over")
-        }
-        
         let v = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         v.backgroundColor = UIColor.red
         

@@ -25,7 +25,8 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                   DESC
+    iOS Swift custom lib, include extensions, custom ui, custom tools, and so on
+                    DESC
 
   s.homepage     = "https://github.com/lixiangzhou/ZZLib"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -52,9 +53,9 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "lixiangzhou" => "lixiangzhouno1@sina.com" }
+  s.author             = { "lixiangzhou" => "lixiangzhouno1@163.com" }
   # Or just: s.author    = "lixiangzhou"
-  # s.authors            = { "lixiangzhou" => "lixiangzhouno1@sina.com" }
+  # s.authors            = { "lixiangzhou" => "lixiangzhouno1@163.com" }
   # s.social_media_url   = "http://twitter.com/lixiangzhou"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -134,5 +135,5 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 end
