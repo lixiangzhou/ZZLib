@@ -27,7 +27,7 @@ class ZZAudioTool {
     /// - Parameters:
     ///   - url: 音效文件的url
     ///   - completionBlock: 播放完音效的回调
-    func playAlertSound(url: URL, completionBlock: ((SystemSoundID) -> Void)?) {
+    func playAlertSound(url: URL, completionBlock: ((SystemSoundID?) -> Void)?) {
         playSound(url: url, type: .alert, completionBlock: completionBlock)
     }
     
@@ -36,7 +36,7 @@ class ZZAudioTool {
     /// - Parameters:
     ///   - url: 音效文件的url
     ///   - completionBlock: 播放完音效的回调
-    func playSystemSound(url: URL, completionBlock: ((SystemSoundID) -> Void)?) {
+    func playSystemSound(url: URL, completionBlock: ((SystemSoundID?) -> Void)?) {
         playSound(url: url, type: .system, completionBlock: completionBlock)
     }
     
@@ -53,13 +53,17 @@ class ZZAudioTool {
     ///   - url: 音效文件的url
     ///   - type: 音效的类型
     ///   - completionBlock: 播放完音效的回调
-    private func playSound(url: URL, type: ZZPlaySoundType, completionBlock: ((SystemSoundID) -> Void)?) {
+    private func playSound(url: URL, type: ZZPlaySoundType, completionBlock: ((SystemSoundID?) -> Void)?) {
         
         // 先从缓存中获取音效文件
         var soundId = soundCaches[url] ?? 0
         
         if soundId == 0 {  // 缓存中没有，就创建
             AudioServicesCreateSystemSoundID(url as CFURL, &soundId) // 如果成功创建音效，soundId != 0，相当于指向音效文件的地址
+            if soundId == 0 {   // 如果创建失败，直接返回
+                completionBlock?(nil);
+                return
+            }
             soundCaches[url] = soundId
         }
         
