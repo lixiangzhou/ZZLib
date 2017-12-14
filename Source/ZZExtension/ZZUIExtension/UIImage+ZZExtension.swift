@@ -115,4 +115,32 @@ public extension UIImage {
         
         return result
     }
+    
+    
+    /// 生成一张渐变色图片
+    ///
+    /// - Parameters:
+    ///   - fromColor: 起始颜色
+    ///   - toColor: 终点颜色
+    ///   - size: 图片大小
+    /// - Returns: UIImage
+    class func zz_gradientImage(fromColor: UIColor, toColor: UIColor, size: CGSize = CGSize(width: 100, height: 1)) -> UIImage {
+        let frame = CGRect(origin: CGPoint.zero, size: size)
+        
+        UIGraphicsBeginImageContextWithOptions(frame.size, true, 0)
+        UIRectClip(frame)
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [fromColor.cgColor, toColor.cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint.zero
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0)
+        gradientLayer.frame = frame
+        
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
 }
