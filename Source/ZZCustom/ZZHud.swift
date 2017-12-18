@@ -168,12 +168,12 @@ public class ZZView: UIView { }
 
 /// Toast & LoadingHud
 public struct ZZHud {
-    static let shared = ZZHud()
+    public static let shared = ZZHud()
     
     private init() { }
     
     /// 默认的显示动画
-    var defaultShowAnimation: CAAnimation = {
+    public var defaultShowAnimation: CAAnimation = {
         let anim = CABasicAnimation(keyPath: "opacity")
         anim.duration = 0.25
         anim.fromValue = 0
@@ -182,7 +182,7 @@ public struct ZZHud {
     }()
     
     /// 默认的隐藏动画
-    var defaultHideAnimation: CAAnimation = {
+    public var defaultHideAnimation: CAAnimation = {
         let anim = CABasicAnimation(keyPath: "opacity")
         anim.duration = 0.25
         anim.fromValue = 1
