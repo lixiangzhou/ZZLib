@@ -18,45 +18,52 @@ fileprivate let zz_deviceVersion: (identifier: String, version: ZZDeviceVersion)
     let identifier = String(validatingUTF8: NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: String.Encoding.ascii.rawValue)!.utf8String!) ?? "unknown"
     
     switch identifier {
-        /*** iPhone ***/
-    case "iPhone3,1", "iPhone3,2", "iPhone3,3":      return (identifier: identifier, version:ZZDeviceVersion.iPhone_4)
-    case "iPhone4,1", "iPhone4,2", "iPhone4,3":      return (identifier: identifier, version:ZZDeviceVersion.iPhone_4S)
-    case "iPhone5,1", "iPhone5,2":                   return (identifier: identifier, version:ZZDeviceVersion.iPhone_5)
-    case "iPhone5,3", "iPhone5,4":                   return (identifier: identifier, version:ZZDeviceVersion.iPhone_5C)
-    case "iPhone6,1", "iPhone6,2":                   return (identifier: identifier, version:ZZDeviceVersion.iPhone_5S)
-    case "iPhone7,2":                                return (identifier: identifier, version:ZZDeviceVersion.iPhone_6)
-    case "iPhone7,1":                                return (identifier: identifier, version:ZZDeviceVersion.iPhone_6_Plus)
-    case "iPhone8,1":                                return (identifier: identifier, version:ZZDeviceVersion.iPhone_6S)
-    case "iPhone8,2":                                return (identifier: identifier, version:ZZDeviceVersion.iPhone_6S_Plus)
-    case "iPhone8,4":                                return (identifier: identifier, version:ZZDeviceVersion.iPhone_SE)
-    case "iPhone9,1", "iPhone9,3":                   return (identifier: identifier, version:ZZDeviceVersion.iPhone_7)
-    case "iPhone9,2", "iPhone9,4":                   return (identifier: identifier, version:ZZDeviceVersion.iPhone_7_Plus)
+    /*** iPhone ***/
+    case "iPhone3,1", "iPhone3,2", "iPhone3,3":         return (identifier: identifier, version: ZZDeviceVersion.iPhone_4)
+    case "iPhone4,1", "iPhone4,2", "iPhone4,3":         return (identifier: identifier, version: ZZDeviceVersion.iPhone_4S)
+    case "iPhone5,1", "iPhone5,2":                      return (identifier: identifier, version: ZZDeviceVersion.iPhone_5)
+    case "iPhone5,3", "iPhone5,4":                      return (identifier: identifier, version: ZZDeviceVersion.iPhone_5C)
+    case "iPhone6,1", "iPhone6,2":                      return (identifier: identifier, version: ZZDeviceVersion.iPhone_5S)
+    case "iPhone7,2":                                   return (identifier: identifier, version: ZZDeviceVersion.iPhone_6)
+    case "iPhone7,1":                                   return (identifier: identifier, version: ZZDeviceVersion.iPhone_6_Plus)
+    case "iPhone8,1":                                   return (identifier: identifier, version: ZZDeviceVersion.iPhone_6S)
+    case "iPhone8,2":                                   return (identifier: identifier, version: ZZDeviceVersion.iPhone_6S_Plus)
+    case "iPhone8,4":                                   return (identifier: identifier, version: ZZDeviceVersion.iPhone_SE)
+    case "iPhone9,1", "iPhone9,3":                      return (identifier: identifier, version: ZZDeviceVersion.iPhone_7)
+    case "iPhone9,2", "iPhone9,4":                      return (identifier: identifier, version: ZZDeviceVersion.iPhone_7_Plus)
+    case "iPhone10,1", "iPhone10,4":                    return (identifier: identifier, version: ZZDeviceVersion.iPhone_8)
+    case "iPhone10,2", "iPhone10,5":                    return (identifier: identifier, version: ZZDeviceVersion.iPhone_8_Plus)
+    case "iPhone10,3", "iPhone10,6":                    return (identifier: identifier, version: ZZDeviceVersion.iPhone_X)
         
-        /*** iPad ***/
-    case "iPad1,1":                                  return (identifier: identifier, version:ZZDeviceVersion.iPad)
-    case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4": return (identifier: identifier, version:ZZDeviceVersion.iPad_2)
-    case "iPad3,1", "iPad3,2", "iPad3,3":            return (identifier: identifier, version:ZZDeviceVersion.iPad_3)
-    case "iPad3,4", "iPad3,5", "iPad3,6":            return (identifier: identifier, version:ZZDeviceVersion.iPad_4)
-    case "iPad4,1", "iPad4,2", "iPad4,3":            return (identifier: identifier, version:ZZDeviceVersion.iPad_Air)
-    case "iPad5,3", "iPad5,4":                       return (identifier: identifier, version:ZZDeviceVersion.iPad_Air_2)
-    case "iPad2,5", "iPad2,6", "iPad2,7":            return (identifier: identifier, version:ZZDeviceVersion.iPad_Mini)
-    case "iPad4,4", "iPad4,5", "iPad4,6":            return (identifier: identifier, version:ZZDeviceVersion.iPad_Mini_2)
-    case "iPad4,7", "iPad4,8", "iPad4,9":            return (identifier: identifier, version:ZZDeviceVersion.iPad_Mini_3)
-    case "iPad5,1", "iPad5,2":                       return (identifier: identifier, version:ZZDeviceVersion.iPad_Mini_4)
-    case "iPad6,3", "iPad6,4", "iPad6,7", "iPad6,8": return (identifier: identifier, version:ZZDeviceVersion.iPad_Pro)
+    /*** iPad ***/
+    case "iPad1,1":                                     return (identifier: identifier, version: ZZDeviceVersion.iPad)
+    case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":    return (identifier: identifier, version: ZZDeviceVersion.iPad_2)
+    case "iPad3,1", "iPad3,2", "iPad3,3":               return (identifier: identifier, version: ZZDeviceVersion.iPad_3)
+    case "iPad3,4", "iPad3,5", "iPad3,6":               return (identifier: identifier, version: ZZDeviceVersion.iPad_4)
+    case "iPad6,11", "iPad6,12":                        return (identifier: identifier, version: ZZDeviceVersion.iPad_5)
+    case "iPad4,1", "iPad4,2", "iPad4,3":               return (identifier: identifier, version: ZZDeviceVersion.iPad_Air)
+    case "iPad5,3", "iPad5,4":                          return (identifier: identifier, version: ZZDeviceVersion.iPad_Air_2)
+    case "iPad2,5", "iPad2,6", "iPad2,7":               return (identifier: identifier, version: ZZDeviceVersion.iPad_Mini)
+    case "iPad4,4", "iPad4,5", "iPad4,6":               return (identifier: identifier, version: ZZDeviceVersion.iPad_Mini_2)
+    case "iPad4,7", "iPad4,8", "iPad4,9":               return (identifier: identifier, version: ZZDeviceVersion.iPad_Mini_3)
+    case "iPad5,1", "iPad5,2":                          return (identifier: identifier, version: ZZDeviceVersion.iPad_Mini_4)
+    case "iPad6,7", "iPad6,8":                          return (identifier: identifier, version: ZZDeviceVersion.iPad_Pro_12_9)
+    case "iPad7,1", "iPad7,2":                          return (identifier: identifier, version: ZZDeviceVersion.iPad_Pro_2_12_9)
+    case "iPad6,3", "iPad6,4":                          return (identifier: identifier, version: ZZDeviceVersion.iPad_Pro_9_7)
+    case "iPad7,3", "iPad7,4":                          return (identifier: identifier, version: ZZDeviceVersion.iPad_Pro_10_5)
         
-        /*** iPod ***/
-    case "iPod1,1":                                  return (identifier: identifier, version:ZZDeviceVersion.iPodTouch_1)
-    case "iPod2,1":                                  return (identifier: identifier, version:ZZDeviceVersion.iPodTouch_2)
-    case "iPod3,1":                                  return (identifier: identifier, version:ZZDeviceVersion.iPodTouch_3)
-    case "iPod4,1":                                  return (identifier: identifier, version:ZZDeviceVersion.iPodTouch_4)
-    case "iPod5,1":                                  return (identifier: identifier, version:ZZDeviceVersion.iPodTouch_5)
-    case "iPod7,1":                                  return (identifier: identifier, version:ZZDeviceVersion.iPodTouch_6)
+    /*** iPod ***/
+    case "iPod1,1":                                     return (identifier: identifier, version: ZZDeviceVersion.iPodTouch_1)
+    case "iPod2,1":                                     return (identifier: identifier, version: ZZDeviceVersion.iPodTouch_2)
+    case "iPod3,1":                                     return (identifier: identifier, version: ZZDeviceVersion.iPodTouch_3)
+    case "iPod4,1":                                     return (identifier: identifier, version: ZZDeviceVersion.iPodTouch_4)
+    case "iPod5,1":                                     return (identifier: identifier, version: ZZDeviceVersion.iPodTouch_5)
+    case "iPod7,1":                                     return (identifier: identifier, version: ZZDeviceVersion.iPodTouch_6)
         
-        /*** Simulator ***/
-    case "i386", "x86_64":                           return (identifier: identifier, version:ZZDeviceVersion.simulator)
+    /*** Simulator ***/
+    case "i386", "x86_64":                              return (identifier: identifier, version: ZZDeviceVersion.simulator)
         
-    default:                                         return (identifier: identifier, version:ZZDeviceVersion.unknown)
+    default:                                            return (identifier: identifier, version: ZZDeviceVersion.unknown)
     }
 }()
 
@@ -82,19 +89,27 @@ public enum ZZDeviceVersion: String {
     case iPhone_SE
     case iPhone_7
     case iPhone_7_Plus
+    case iPhone_8
+    case iPhone_8_Plus
+    case iPhone_X
     
     /*** iPad ***/
     case iPad
     case iPad_2
     case iPad_Mini
-    case iPad_3
-    case iPad_4
-    case iPad_Air
     case iPad_Mini_2
-    case iPad_Air_2
     case iPad_Mini_3
     case iPad_Mini_4
-    case iPad_Pro
+    case iPad_3
+    case iPad_4
+    case iPad_5
+    case iPad_Air
+    case iPad_Air_2
+    case iPad_Pro_12_9
+    case iPad_Pro_2_12_9
+    case iPad_Pro_9_7
+    case iPad_Pro_10_5
+    
     
     /*** iPod ***/
     case iPodTouch_1

@@ -214,3 +214,9 @@
  UIAlertController的一个替代作品
  https://github.com/Codeido/PMAlertController
  */
+
+/*
+ KeychainAccess
+ KeyChaing 的简单包装
+ https://github.com/kishikawakatsumi/KeychainAccess.git
+ */
