@@ -9,7 +9,7 @@
 import UIKit
 
 /// cell 拖动的代理
-protocol ZZTableViewMovableCellDelegate: NSObjectProtocol {
+public protocol ZZTableViewMovableCellDelegate: NSObjectProtocol {
     
     func zz_tableViewStartMoveWithOriginData(_ tableView: UITableView) -> [Any]
     func zz_tableView(_ tableView: UITableView, didMoveWith newData: [Any])
