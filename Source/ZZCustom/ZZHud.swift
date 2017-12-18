@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - Custom
-extension ZZHud {
+public extension ZZHud {
     
     /// 显示文本信息
     ///
@@ -156,7 +156,7 @@ extension ZZHud {
 /// - top: 最顶部
 /// - center: 中间
 /// - bottom: 最底部
-enum ZZHudPosition {
+public enum ZZHudPosition {
     case top
     case center
     case bottom
@@ -164,10 +164,10 @@ enum ZZHudPosition {
 
 let stringMaxWidth = UIScreen.main.bounds.width - 140
 
-class ZZView: UIView { }
+public class ZZView: UIView { }
 
 /// Toast & LoadingHud
-struct ZZHud {
+public struct ZZHud {
     static let shared = ZZHud()
     
     private init() { }
@@ -193,7 +193,7 @@ struct ZZHud {
 }
 
 // MARK: - Core Method
-extension ZZHud {
+public extension ZZHud {
     
     /// 显示toast
     ///
@@ -319,7 +319,7 @@ extension ZZHud {
 
 
 // MARK: - Helper
-extension ZZHud {
+public extension ZZHud {
     
     /// 显示toast
     ///
@@ -459,7 +459,7 @@ extension ZZHud {
 }
 
 // MARK: - ZZHud
-extension UIView {
+public extension UIView {
     
     /// 隐藏
     ///

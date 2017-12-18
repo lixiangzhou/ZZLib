@@ -8,6 +8,6 @@
 
 import UIKit
 
-func zz_Font(fontSize: CGFloat) -> UIFont {
+public func zz_Font(fontSize: CGFloat) -> UIFont {
     return UIFont.systemFont(ofSize: fontSize)
 }

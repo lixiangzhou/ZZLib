@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZZCircleProgressView: UIView {
+public class ZZCircleProgressView: UIView {
     
     var progressColor: UIColor = UIColor.blue
     var trackColor: UIColor = UIColor.red
@@ -19,7 +19,7 @@ class ZZCircleProgressView: UIView {
         }
     }
     
-    override func draw(_ rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         // 画轨迹圆
         let radius = min(rect.width, rect.height) * 0.5 - progressWidth * 0.5
         var scope = CGRect(origin: .zero, size: CGSize(width: radius * 2, height: radius * 2))

@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 
 /// 简单的音效播放工具
-class ZZAudioTool {
+public class ZZAudioTool {
     static let shared = ZZAudioTool()
     
     private init() {}

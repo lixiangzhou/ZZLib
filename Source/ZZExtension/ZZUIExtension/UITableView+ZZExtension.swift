@@ -16,7 +16,7 @@ protocol ZZTableViewMovableCellDelegate: NSObjectProtocol {
 }
 
 
-extension UITableView {
+public extension UITableView {
     
     /// 开启 cell 拖动功能
     ///
