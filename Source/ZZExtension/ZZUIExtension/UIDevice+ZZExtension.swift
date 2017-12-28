@@ -77,50 +77,50 @@ public enum ZZDeviceType: String {
 
 public enum ZZDeviceVersion: String {
     /*** iPhone ***/
-    case iPhone_4
-    case iPhone_4S
-    case iPhone_5
-    case iPhone_5C
-    case iPhone_5S
-    case iPhone_6
-    case iPhone_6_Plus
-    case iPhone_6S
-    case iPhone_6S_Plus
-    case iPhone_SE
-    case iPhone_7
-    case iPhone_7_Plus
-    case iPhone_8
-    case iPhone_8_Plus
-    case iPhone_X
+    case iPhone_4 = "iPhone 4"
+    case iPhone_4S = "iPhone 4S"
+    case iPhone_5 = "iPhone 5"
+    case iPhone_5C = "iPhone 5C"
+    case iPhone_5S = "iPhone 5S"
+    case iPhone_6 = "iPhone 6"
+    case iPhone_6_Plus = "iPhone 6 Plus"
+    case iPhone_6S = "iPhone 6S"
+    case iPhone_6S_Plus = "iPhone 6S Plus"
+    case iPhone_SE = "iPhone SE"
+    case iPhone_7 = "iPhone 7"
+    case iPhone_7_Plus = "iPhone 7 Plus"
+    case iPhone_8 = "iPhone 8"
+    case iPhone_8_Plus = "iPhone 8 Plus"
+    case iPhone_X = "iPhone X"
     
     /*** iPad ***/
-    case iPad
-    case iPad_2
-    case iPad_Mini
-    case iPad_Mini_2
-    case iPad_Mini_3
-    case iPad_Mini_4
-    case iPad_3
-    case iPad_4
-    case iPad_5
-    case iPad_Air
-    case iPad_Air_2
-    case iPad_Pro_12_9
-    case iPad_Pro_2_12_9
-    case iPad_Pro_9_7
-    case iPad_Pro_10_5
+    case iPad_Mini = "iPad mini"
+    case iPad_Mini_2 = "iPad mini 2"
+    case iPad_Mini_3 = "iPad mini 3"
+    case iPad_Mini_4 = "iPad mini 4"
+    case iPad = "iPad"
+    case iPad_2 = "iPad 2"
+    case iPad_3 = "iPad 3"
+    case iPad_4 = "iPad 4"
+    case iPad_5 = "iPad 5"
+    case iPad_Air = "iPad Air"
+    case iPad_Air_2 = "iPad Air 2"
+    case iPad_Pro_12_9 = "iPad Pro (12.9-inch)"
+    case iPad_Pro_2_12_9 = "iPad Pro 2 (12.9-inch)"
+    case iPad_Pro_9_7 = "iPad Pro (9.7-inch)"
+    case iPad_Pro_10_5 = "iPad Pro (10.5-inch)"
     
     
     /*** iPod ***/
-    case iPodTouch_1
-    case iPodTouch_2
-    case iPodTouch_3
-    case iPodTouch_4
-    case iPodTouch_5
-    case iPodTouch_6
+    case iPodTouch_1 = "iPod touch 1"
+    case iPodTouch_2 = "iPod touch 2"
+    case iPodTouch_3 = "iPod touch 3"
+    case iPodTouch_4 = "iPod touch 4"
+    case iPodTouch_5 = "iPod touch 5"
+    case iPodTouch_6 = "iPod touch 6"
     
     /*** Simulator ***/
-    case simulator
+    case simulator = "iPhone Simulator"
     
     /*** Unknown ***/
     case unknown
