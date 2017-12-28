@@ -12,7 +12,7 @@ import UIKit
 private var zzRefresh_HeaderKey: Void?
 private var zzRefresh_FooterKey: Void?
 
-extension UIScrollView {
+public extension UIScrollView {
     
     var header: ZZRefreshHeader? {
         set {

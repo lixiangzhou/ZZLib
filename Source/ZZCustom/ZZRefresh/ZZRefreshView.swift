@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZZRefreshView: UIView {
+public class ZZRefreshView: UIView {
     // MARK: - 公共属性
     var style = ZZRefreshViewPositionStyle.bottom
     
@@ -49,7 +49,7 @@ class ZZRefreshView: UIView {
     }
     
     // MARK: - 生命周期方法
-    init(target: AnyObject, action: Selector, style: ZZRefreshViewPositionStyle = .bottom) {
+    public init(target: AnyObject, action: Selector, style: ZZRefreshViewPositionStyle = .bottom) {
         super.init(frame: CGRect.zero)
         self.target = target
         self.action = action
@@ -64,13 +64,13 @@ class ZZRefreshView: UIView {
         setupUI()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         setupUI()
     }
     
-    override func willMove(toSuperview newSuperview: UIView?) {
+    override public func willMove(toSuperview newSuperview: UIView?) {
         if newSuperview == nil || newSuperview is UIScrollView == false {
             return
         }
@@ -87,7 +87,7 @@ class ZZRefreshView: UIView {
     }
     
     // 自定义刷新控件时重写此方法
-    func setupUI() { backgroundColor = .red }
+    func setupUI() {  }
     
     // MARK: - 辅助属性
     var scrollView: UIScrollView! {

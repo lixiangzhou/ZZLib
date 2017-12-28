@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZZRefreshFooter: ZZRefreshView {
+public class ZZRefreshFooter: ZZRefreshView {
     override var state: ZZRefreshState {
         didSet {
             switch state {
@@ -21,7 +21,7 @@ class ZZRefreshFooter: ZZRefreshView {
         }
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         let offsetY = scrollView.contentOffset.y
         let width = scrollView.bounds.width

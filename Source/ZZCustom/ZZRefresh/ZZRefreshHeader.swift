@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZZRefreshHeader: ZZRefreshView {
+public class ZZRefreshHeader: ZZRefreshView {
 
     override var state: ZZRefreshState {
         didSet {
@@ -22,7 +22,7 @@ class ZZRefreshHeader: ZZRefreshView {
         }
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         let offsetY = scrollView.contentOffset.y
         let width = scrollView.bounds.width
@@ -47,7 +47,7 @@ class ZZRefreshHeader: ZZRefreshView {
         if offsetY > 0 || state == .refreshing {
             return
         }
-        print(offsetY)
+        
         if scrollView.isDragging {
             if (state == .normal || state == .releaseRefreshing) && -offsetY < headerHeight {
                 state = .willRefreshing

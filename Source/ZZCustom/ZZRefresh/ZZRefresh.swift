@@ -11,7 +11,7 @@ import UIKit
 
 let zz_RefreshConstant = ZZRefreshConstant()
 
-struct ZZRefreshConstant {
+public struct ZZRefreshConstant {
     let headerHeight: CGFloat = 50
     let footerHeight: CGFloat = 40
     
@@ -27,14 +27,14 @@ struct ZZRefreshConstant {
     let footerRefreshDuration = 0.3
 }
 
-enum ZZRefreshState {
+public enum ZZRefreshState {
     case normal                 // 正常状态
     case willRefreshing         // 即将刷新的状态
     case releaseRefreshing      // 释放即可刷新的状态
     case refreshing             // 正在刷新状态
 }
 
-enum ZZRefreshViewPositionStyle {
+public enum ZZRefreshViewPositionStyle {
     case bottom
     case top
     case scaleToFill

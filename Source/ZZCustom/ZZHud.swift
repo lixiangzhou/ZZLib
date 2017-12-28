@@ -53,7 +53,7 @@ public extension ZZHud {
               cornerRadius: CGFloat = 0,
               toView: UIView) {
         let iconView = hudImageView(icon: icon, size: size, cornerRadius: cornerRadius)
-        show(toast: iconView, toView: toView, toViewCornerRadius: 5, toViewBackgroundColor: UIColor.white, toViewAlpha: 1)
+        show(toast: iconView, toView: toView, hudCornerRadius: 5, hudBackgroundColor: UIColor.white, hudAlpha: 1)
     }
 
     /// 显示图片
@@ -101,7 +101,7 @@ public extension ZZHud {
         msgLabel.frame.origin.x = (contentView.frame.width - msgLabel.frame.width) * 0.5
         msgLabel.frame.origin.y = iconView.frame.maxY + padding
         
-        show(toast: contentView, toView: toView, toViewBackgroundColor: UIColor.white)
+        show(toast: contentView, toView: toView, hudBackgroundColor: UIColor.white)
     }
     
     /// 显示图片和文本，图片在上，文本在下
@@ -136,7 +136,7 @@ public extension ZZHud {
     func showActivity(style: UIActivityIndicatorViewStyle = .gray, toView: UIView, loadingId: Int = NSNotFound) -> ZZView {
         let activityView = UIActivityIndicatorView(activityIndicatorStyle: style)
         activityView.startAnimating()
-        return show(loading: activityView, loadingId: loadingId, toView: toView, toViewBackgroundColor: UIColor.clear)
+        return show(loading: activityView, loadingId: loadingId, toView: toView, hudBackgroundColor: UIColor.clear)
     }
     
     /// 显示UIActivityIndicatorViewStyle加载，隐藏时调用 hideLoading 或 hideAllLoading
@@ -200,9 +200,9 @@ public extension ZZHud {
     /// - Parameters:
     ///   - hud: toast视图
     ///   - toView: toast视图所在的View
-    ///   - toViewCornerRadius: toast视图所在的View的cornerRadius
-    ///   - toViewBackground: toast视图所在的View的backgroundColor
-    ///   - toViewAlpha: toast视图所在的View的alpha
+    ///   - hudCornerRadius: toast视图的cornerRadius
+    ///   - hudBackgroundColor: toast视图的backgroundColor
+    ///   - hudAlpha: toast视图的alpha
     ///   - contentInset: toast视图所在的View的contentInset
     ///   - position: toast视图显示的位置
     ///   - offsetY: toast视图显示的位置的垂直偏移量
@@ -211,9 +211,9 @@ public extension ZZHud {
     ///   - hideAnimation: toast视图隐藏动画
     func show(toast hud: UIView,
               toView: UIView,
-              toViewCornerRadius: CGFloat = 0,
-              toViewBackgroundColor: UIColor = .black,
-              toViewAlpha: CGFloat = 1,
+              hudCornerRadius: CGFloat = 0,
+              hudBackgroundColor: UIColor = .black,
+              hudAlpha: CGFloat = 1,
               contentInset: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),
               position: ZZHudPosition = .center,
               offsetY: CGFloat = 0,
@@ -222,9 +222,9 @@ public extension ZZHud {
               hideAnimation: (() -> CAAnimation)? = nil) {
         
         let hudView = wrap(hud,
-                           cornerRadius: toViewCornerRadius,
-                           backgroundColor: toViewBackgroundColor,
-                           alpha: toViewAlpha,
+                           cornerRadius: hudCornerRadius,
+                           backgroundColor: hudBackgroundColor,
+                           alpha: hudAlpha,
                            contentInset: contentInset)
         
         add(hud: hudView, toView: toView, position: position, offsetY: offsetY)
@@ -240,10 +240,10 @@ public extension ZZHud {
     ///   - hud: loading视图
     ///   - loadingId: loading视图的Id
     ///   - toView: loading视图所在的View
-    ///   - toViewCornerRadius: loading视图所在的View的cornerRadius
-    ///   - toViewBackground: loading视图所在的View的backgroundColor
-    ///   - toViewAlpha: loading视图所在的View的alpha
-    ///   - contentInset: toast视图所在的View的contentInset
+    ///   - hudCornerRadius: loading视图的cornerRadius
+    ///   - hudBackgroundColor: loading视图的backgroundColor
+    ///   - hudAlpha: loading视图的alpha
+    ///   - contentInset: loading视图的contentInset
     ///   - position: loading视图显示的位置
     ///   - offsetY: loading视图显示的位置的垂直偏移量
     ///   - animation: loading视图显示的动画
@@ -252,18 +252,18 @@ public extension ZZHud {
     func show(loading hud: UIView,
               loadingId: Int,
               toView: UIView,
-              toViewCornerRadius: CGFloat = 0,
-              toViewBackgroundColor: UIColor = .black,
-              toViewAlpha: CGFloat = 1,
+              hudCornerRadius: CGFloat = 0,
+              hudBackgroundColor: UIColor = .black,
+              hudAlpha: CGFloat = 1,
               contentInset: UIEdgeInsets = .zero,
               position: ZZHudPosition = .center,
               offsetY: CGFloat = 0,
               animation: (() -> CAAnimation)? = nil) -> ZZView {
         
         let hudView = wrap(hud,
-                           cornerRadius: toViewCornerRadius,
-                           backgroundColor: toViewBackgroundColor,
-                           alpha: toViewAlpha,
+                           cornerRadius: hudCornerRadius,
+                           backgroundColor: hudBackgroundColor,
+                           alpha: hudAlpha,
                            contentInset: contentInset)
         hudView.tag = loadingId
         
