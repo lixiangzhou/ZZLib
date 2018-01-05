@@ -16,7 +16,6 @@
 		973F0F2D1F5E891800BE861F /* ZZHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F0F2C1F5E891800BE861F /* ZZHud.swift */; };
 		97CAA4BD1E96315900FAFC9E /* ZZButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA49F1E96315900FAFC9E /* ZZButton.swift */; };
 		97CAA4BE1E96315900FAFC9E /* ZZCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4A01E96315900FAFC9E /* ZZCircleProgressView.swift */; };
-		97CAA4BF1E96315900FAFC9E /* ZZProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4A11E96315900FAFC9E /* ZZProgressHud.swift */; };
 		97CAA4C01E96315900FAFC9E /* Calendar+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4A41E96315900FAFC9E /* Calendar+ZZExtension.swift */; };
 		97CAA4C11E96315900FAFC9E /* CGRect+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4A51E96315900FAFC9E /* CGRect+ZZExtension.swift */; };
 		97CAA4C21E96315900FAFC9E /* Data+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4A61E96315900FAFC9E /* Data+ZZExtension.swift */; };
@@ -63,7 +62,6 @@
 		973F0F2C1F5E891800BE861F /* ZZHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZHud.swift; sourceTree = "<group>"; };
 		97CAA49F1E96315900FAFC9E /* ZZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZButton.swift; sourceTree = "<group>"; };
 		97CAA4A01E96315900FAFC9E /* ZZCircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZCircleProgressView.swift; sourceTree = "<group>"; };
-		97CAA4A11E96315900FAFC9E /* ZZProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZProgressHud.swift; sourceTree = "<group>"; };
 		97CAA4A41E96315900FAFC9E /* Calendar+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calendar+ZZExtension.swift"; sourceTree = "<group>"; };
 		97CAA4A51E96315900FAFC9E /* CGRect+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+ZZExtension.swift"; sourceTree = "<group>"; };
 		97CAA4A61E96315900FAFC9E /* Data+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+ZZExtension.swift"; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				97E3224D1E9AFAE30043D8E9 /* ZZRefresh */,
 				97CAA49F1E96315900FAFC9E /* ZZButton.swift */,
 				97CAA4A01E96315900FAFC9E /* ZZCircleProgressView.swift */,
-				97CAA4A11E96315900FAFC9E /* ZZProgressHud.swift */,
 				973F0F2C1F5E891800BE861F /* ZZHud.swift */,
 				97E16FD61F877833007EF36E /* ZZAudioTool.swift */,
 			);
@@ -320,7 +317,6 @@
 				97CAA4C11E96315900FAFC9E /* CGRect+ZZExtension.swift in Sources */,
 				97CAA4D31E96315900FAFC9E /* UIScrollView+ZZExtension.swift in Sources */,
 				97CAA4CD1E96315900FAFC9E /* UIDevice+ZZExtension.swift in Sources */,
-				97CAA4BF1E96315900FAFC9E /* ZZProgressHud.swift in Sources */,
 				97CAA4D51E96315900FAFC9E /* UITextField+ZZExtension.swift in Sources */,
 				97CAA4CA1E96315900FAFC9E /* UIApplication+ZZExtension.swift in Sources */,
 				97CAA4C61E96315900FAFC9E /* Locale+ZZExtension.swift in Sources */,

@@ -17,13 +17,19 @@ public extension ZZHud {
     ///   - message: 文本信息
     ///   - font: 文本字体
     ///   - color: 文本颜色
+    ///   - backgroundColor: 背景色
+    ///   - cornerRadius: 圆角
+    ///   - showDuration: 显示时间
     ///   - toView: 文本信息要显示到的View
     func show(message: String,
               font: UIFont = UIFont.systemFont(ofSize: 14),
               color: UIColor = UIColor.white,
+              backgroundColor: UIColor,
+              cornerRadius: CGFloat,
+              showDuration: TimeInterval,
               toView: UIView) {
         let msgLabel = hudLabel(message: message, font: font, color: color)
-        show(toast: msgLabel, toView: toView)
+        show(toast: msgLabel, toView: toView, hudCornerRadius: cornerRadius, hudBackgroundColor: backgroundColor, showDuration: showDuration)
     }
     
     /// 显示文本信息
@@ -32,12 +38,18 @@ public extension ZZHud {
     ///   - message: 文本信息
     ///   - font: 文本字体
     ///   - color: 文本颜色
+    ///   - backgroundColor: 背景色
+    ///   - cornerRadius: 圆角
+    ///   - showDuration: 显示时间
     ///   - toView: 文本信息要显示到的View
     static func show(message: String,
               font: UIFont = UIFont.systemFont(ofSize: 14),
               color: UIColor = UIColor.white,
+              backgroundColor: UIColor,
+              cornerRadius: CGFloat,
+              showDuration: TimeInterval,
               toView: UIView) {
-        ZZHud.shared.show(message: message, font: font, color: color, toView: toView)
+        ZZHud.shared.show(message: message, backgroundColor: backgroundColor, cornerRadius: cornerRadius, showDuration: showDuration, toView: toView)
     }
     
     
@@ -77,7 +89,7 @@ public extension ZZHud {
     ///   - font: 文本字体
     ///   - color: 文本颜色
     ///   - icon: 图片
-    ///   - size: 图片大小
+    ///   - imageSize: 图片大小
     ///   - cornerRadius: 图片圆角
     ///   - padding: 图片和文本的间距
     ///   - toView: 图片要添加到的View
@@ -85,11 +97,11 @@ public extension ZZHud {
               font: UIFont = UIFont.systemFont(ofSize: 14),
               color: UIColor = UIColor.black,
               icon: UIImage,
-              size: CGSize = CGSize.zero,
+              imageSize: CGSize = CGSize.zero,
               cornerRadius: CGFloat = 0,
               padding: CGFloat = 10,
               toView: UIView) {
-        let iconView = hudImageView(icon: icon, size: size, cornerRadius: cornerRadius)
+        let iconView = hudImageView(icon: icon, size: imageSize, cornerRadius: cornerRadius)
         let msgLabel = hudLabel(message: message, font: font, color: color)
         
         let contentView = UIView(frame: CGRect(x: 0, y: 0, width: max(iconView.bounds.width, msgLabel.bounds.width), height: iconView.bounds.height + msgLabel.bounds.height + padding))
@@ -111,7 +123,7 @@ public extension ZZHud {
     ///   - font: 文本字体
     ///   - color: 文本颜色
     ///   - icon: 图片
-    ///   - size: 图片大小
+    ///   - imageSize: 图片大小
     ///   - cornerRadius: 图片圆角
     ///   - padding: 图片和文本的间距
     ///   - toView: 图片要添加到的View
@@ -119,11 +131,11 @@ public extension ZZHud {
               font: UIFont = UIFont.systemFont(ofSize: 14),
               color: UIColor = UIColor.black,
               icon: UIImage,
-              size: CGSize = CGSize.zero,
+              imageSize: CGSize = CGSize.zero,
               cornerRadius: CGFloat = 0,
               padding: CGFloat = 10,
               toView: UIView) {
-        ZZHud.shared.show(message: message, font: font, color: color, icon: icon, size: size, cornerRadius: cornerRadius, padding: padding, toView: toView)
+        ZZHud.shared.show(message: message, font: font, color: color, icon: icon, imageSize: imageSize, cornerRadius: cornerRadius, padding: padding, toView: toView)
     }
     
     /// 显示UIActivityIndicatorViewStyle加载，，隐藏时调用 hideLoading 或 hideAllLoading
@@ -229,8 +241,8 @@ public extension ZZHud {
         
         add(hud: hudView, toView: toView, position: position, offsetY: offsetY)
         
-        let showAnim = showAnimation != nil ? showAnimation!() : defaultShowAnimation
-        let hideAnim = hideAnimation != nil ? hideAnimation!() : defaultHideAnimation
+        let showAnim = showAnimation?() ?? defaultShowAnimation
+        let hideAnim = hideAnimation?() ?? defaultHideAnimation
         toast(hud: hudView, showDuration: showDuration, showAnimation: showAnim, hideAnimation: hideAnim)
     }
     
@@ -269,10 +281,47 @@ public extension ZZHud {
         
         add(hud: hudView, toView: toView, position: position, offsetY: offsetY)
         
-        let showAnim = animation != nil ? animation!() : defaultShowAnimation
+        let showAnim = animation?() ?? defaultShowAnimation
         showLoading(hud: hudView, showAnimation: showAnim)
         
         return hudView
+    }
+    
+    /// 显示loading
+    ///
+    /// - Parameters:
+    ///   - hud: loading视图
+    ///   - loadingId: loading视图的Id
+    ///   - toView: loading视图所在的View
+    ///   - hudCornerRadius: loading视图的cornerRadius
+    ///   - hudBackgroundColor: loading视图的backgroundColor
+    ///   - hudAlpha: loading视图的alpha
+    ///   - contentInset: loading视图的contentInset
+    ///   - position: loading视图显示的位置
+    ///   - offsetY: loading视图显示的位置的垂直偏移量
+    ///   - animation: loading视图显示的动画
+    /// - Returns: loading视图
+    @discardableResult
+    static func show(loading hud: UIView,
+              loadingId: Int,
+              toView: UIView,
+              hudCornerRadius: CGFloat = 0,
+              hudBackgroundColor: UIColor = .black,
+              hudAlpha: CGFloat = 1,
+              contentInset: UIEdgeInsets = .zero,
+              position: ZZHudPosition = .center,
+              offsetY: CGFloat = 0,
+              animation: (() -> CAAnimation)? = nil) -> ZZView {
+        return ZZHud.shared.show(loading: hud,
+                                 loadingId: loadingId,
+                                 toView: toView,
+                                 hudCornerRadius: hudCornerRadius,
+                                 hudBackgroundColor: hudBackgroundColor,
+                                 hudAlpha: hudAlpha,
+                                 contentInset: contentInset,
+                                 position: position,
+                                 offsetY: offsetY,
+                                 animation: animation)
     }
     
     /// 隐藏view的loading
@@ -301,6 +350,18 @@ public extension ZZHud {
         }
     }
     
+    /// 隐藏view的loading
+    ///
+    /// - Parameters:
+    ///   - view: loading视图所在的View
+    ///   - animation: loading视图显示的动画
+    ///   - loadingId: loading视图的id
+    static func hideLoading(for view: UIView,
+                            animation: (() -> CAAnimation)? = nil,
+                            loadingId: Int = NSNotFound) {
+        ZZHud.shared.hideLoading(for: view, animation: animation, loadingId: loadingId)
+    }
+    
     /// 隐藏view的所有loading
     ///
     /// - Parameters:
@@ -314,6 +375,17 @@ public extension ZZHud {
                 subView.hideLoading(animation: animation)
             }
         }
+    }
+    
+    /// 隐藏view的所有loading
+    ///
+    /// - Parameters:
+    ///   - view: loading视图所在的View
+    ///   - animation: loading视图显示的动画
+    static func hideAllLoading(for view: UIView,
+                               animation: (() -> CAAnimation)? = nil,
+                               loadingId: Int = NSNotFound) {
+        ZZHud.shared.hideAllLoading(for: view, animation: animation, loadingId: loadingId)
     }
 }
 
@@ -334,7 +406,7 @@ public extension ZZHud {
                            hideAnimation: CAAnimation) {
         var duration = max(0, showDuration)
         
-        duration = duration + showAnimation.duration
+        duration += showAnimation.duration
         hud.layer.add(showAnimation, forKey: nil)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + duration, execute: {
@@ -465,7 +537,7 @@ public extension UIView {
     ///
     /// - Parameter animation: 隐藏loading动画，如果为nil，使用默认的隐藏动画
     func hideLoading(animation: (() -> CAAnimation)? = nil) {
-        let hideAnimation = animation != nil ? animation!() : ZZHud.shared.defaultHideAnimation
+        let hideAnimation = animation?() ?? ZZHud.shared.defaultHideAnimation
         layer.add(hideAnimation, forKey: nil)
         perform(#selector(UIView.removeFromSuperview), with: nil, afterDelay: hideAnimation.duration, inModes: [.commonModes])
     }
