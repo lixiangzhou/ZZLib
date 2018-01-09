@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D414F7720034CC600E43CC5 /* ZZCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D414F7620034CC600E43CC5 /* ZZCycleView.swift */; };
 		971006211EA06FC100DE3A34 /* ZZCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971006201EA06FC100DE3A34 /* ZZCollection.swift */; };
 		9736E4811E90153D0050B8EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4801E90153D0050B8EA /* AppDelegate.swift */; };
 		9736E4831E90153D0050B8EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4821E90153D0050B8EA /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D414F7620034CC600E43CC5 /* ZZCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCycleView.swift; sourceTree = "<group>"; };
 		971006201EA06FC100DE3A34 /* ZZCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZCollection.swift; sourceTree = "<group>"; };
 		9736E47D1E90153D0050B8EA /* ZZLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9736E4801E90153D0050B8EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				97CAA4A01E96315900FAFC9E /* ZZCircleProgressView.swift */,
 				973F0F2C1F5E891800BE861F /* ZZHud.swift */,
 				97E16FD61F877833007EF36E /* ZZAudioTool.swift */,
+				8D414F7620034CC600E43CC5 /* ZZCycleView.swift */,
 			);
 			path = ZZCustom;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				97CAA4C81E96315900FAFC9E /* String+ZZExtension.swift in Sources */,
 				97CAA4CB1E96315900FAFC9E /* UIButton+ZZExtension.swift in Sources */,
 				97CAA4C31E96315900FAFC9E /* Date+ZZExtension.swift in Sources */,
+				8D414F7720034CC600E43CC5 /* ZZCycleView.swift in Sources */,
 				97CAA4BE1E96315900FAFC9E /* ZZCircleProgressView.swift in Sources */,
 				97E322571E9AFAE30043D8E9 /* ZZRefreshView.swift in Sources */,
 				97CAA4D71E96315900FAFC9E /* ZZLib.swift in Sources */,
