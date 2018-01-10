@@ -30,18 +30,23 @@ public class ZZCycleView: UIView {
     }
     
     // MARK: - Public Property
+    /// 循环的个数【必须设置】
     var cycleCount: UInt = 0
+    /// 是否可以循环
     var canCycle = true
+    /// 循环的时间间隔
     var cycleTimeInterval: TimeInterval = 2
+    /// 要显示的内容，ZZCycleViewCell 继承自 UICollectionViewCell【必须设置】
+    /// (ZZCycleView, Int) 分别是 ZZCycleView 和 index
     var cellForIndex: ((ZZCycleView, Int) -> ZZCycleViewCell)?
-    var clockwise = true
+    /// 是否顺时针循环
+    var isClockwise = true
     
+    /// 设置新的布局，并从当前位置继续循环，如果开启定时器，会先停止计时器，设置完成后会自动重新开启定时器。如果是 UICollectionViewFlowLayout，
+    /// 会同时设置 direction = flowLayout.scrollDirection == .horizontal ? .horizontal : .vertical
     var layout: UICollectionViewLayout {
         set {
             invidateTimer()
-            if collectionView == nil {
-                setUI()
-            }
             
             let currentIndex = currentIndexPath()
             
@@ -51,6 +56,7 @@ public class ZZCycleView: UIView {
             
             collectionView.setCollectionViewLayout(newValue, animated: false)
             
+            /// 从当前位置继续循环
             if let currentIndex = currentIndex {
                 collectionView.scrollToItem(at: currentIndex, at: direction == .horizontal ? .centeredHorizontally : .centeredVertically, animated: false)
             }
@@ -62,6 +68,7 @@ public class ZZCycleView: UIView {
         }
     }
     
+    /// 循环的方向
     var direction: Direction = .horizontal
     // MARK: - Private Property
     fileprivate var collectionView: UICollectionView!
@@ -93,6 +100,7 @@ extension ZZCycleView {
     
 }
 
+/// 多个 section 实现的循环，让 ZZCycleView 一直在中间一组循环
 fileprivate let sections = 1001
 // MARK: - Delegate
 extension ZZCycleView: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -118,7 +126,6 @@ extension ZZCycleView: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        //        print(currentIndexPath())
         if canCycle {
             resetToCenter()
         }
@@ -148,15 +155,17 @@ extension ZZCycleView {
                 let width = collectionView.frame.width
                 let currentIdx = Int(offsetX / width) % count
                 
-                if currentIdx == 0
-                    || currentIdx == cycleCount - 1
-                    || offsetX == 0
-                    || offsetX == collectionView.contentSize.width - width
+                if currentIdx == 0  // 第一个的时候，顺时针的时候重置 contentOffset
+                    || currentIdx == cycleCount - 1 // 最后一个的时候，逆时针的时候重置 contentOffset
+                    || offsetX == 0 // 滚动到了最前面，几乎不会出现，以防万一
+                    || offsetX == collectionView.contentSize.width - width  // 滚动到了最后，几乎不会出现，以防万一
                 {
                     let singleContentSizeWidth = collectionView.frame.width * CGFloat(count)
-                    if clockwise {
+                    if isClockwise {
+                        // 滚动到中间组的第一个Cell的位置
                         collectionView.contentOffset = CGPoint(x: singleContentSizeWidth * CGFloat(Int(CGFloat(sections) * 0.5)), y: 0)
                     } else {
+                        // 滚动到中间组的最后一个Cell的位置
                         collectionView.contentOffset = CGPoint(x: singleContentSizeWidth * CGFloat(Int(CGFloat(sections) * 0.5 + 1)) - collectionView.frame.width, y: 0)
                     }
                 }
@@ -165,16 +174,18 @@ extension ZZCycleView {
                 let height = collectionView.frame.height
                 let currentIdx = Int(offsetY / height) % count
                 
-                if currentIdx == 0
-                    || currentIdx == cycleCount - 1
-                    || offsetY == 0
-                    || offsetY == collectionView.contentSize.height - height
+                if currentIdx == 0  // 第一个的时候，顺时针的时候重置 contentOffset
+                    || currentIdx == cycleCount - 1 // 最后一个的时候，逆时针的时候重置 contentOffset
+                    || offsetY == 0 // 滚动到了最前面，几乎不会出现，以防万一
+                    || offsetY == collectionView.contentSize.height - height    // 滚动到了最后，几乎不会出现，以防万一
                 {
                     let singleContentSizeHeight = collectionView.frame.height * CGFloat(count)
                     
-                    if clockwise {
+                    if isClockwise {
+                        // 滚动到中间组的第一个Cell的位置
                         collectionView.contentOffset = CGPoint(x: 0, y: singleContentSizeHeight * CGFloat(Int(CGFloat(sections) * 0.5)))
                     } else {
+                        // 滚动到中间组的最后一个Cell的位置
                         collectionView.contentOffset = CGPoint(x: 0, y: singleContentSizeHeight * CGFloat(Int(CGFloat(sections + 1) * 0.5)) - collectionView.frame.height)
                     }
                 }
@@ -221,22 +232,23 @@ public extension ZZCycleView {
             timer = Timer(timeInterval: cycleTimeInterval, repeats: true, block: { timer in
                 
                 if let currentIndexPath = self.currentIndexPath() {
-                    print(currentIndexPath, IndexPath(item: currentIndexPath.item + (self.clockwise ? 1 : -1), section: currentIndexPath.section))
+//                    print(currentIndexPath, IndexPath(item: currentIndexPath.item + (self.isClockwise ? 1 : -1), section: currentIndexPath.section))
                     
                     if self.cycleCount > 1 {
-                        var indexPath = IndexPath(item: currentIndexPath.item + (self.clockwise ? 1 : -1), section: currentIndexPath.section)
+                        // IndexPath 顺时针下一个，逆时针前一个
+                        var indexPath = IndexPath(item: currentIndexPath.item + (self.isClockwise ? 1 : -1), section: currentIndexPath.section)
                         if currentIndexPath.item == 0 {
-                            if self.clockwise {
+                            if self.isClockwise {   // 当前是第一个并且顺时针，需要重置到最中间组的位置
                                 self.resetToCenter()
                                 let resetIndexPath = self.currentIndexPath()!
                                 indexPath = IndexPath(item: resetIndexPath.item + 1, section: resetIndexPath.section)
-                            } else {
+                            } else {    // 当前是第一个并且逆时针，需要到前一组的最后一个
                                 indexPath = IndexPath(item: Int(self.cycleCount) - 1, section: currentIndexPath.section - 1)
                             }
                         } else if currentIndexPath.item + 1 >= self.cycleCount {
-                            if self.clockwise {
+                            if self.isClockwise {   // 当前是最后一个并且顺时针，需要到下一组的第一个
                                 indexPath = IndexPath(item: 0, section: currentIndexPath.section + 1)
-                            } else {
+                            } else {    // 当前是最后一个并且逆时针，需要到当前组的前一个
                                 self.resetToCenter()
                                 let resetIndexPath = self.currentIndexPath()!
                                 indexPath = IndexPath(item: resetIndexPath.item - 1, section: resetIndexPath.section)
@@ -250,9 +262,10 @@ public extension ZZCycleView {
                             self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
                         }
                     } else if self.cycleCount == 1 {
+                        // 只有一个循环的时候，每次需要重置位置
                         self.resetToCenter()
                         let resetIndexPath = self.currentIndexPath()!
-                        let indexPath = IndexPath(item: 0, section: resetIndexPath.section + (self.clockwise ? 1 : -1))
+                        let indexPath = IndexPath(item: 0, section: resetIndexPath.section + (self.isClockwise ? 1 : -1))
                         
                         switch self.direction {
                         case .horizontal:

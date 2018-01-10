@@ -35,7 +35,7 @@ class ViewController: UIViewController {
 
         cycleView = ZZCycleView(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: 300))
         cycleView.cycleCount = 3
-        cycleView.clockwise = false
+        cycleView.isClockwise = false
         cycleView.register(TestCell.self, forCellWithReuseIdentifier: TestCell.identifier)
         cycleView.cellForIndex = { cycleView, index in
             let cell = cycleView.dequeueReusableCell(withReuseIdentifier: TestCell.identifier, for: index) as! TestCell
