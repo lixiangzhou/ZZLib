@@ -226,3 +226,16 @@
  KeyChaing 的简单包装
  https://github.com/kishikawakatsumi/KeychainAccess.git
  */
+
+/*
+ R.swift
+ 在Swift 项目中获得强类型，自动完成资源如 image, 字体, segues
+ https://github.com/mac-cain13/R.swift.git
+ */
+
+/*
+ SwiftGen
+ 快速生成 assets, storyboards, Localizable.strings 等的 Swift 代码------摆脱基于字符串的所有API
+ https://github.com/SwiftGen/SwiftGen.git
+ */
+

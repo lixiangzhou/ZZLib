@@ -41,6 +41,8 @@ public class ZZCycleView: UIView {
     var cellForIndex: ((ZZCycleView, Int) -> ZZCycleViewCell)?
     /// 是否顺时针循环
     var isClockwise = true
+    /// 选中了某个 Cell，(ZZCycleView, Int, ZZCycleViewCell) 分别是 ZZCycleView 和 选中的 index，选中的 Cell
+    var didSelectCell: ((ZZCycleView, Int, ZZCycleViewCell) -> Void)?
     
     /// 设置新的布局，并从当前位置继续循环，如果开启定时器，会先停止计时器，设置完成后会自动重新开启定时器。如果是 UICollectionViewFlowLayout，
     /// 会同时设置 direction = flowLayout.scrollDirection == .horizontal ? .horizontal : .vertical
@@ -123,6 +125,10 @@ extension ZZCycleView: UICollectionViewDataSource, UICollectionViewDelegate {
         let cell = cellForIndex?(self, indexPath.item)
         assert(cell != nil, "cellForIndex can't be nil")
         return cell!
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        didSelectCell?(self, indexPath.item, )
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
