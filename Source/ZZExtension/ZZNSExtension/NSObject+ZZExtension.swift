@@ -55,7 +55,7 @@ public extension NSObject {
     
     
     /// 对象的 属性 和 属性值
-    var zz_peopertyValues: [String: Any]? {
+    var zz_propertyValues: [String: Any]? {
         
         var propertyValues = [String : Any]()
         guard let properties = zz_properties else {
@@ -94,12 +94,12 @@ public extension NSObject {
     
     
     /// 打印对象的所有属性
-    func zz_printPeopertyValues() {
-        guard let peopertyValues = zz_peopertyValues else{
+    func zz_printPropertyValues() {
+        guard let propertyValues = zz_propertyValues else{
             print("\(type(of: self)) 未找到属性值对")
             return
         }
         print("----------------\(type(of: self))----------------")
-        print(peopertyValues as NSDictionary)
+        print(propertyValues as NSDictionary)
     }
 }

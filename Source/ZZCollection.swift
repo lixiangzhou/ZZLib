@@ -239,3 +239,14 @@
  https://github.com/SwiftGen/SwiftGen.git
  */
 
+/*
+ ActiveLabel.swift
+ 内部支持#，@，http//以及自定义的匹配模式，可点击可设置样式
+ https://github.com/optonaut/ActiveLabel.swift
+ */
+
+/*
+ WKWebViewJavaScriptBridge
+ WKWebView 与 JavaScript 桥接
+ https://github.com/Lision/WKWebViewJavascriptBridge.git
+ */

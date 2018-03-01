@@ -83,7 +83,7 @@ public class ZZRefreshView: UIView {
     }
     
     deinit {
-        removeObserver(self, forKeyPath: "contentOffset")
+        (superview as? UIScrollView)?.removeObserver(self, forKeyPath: "contentOffset")
     }
     
     // 自定义刷新控件时重写此方法
@@ -95,6 +95,6 @@ public class ZZRefreshView: UIView {
     }
     
     // MARK: - 私有属性
-    private var target: AnyObject?
+    private weak var target: AnyObject?
     private var action: Selector?
 }
