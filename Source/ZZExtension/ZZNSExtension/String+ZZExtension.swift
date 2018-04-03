@@ -137,6 +137,38 @@ public extension String {
         return String(self[startIdx..<endIdx])
 //        return substring(with: startIdx..<endIdx)
     }
+    
+    /// 替换字符串
+    ///
+    /// - Parameters:
+    ///   - start: 开始替换位置
+    ///   - length: 替换字符串的长度
+    ///   - with: 要替换的字符串
+    /// - Returns: 替换后的字符串
+    func zz_replace(start: Int, length: Int, with: String) -> String {
+        // 越界判断
+        if start + length > count || start < 0 {
+            return self
+        }
+        
+        var result = ""
+        // 替换字符串之前的部分，如果有就拼接上
+        if start > 0 {
+            result.append(String(self[startIndex..<index(startIndex, offsetBy: start)]))
+        }
+        
+        // 替换字符串
+        for _ in 0..<length {
+            result.append(with)
+        }
+        
+        // 最后剩余的部分，如果有就拼接上
+        let left = count - (start + length)
+        if left > 0 {
+            result.append(String(self[index(endIndex, offsetBy: -left)..<endIndex]))
+        }
+        return result
+    }
 }
 
 
