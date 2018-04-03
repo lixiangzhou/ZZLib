@@ -250,3 +250,27 @@
  WKWebView 与 JavaScript 桥接
  https://github.com/Lision/WKWebViewJavascriptBridge.git
  */
+
+/*
+ IQKeyboardManager
+ 键盘管理
+ https://github.com/hackiftekhar/IQKeyboardManager.git
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
