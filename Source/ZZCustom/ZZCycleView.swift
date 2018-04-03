@@ -103,7 +103,7 @@ extension ZZCycleView {
 }
 
 /// 多个 section 实现的循环，让 ZZCycleView 一直在中间一组循环
-fileprivate let sections = 1001
+fileprivate let sections = 10001
 // MARK: - Delegate
 extension ZZCycleView: UICollectionViewDataSource, UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -128,12 +128,8 @@ extension ZZCycleView: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        didSelectCell?(self, indexPath.item, )
-    }
-    
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if canCycle {
-            resetToCenter()
+        if let cell = collectionView.cellForItem(at: indexPath) as? ZZCycleViewCell {
+            didSelectCell?(self, indexPath.row, cell)
         }
     }
     

@@ -43,10 +43,13 @@ class ViewController: UIViewController {
             cell.textLabel.text = "\(index)"
             return cell
         }
+        
+        cycleView.didSelectCell = { cycleView, idx, cell in
+            print(cell)
+        }
+        
         view.addSubview(cycleView)
     }
-    
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let layout = UICollectionViewFlowLayout()
