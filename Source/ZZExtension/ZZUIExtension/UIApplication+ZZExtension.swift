@@ -15,7 +15,6 @@ public enum ZZSavedFileDirectoryType {
     case cachesDirectory, documentDirectory, libraryDirectory, tempDirectory
 }
 
-
 /// 生成获取一个文件的路径
 ///
 /// - parameter directory: 文件目录类型
@@ -36,7 +35,6 @@ public func zz_filePath(with directory: ZZSavedFileDirectoryType = .cachesDirect
 }
 
 public extension UIApplication {
-    
     /// .documentDirectory URL
     var zz_documentURL: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!

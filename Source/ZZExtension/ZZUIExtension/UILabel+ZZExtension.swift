@@ -10,8 +10,7 @@ import UIKit
 
 
 public extension UILabel {
-    
-    /// 快速穿件Label
+    /// 快速创建Label
     ///
     /// - parameter text:      text
     /// - parameter fontSize:  字体大小

@@ -12,7 +12,6 @@ import UIKit
 private var cacheImageBg = [String: UIImage]()
 
 public extension UIImage {
-    
     /// 截取图片的一部分
     ///
     /// - parameter inRect: 指定截取图片的区域
@@ -29,7 +28,6 @@ public extension UIImage {
         return UIImage(cgImage: cgimg, scale: scale, orientation: .up)
     }
     
-    
     /// 根据颜色生成指定大小的方图
     ///
     /// - parameter color:     图片颜色
@@ -37,19 +35,13 @@ public extension UIImage {
     ///
     /// - returns: 生成的图片
     static func zz_image(withColor color: UIColor, imageSize: CGFloat = 0.5) -> UIImage {
-        
         UIGraphicsBeginImageContextWithOptions(CGSize(width: imageSize, height: imageSize), false, 0.0)
-        
         color.setFill()
         UIRectFill(CGRect(x: 0, y: 0, width: imageSize, height: imageSize))
-        
         let result = UIGraphicsGetImageFromCurrentImageContext()!
-        
         UIGraphicsEndImageContext()
-        
         return result
     }
-    
     
     /// 异步回执图片，主线程返回图片
     ///
@@ -59,26 +51,16 @@ public extension UIImage {
     /// - parameter finished:  回调返回图片的闭包
     func zz_asyncDrawImage(size: CGSize, isCircle: Bool = false, backColor: UIColor? = UIColor.white, finished: @escaping (_ image: UIImage) -> ()) {
         DispatchQueue.global().async {
-            
             let key = "" + size.width.description + size.height.description + (backColor != nil ? backColor!.description : UIColor.clear.description)
-            
             var backImg = cacheImageBg[key]
-            
             let rect = CGRect(origin: CGPoint.zero, size: size)
-            
             if backImg == nil && isCircle {
-                
                 backImg = UIImage.zz_clearCircleImage(inSize: size)
-                
                 cacheImageBg[key] = backImg
             }
-            
             UIGraphicsBeginImageContextWithOptions(size, backColor != nil, 0.0)
-            
             self.draw(in: rect)
-            
             backImg?.draw(in: rect)
-            
             let result = UIGraphicsGetImageFromCurrentImageContext()!
             UIGraphicsEndImageContext()
             
@@ -87,7 +69,6 @@ public extension UIImage {
             }
         }
     }
-    
     
     /// 根据指定大小和边部颜色生成一张中间是透明圆形的图片
     ///
@@ -115,7 +96,6 @@ public extension UIImage {
         
         return result
     }
-    
     
     /// 生成一张渐变色图片
     ///

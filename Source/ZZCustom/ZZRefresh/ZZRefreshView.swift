@@ -10,13 +10,13 @@ import UIKit
 
 public class ZZRefreshView: UIView {
     // MARK: - 公共属性
-    var style = ZZRefreshViewPositionStyle.bottom
+    public var style = ZZRefreshViewPositionStyle.bottom
     
-    func update(progress: CGFloat) { print(progress) }
+    public func update(progress: CGFloat) { print(progress) }
     
-    var originInset = UIEdgeInsets.zero
+    public var originInset = UIEdgeInsets.zero
     
-    var state: ZZRefreshState = ZZRefreshState.normal {
+    public var state: ZZRefreshState = ZZRefreshState.normal {
         didSet {
             if state == oldValue {
                 return
@@ -40,11 +40,11 @@ public class ZZRefreshView: UIView {
     }
     
     // MARK: - 公共方法
-    func beginRefreshing() {
+    public func beginRefreshing() {
         state = .refreshing
     }
     
-    func endRefreshing() {
+    public func endRefreshing() {
         state = .normal
     }
     

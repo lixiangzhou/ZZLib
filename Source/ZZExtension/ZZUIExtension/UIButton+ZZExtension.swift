@@ -9,7 +9,6 @@
 import UIKit
 
 public extension UIButton {
-    
     /// 快速创建按钮
     ///
     /// - parameter title:                        title

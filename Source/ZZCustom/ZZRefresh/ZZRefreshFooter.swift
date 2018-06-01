@@ -9,7 +9,7 @@
 import UIKit
 
 public class ZZRefreshFooter: ZZRefreshView {
-    override var state: ZZRefreshState {
+    public override var state: ZZRefreshState {
         didSet {
             switch state {
             case .refreshing:

@@ -9,8 +9,6 @@
 import UIKit
 
 public extension UITextField {
-    
-    
     /// 选中所有文字
     func zz_selectAllText() {
         guard let range = textRange(from: beginningOfDocument, to: endOfDocument) else {
@@ -18,7 +16,6 @@ public extension UITextField {
         }
         selectedTextRange = range
     }
-    
     
     /// 选中指定范围的文字
     ///

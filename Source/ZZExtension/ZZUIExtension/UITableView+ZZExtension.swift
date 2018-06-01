@@ -15,9 +15,7 @@ public protocol ZZTableViewMovableCellDelegate: NSObjectProtocol {
     func zz_tableView(_ tableView: UITableView, didMoveWith newData: [Any])
 }
 
-
 public extension UITableView {
-    
     /// 开启 cell 拖动功能
     ///
     /// - Parameters:
@@ -41,7 +39,6 @@ public extension UITableView {
     func zz_disableMovableCell() {
         removeGestureRecognizer(movableLongPressGesture)
     }
-        
 }
 
 

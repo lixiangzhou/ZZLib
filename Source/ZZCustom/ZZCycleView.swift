@@ -31,22 +31,22 @@ public class ZZCycleView: UIView {
     
     // MARK: - Public Property
     /// 循环的个数【必须设置】
-    var cycleCount: UInt = 0
+    public var cycleCount: UInt = 0
     /// 是否可以循环
-    var canCycle = true
+    public var canCycle = true
     /// 循环的时间间隔
-    var cycleTimeInterval: TimeInterval = 2
+    public var cycleTimeInterval: TimeInterval = 2
     /// 要显示的内容，ZZCycleViewCell 继承自 UICollectionViewCell【必须设置】
     /// (ZZCycleView, Int) 分别是 ZZCycleView 和 index
-    var cellForIndex: ((ZZCycleView, Int) -> ZZCycleViewCell)?
+    public var cellForIndex: ((ZZCycleView, Int) -> ZZCycleViewCell)?
     /// 是否顺时针循环
-    var isClockwise = true
+    public var isClockwise = true
     /// 选中了某个 Cell，(ZZCycleView, Int, ZZCycleViewCell) 分别是 ZZCycleView 和 选中的 index，选中的 Cell
-    var didSelectCell: ((ZZCycleView, Int, ZZCycleViewCell) -> Void)?
+    public var didSelectCell: ((ZZCycleView, Int, ZZCycleViewCell) -> Void)?
     
     /// 设置新的布局，并从当前位置继续循环，如果开启定时器，会先停止计时器，设置完成后会自动重新开启定时器。如果是 UICollectionViewFlowLayout，
     /// 会同时设置 direction = flowLayout.scrollDirection == .horizontal ? .horizontal : .vertical
-    var layout: UICollectionViewLayout {
+    public var layout: UICollectionViewLayout {
         set {
             invidateTimer()
             
@@ -71,7 +71,8 @@ public class ZZCycleView: UIView {
     }
     
     /// 循环的方向
-    var direction: Direction = .horizontal
+    public var direction: Direction = .horizontal
+    
     // MARK: - Private Property
     fileprivate var collectionView: UICollectionView!
     fileprivate var timer: Timer!
@@ -99,11 +100,11 @@ extension ZZCycleView {
 
 // MARK: - Action
 extension ZZCycleView {
-    
 }
 
 /// 多个 section 实现的循环，让 ZZCycleView 一直在中间一组循环
 fileprivate let sections = 10001
+
 // MARK: - Delegate
 extension ZZCycleView: UICollectionViewDataSource, UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -141,8 +142,6 @@ extension ZZCycleView: UICollectionViewDataSource, UICollectionViewDelegate {
         startTimer()
     }
 }
-
-
 
 // MARK: - Helper
 extension ZZCycleView {
@@ -232,7 +231,6 @@ public extension ZZCycleView {
         invidateTimer()
         if canCycle && cycleCount > 0 {
             timer = Timer(timeInterval: cycleTimeInterval, repeats: true, block: { timer in
-                
                 if let currentIndexPath = self.currentIndexPath() {
 //                    print(currentIndexPath, IndexPath(item: currentIndexPath.item + (self.isClockwise ? 1 : -1), section: currentIndexPath.section))
                     

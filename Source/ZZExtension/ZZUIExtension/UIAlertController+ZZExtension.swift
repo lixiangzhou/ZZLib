@@ -9,7 +9,6 @@
 import UIKit
 
 public extension UIAlertController {
-    
     /// 快捷弹窗，Alert 样式或者 ActionSheet样式
     ///
     /// - parameter fromController: 弹窗所在的控制器

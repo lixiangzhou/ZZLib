@@ -11,7 +11,7 @@ import AVFoundation
 
 /// 简单的音效播放工具
 public class ZZAudioTool {
-    static let shared = ZZAudioTool()
+    public static let shared = ZZAudioTool()
     
     private init() {}
     
@@ -27,7 +27,7 @@ public class ZZAudioTool {
     /// - Parameters:
     ///   - url: 音效文件的url
     ///   - completionBlock: 播放完音效的回调
-    func playAlertSound(url: URL, completionBlock: ((SystemSoundID?) -> Void)?) {
+    public func playAlertSound(url: URL, completionBlock: ((SystemSoundID?) -> Void)?) {
         playSound(url: url, type: .alert, completionBlock: completionBlock)
     }
     
@@ -36,12 +36,12 @@ public class ZZAudioTool {
     /// - Parameters:
     ///   - url: 音效文件的url
     ///   - completionBlock: 播放完音效的回调
-    func playSystemSound(url: URL, completionBlock: ((SystemSoundID?) -> Void)?) {
+    public func playSystemSound(url: URL, completionBlock: ((SystemSoundID?) -> Void)?) {
         playSound(url: url, type: .system, completionBlock: completionBlock)
     }
     
     /// 清空音效缓存
-    func clearCache() {
+    public func clearCache() {
         soundCaches.forEach { (each) in
             AudioServicesDisposeSystemSoundID(each.1)
         }

@@ -9,7 +9,6 @@
 import UIKit
 
 public extension UIView {
-    
     /// view所在的UIViewController
     var zz_controller: UIViewController? {
         var responder = next
@@ -21,7 +20,6 @@ public extension UIView {
         }
         return nil
     }
-    
     
     /// 移除所有子控件
     func zz_removeAllSubviews() {
@@ -43,7 +41,6 @@ public extension UIView {
         layer.masksToBounds = masksToBounds
     }
     
-    
     /// 设置边宽及颜色
     ///
     /// - parameter color: 边框颜色
@@ -55,7 +52,6 @@ public extension UIView {
 }
 
 public extension UIView {
-    
     /// 添加子控件
     ///
     /// - parameter subview: 子控件
@@ -66,7 +62,6 @@ public extension UIView {
         addSubview(subview)
         return subview
     }
-    
     
     /// 添加子控件
     ///
@@ -80,11 +75,9 @@ public extension UIView {
         subview.frame = frame
         return subview
     }
-    
 }
 
 public extension UIView {
-    
     /// nib 加载控件
     ///
     /// - parameter nibName: nib 文件名
@@ -106,7 +99,6 @@ public extension UIView {
     func zz_snapshotImage() -> UIImage {
         return zz_cropImage(inRect: bounds)
     }
-    
     
     /// 在指定区域截取图像
     ///

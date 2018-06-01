@@ -9,7 +9,6 @@
 import UIKit
 
 public extension UIColor {
-    
     /// 快速创建颜色
     ///
     /// - parameter red:   红
@@ -75,7 +74,6 @@ public extension UIColor {
         self.init(red: r, green: g, blue: b, alpha: a)
     }
     
-    
     /// 随机色
     static var zz_random: UIColor {
         let red = arc4random() % 256
@@ -84,7 +82,6 @@ public extension UIColor {
         
         return UIColor(red: Int(red), green: Int(green), blue: Int(blue))
     }
-    
     
     /// 返回颜色的rgba值
     var rgbaValue: String? {
@@ -129,7 +126,6 @@ public extension UIColor {
         return nil
     }
     
-    
     /// 返回颜色的rgba值
     var rgbaHexStringValue: (red: String, green: String, blue: String, alpha: String)? {
         var r: CGFloat = 0
@@ -148,7 +144,6 @@ public extension UIColor {
         
         return nil
     }
-    
     
     /// 返回颜色的rgba值，0-255
     var rgbaIntValue: (red: Int, green: Int, blue: Int, alpha: Int)? {

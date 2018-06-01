@@ -10,7 +10,7 @@ import UIKit
 
 public class ZZRefreshHeader: ZZRefreshView {
 
-    override var state: ZZRefreshState {
+    public override var state: ZZRefreshState {
         didSet {
             switch state {
             case .refreshing:

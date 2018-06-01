@@ -10,10 +10,10 @@ import UIKit
 
 public class ZZCircleProgressView: UIView {
     
-    var progressColor: UIColor = UIColor.blue
-    var trackColor: UIColor = UIColor.red
-    var progressWidth: CGFloat = 3
-    var progress: CGFloat = 0.5 {
+    public var progressColor: UIColor = UIColor.blue
+    public var trackColor: UIColor = UIColor.red
+    public var progressWidth: CGFloat = 3
+    public var progress: CGFloat = 0.5 {
         didSet {
             setNeedsDisplay()
         }

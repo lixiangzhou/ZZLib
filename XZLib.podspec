@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint ZZLib.podspec' to ensure this is a
+#  Be sure to run `pod spec lint XZLib.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "ZZLib"
-  s.version      = "0.0.1"
+  s.name         = "XZLib"
+  s.version      = "0.0.2"
   s.summary      = "A lib for iOS use with Swift."
 
   # This description is used to generate tags and improve search results.

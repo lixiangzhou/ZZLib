@@ -16,7 +16,6 @@ public enum UIImageViewCircleMode {
 private var cachedImage = [String: UIImage]()
 
 public extension UIImageView {
-    
     /// 创建一个可以设置中心原图的UIImageView
     ///
     /// - parameter frame:     frame

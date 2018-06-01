@@ -9,9 +9,9 @@
 import UIKit
 
 /// 可以调整图片位置的按钮
-open class ZZImagePositionButton: UIButton {
+public class ZZImagePositionButton: UIButton {
     
-    enum ZZImagePosition {
+    public enum ZZImagePosition {
         case left, right
         case none // 默认，不调整左中右的间距
     }
@@ -41,7 +41,7 @@ open class ZZImagePositionButton: UIButton {
         
     }
     
-    convenience init(title: String? = nil,
+    public convenience init(title: String? = nil,
                      titleSize: CGFloat = 12,
                      titleColor: UIColor = UIColor.darkText,
                      imageName: String? = nil,

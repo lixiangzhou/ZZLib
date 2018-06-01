@@ -51,6 +51,7 @@ fileprivate let zz_deviceVersion: (identifier: String, version: ZZDeviceVersion)
     case "iPad7,1", "iPad7,2":                          return (identifier: identifier, version: ZZDeviceVersion.iPad_Pro_2_12_9)
     case "iPad6,3", "iPad6,4":                          return (identifier: identifier, version: ZZDeviceVersion.iPad_Pro_9_7)
     case "iPad7,3", "iPad7,4":                          return (identifier: identifier, version: ZZDeviceVersion.iPad_Pro_10_5)
+    case "iPad7,5", "iPad7,6":                          return (identifier: identifier, version: ZZDeviceVersion.iPad_6)
         
     /*** iPod ***/
     case "iPod1,1":                                     return (identifier: identifier, version: ZZDeviceVersion.iPodTouch_1)
@@ -103,6 +104,7 @@ public enum ZZDeviceVersion: String {
     case iPad_3 = "iPad 3"
     case iPad_4 = "iPad 4"
     case iPad_5 = "iPad 5"
+    case iPad_6 = "iPad 6"
     case iPad_Air = "iPad Air"
     case iPad_Air_2 = "iPad Air 2"
     case iPad_Pro_12_9 = "iPad Pro (12.9-inch)"
