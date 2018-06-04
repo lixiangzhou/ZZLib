@@ -15,6 +15,7 @@
 		9736E4881E90153D0050B8EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9736E4871E90153D0050B8EA /* Assets.xcassets */; };
 		9736E48B1E90153D0050B8EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9736E4891E90153D0050B8EA /* LaunchScreen.storyboard */; };
 		973F0F2D1F5E891800BE861F /* ZZHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973F0F2C1F5E891800BE861F /* ZZHud.swift */; };
+		9760302520C4F72E0063DBBB /* UIViewController+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9760302420C4F72E0063DBBB /* UIViewController+ZZExtension.swift */; };
 		97CAA4BD1E96315900FAFC9E /* ZZButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA49F1E96315900FAFC9E /* ZZButton.swift */; };
 		97CAA4BE1E96315900FAFC9E /* ZZCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4A01E96315900FAFC9E /* ZZCircleProgressView.swift */; };
 		97CAA4C01E96315900FAFC9E /* Calendar+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CAA4A41E96315900FAFC9E /* Calendar+ZZExtension.swift */; };
@@ -62,6 +63,7 @@
 		9736E48A1E90153D0050B8EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9736E48C1E90153D0050B8EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		973F0F2C1F5E891800BE861F /* ZZHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZHud.swift; sourceTree = "<group>"; };
+		9760302420C4F72E0063DBBB /* UIViewController+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ZZExtension.swift"; sourceTree = "<group>"; };
 		97CAA49F1E96315900FAFC9E /* ZZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZButton.swift; sourceTree = "<group>"; };
 		97CAA4A01E96315900FAFC9E /* ZZCircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZCircleProgressView.swift; sourceTree = "<group>"; };
 		97CAA4A41E96315900FAFC9E /* Calendar+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calendar+ZZExtension.swift"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		97CAA4AD1E96315900FAFC9E /* ZZUIExtension */ = {
 			isa = PBXGroup;
 			children = (
+				9760302420C4F72E0063DBBB /* UIViewController+ZZExtension.swift */,
 				97CAA4AE1E96315900FAFC9E /* UIAlertController+ZZExtension.swift */,
 				97CAA4AF1E96315900FAFC9E /* UIApplication+ZZExtension.swift */,
 				97CAA4B01E96315900FAFC9E /* UIButton+ZZExtension.swift */,
@@ -329,6 +332,7 @@
 				8D414F7720034CC600E43CC5 /* ZZCycleView.swift in Sources */,
 				97CAA4BE1E96315900FAFC9E /* ZZCircleProgressView.swift in Sources */,
 				97E322571E9AFAE30043D8E9 /* ZZRefreshView.swift in Sources */,
+				9760302520C4F72E0063DBBB /* UIViewController+ZZExtension.swift in Sources */,
 				97CAA4D71E96315900FAFC9E /* ZZLib.swift in Sources */,
 				97CAA4D21E96315900FAFC9E /* UISceen+ZZExtension.swift in Sources */,
 				97CAA4D61E96315900FAFC9E /* UIView+ZZExtension.swift in Sources */,

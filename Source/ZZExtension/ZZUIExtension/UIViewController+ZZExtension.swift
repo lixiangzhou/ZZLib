@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     func popToViewController(_ viewControllerName: String, animated: Bool = true) {
         guard let childVC = navigationController?.childViewControllers else {
             return
