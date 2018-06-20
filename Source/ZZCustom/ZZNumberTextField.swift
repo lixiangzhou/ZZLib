@@ -19,7 +19,7 @@ class ZZNumberTextField: UITextField, UITextFieldDelegate {
     }
     
     // MARK: - Public Prop
-    /// 分隔模式
+    /// 分隔模式，例如银行卡号[4, 4, 4, 4, 4, 4]; 身份证号[6, 8, 4]
     var sepMode = [Int]() {
         didSet {
             var index = 0
@@ -33,7 +33,8 @@ class ZZNumberTextField: UITextField, UITextFieldDelegate {
     
     /// 长度限制，不包含空格的长度
     var lengthLimit = Int.max
-    // 要包含的其他的字符，默认包含 CharacterSet.decimalDigits 和 " "
+    
+    /// 要包含的其他的字符，默认包含 CharacterSet.decimalDigits 和 " "
     var additionIncludeCharacterSet: CharacterSet?
     
     // MARK: - Private Prop
@@ -51,6 +52,7 @@ class ZZNumberTextField: UITextField, UITextFieldDelegate {
                     if range.location >= 1 {
                         toDeleteCharacterEmpty = text[text.index(text.startIndex, offsetBy: range.location - 1)]
                     }
+                    
                     if range.location == text.count - 1 {   // 在最后删除
                         if toDeleteCharacterEmpty == emptyCharacter {
                             // 有空格，需要再往前删除一个空格
@@ -84,9 +86,11 @@ class ZZNumberTextField: UITextField, UITextFieldDelegate {
                             location -= 1
                         }
                     }
+                    
                     if NSMaxRange(range) != text.count {    // 光标不是在最后
                         resetPosition(offset: location)
                     }
+                    
                     return false
                 } else {
                     return true
@@ -124,6 +128,7 @@ class ZZNumberTextField: UITextField, UITextFieldDelegate {
                 
                 let temp = stringBeforeCursor + string
                 let newLocation = formatToModeString(temp).count
+                
                 // 异步主线程是为了避免复制粘贴时光标错位的问题
                 DispatchQueue.main.async {
                     self.resetPosition(offset: newLocation)
