@@ -13,12 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let field = ZZNumberTextField(frame: CGRect(x: 20, y: 60, width: 300, height: 30))
-        field.borderStyle = .roundedRect
-        field.lengthLimit = 18
-        field.additionIncludeCharacterSet = CharacterSet(charactersIn: "Xx")
-        field.sepMode = [6, 8, 4]
-        view.addSubview(field)
+        print(12.52412.zz_46Value(point: 2))
+        print(12.52624.zz_46Value(point: 2))
+        print(12.52501.zz_46Value(point: 2))
+        print(12.52500.zz_46Value(point: 2))
+        print(12.53500.zz_46Value(point: 2))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
