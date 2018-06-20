@@ -49,6 +49,7 @@
 		97E322551E9AFAE30043D8E9 /* ZZRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E322501E9AFAE30043D8E9 /* ZZRefreshFooter.swift */; };
 		97E322561E9AFAE30043D8E9 /* ZZRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E322511E9AFAE30043D8E9 /* ZZRefreshHeader.swift */; };
 		97E322571E9AFAE30043D8E9 /* ZZRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E322521E9AFAE30043D8E9 /* ZZRefreshView.swift */; };
+		97E6F0A420DA07AC0085F27B /* ZZNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E6F0A320DA07AC0085F27B /* ZZNumberTextField.swift */; };
 		97F7194A1F39B47D0094BFE5 /* NSNumber+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F719491F39B47D0094BFE5 /* NSNumber+ZZExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		97E322501E9AFAE30043D8E9 /* ZZRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefreshFooter.swift; sourceTree = "<group>"; };
 		97E322511E9AFAE30043D8E9 /* ZZRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefreshHeader.swift; sourceTree = "<group>"; };
 		97E322521E9AFAE30043D8E9 /* ZZRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZRefreshView.swift; sourceTree = "<group>"; };
+		97E6F0A320DA07AC0085F27B /* ZZNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZNumberTextField.swift; sourceTree = "<group>"; };
 		97F719491F39B47D0094BFE5 /* NSNumber+ZZExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumber+ZZExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 				973F0F2C1F5E891800BE861F /* ZZHud.swift */,
 				97E16FD61F877833007EF36E /* ZZAudioTool.swift */,
 				8D414F7620034CC600E43CC5 /* ZZCycleView.swift */,
+				97E6F0A320DA07AC0085F27B /* ZZNumberTextField.swift */,
 			);
 			path = ZZCustom;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				97CAA4D31E96315900FAFC9E /* UIScrollView+ZZExtension.swift in Sources */,
 				97CAA4CD1E96315900FAFC9E /* UIDevice+ZZExtension.swift in Sources */,
 				97CAA4D51E96315900FAFC9E /* UITextField+ZZExtension.swift in Sources */,
+				97E6F0A420DA07AC0085F27B /* ZZNumberTextField.swift in Sources */,
 				97CAA4CA1E96315900FAFC9E /* UIApplication+ZZExtension.swift in Sources */,
 				97CAA4C61E96315900FAFC9E /* Locale+ZZExtension.swift in Sources */,
 				97CAA4C81E96315900FAFC9E /* String+ZZExtension.swift in Sources */,
