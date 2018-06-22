@@ -13,14 +13,55 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(12.52412.zz_46Value(point: 2))
-        print(12.52624.zz_46Value(point: 2))
-        print(12.52501.zz_46Value(point: 2))
-        print(12.52500.zz_46Value(point: 2))
-        print(12.53500.zz_46Value(point: 2))
+
+        let btn = UIButton(frame: CGRect(x: 20, y: 80, width: 100, height: 40))
+        btn.backgroundColor = .blue
+        view.addSubview(btn)
+        btn.addTarget(self, action: #selector(click), for: .touchUpInside)
+    }
+    
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        navigationController?.pushViewController(ViewController(), animated: true)
+    }
+    var timer: Timer?
+    @objc func click() {
+        Timer.zz_scheduledTimer(timeInterval: 1, target: self, selector: #selector(run), userInfo: nil, repeats: true)
+    }
+    
+    @objc func run() {
+        print("----------")
+    }
+    
+}
+
+
+class ZZSafeTimer {
+    weak var target: AnyObject?
+    var selector: Selector?
+    var timer: Timer?
+    
+    class func scheduledTimer(timeInterval ti: TimeInterval, target aTarget: Any, selector aSelector: Selector, userInfo: Any?, repeats yesOrNo: Bool) -> Timer {
+        let safeTimer = ZZSafeTimer()
+        safeTimer.target = aTarget as AnyObject
+        safeTimer.selector = aSelector
+        safeTimer.timer = Timer.scheduledTimer(timeInterval: ti, target: safeTimer, selector: #selector(fire), userInfo: userInfo, repeats: yesOrNo)
+        return safeTimer.timer!
+    }
+    
+    @objc func fire() {
+        if let target = target {
+            target.perform(selector, with: timer?.userInfo)
+        } else {
+            timer?.invalidate()
+        }
     }
 }
+

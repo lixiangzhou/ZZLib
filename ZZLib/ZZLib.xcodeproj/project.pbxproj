@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D414F7720034CC600E43CC5 /* ZZCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D414F7620034CC600E43CC5 /* ZZCycleView.swift */; };
+		8D55F62320DC9B960027E8CB /* Timer+ZZExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D55F62220DC9B960027E8CB /* Timer+ZZExtension.swift */; };
 		971006211EA06FC100DE3A34 /* ZZCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971006201EA06FC100DE3A34 /* ZZCollection.swift */; };
 		9736E4811E90153D0050B8EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4801E90153D0050B8EA /* AppDelegate.swift */; };
 		9736E4831E90153D0050B8EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E4821E90153D0050B8EA /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		8D414F7620034CC600E43CC5 /* ZZCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCycleView.swift; sourceTree = "<group>"; };
+		8D55F62220DC9B960027E8CB /* Timer+ZZExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer+ZZExtension.swift"; sourceTree = "<group>"; };
 		971006201EA06FC100DE3A34 /* ZZCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZZCollection.swift; sourceTree = "<group>"; };
 		9736E47D1E90153D0050B8EA /* ZZLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9736E4801E90153D0050B8EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				97CAA4AB1E96315900FAFC9E /* NSObject+ZZExtension.swift */,
 				97CAA4AC1E96315900FAFC9E /* String+ZZExtension.swift */,
 				97F719491F39B47D0094BFE5 /* NSNumber+ZZExtension.swift */,
+				8D55F62220DC9B960027E8CB /* Timer+ZZExtension.swift */,
 			);
 			path = ZZNSExtension;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				9736E4811E90153D0050B8EA /* AppDelegate.swift in Sources */,
 				97CAA4CE1E96315900FAFC9E /* UIFont+ZZExtension.swift in Sources */,
 				97CAA4C91E96315900FAFC9E /* UIAlertController+ZZExtension.swift in Sources */,
+				8D55F62320DC9B960027E8CB /* Timer+ZZExtension.swift in Sources */,
 				97F7194A1F39B47D0094BFE5 /* NSNumber+ZZExtension.swift in Sources */,
 				97CAA4C51E96315900FAFC9E /* DispatchQueue+ZZExtension.swift in Sources */,
 				97CAA4D11E96315900FAFC9E /* UILabel+ZZExtension.swift in Sources */,
