@@ -8,6 +8,10 @@
 
 import UIKit
 
+class Test {
+    
+}
+
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -18,18 +22,23 @@ class ViewController: UIViewController {
         btn.backgroundColor = .blue
         view.addSubview(btn)
         btn.addTarget(self, action: #selector(click), for: .touchUpInside)
+        
+        let b = Bundle(for: Test.self)
+        let bt = b.path(forResource: "Test", ofType: "bundle")
+        print(b, bt)
     }
     
     
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         navigationController?.pushViewController(ViewController(), animated: true)
+        zz_application.open(URL(string: "https://itunes.apple.com/app/id444934666")!, options: ["": ""]) { (v) in
+            print(v)
+        }
     }
     var timer: Timer?
     @objc func click() {

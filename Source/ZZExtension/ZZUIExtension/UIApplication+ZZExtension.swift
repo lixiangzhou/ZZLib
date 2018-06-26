@@ -76,14 +76,14 @@ public extension UIApplication {
     }
     
     /// 应用 identifier
-    var zz_appId: String {
-        return Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String
+    var zz_appID: String {
+        return Bundle.main.bundleIdentifier!
+//        return Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String
     }
-    
     
     /// 应用名称
     var zz_appName: String {
-        return Bundle.main.infoDictionary!["CFBundleName"] as! String
+        return (Bundle.main.infoDictionary!["CFBundleDisplayName"] as? String) ?? Bundle.main.infoDictionary!["CFBundleName"] as! String
     }
     
     /// 应用版本号
@@ -94,5 +94,30 @@ public extension UIApplication {
     /// 应用构建版本号
     var zz_appBuildVersion: String {
         return Bundle.main.infoDictionary!["CFBundleVersion"] as! String
+    }
+}
+
+public extension UIApplication {
+    /// 查询本应用在itunes 的信息
+    func zz_lookupAppInfo(_ completionHandler: @escaping (Data?, URLResponse?, Error?) -> Swift.Void) {
+        guard let url = URL(string: "https://itunes.apple.com/lookup?bundleId=\(zz_appID)") else {
+            return
+        }
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
+        URLSession.shared.dataTask(with: request, completionHandler: completionHandler).resume()
+    }
+    
+    /// 根据appID 打开一个应用
+    func zz_launchAppStore(_ appID: String) {
+        guard let url = URL(string: "https://itunes.apple.com/app/id\(appID)") else {
+                return
+        }
+        DispatchQueue.main.async {
+            if #available(iOS 10.0, *) {
+                self.open(url, completionHandler: nil)
+            } else {
+                self.openURL(url)
+            }
+        }
     }
 }
