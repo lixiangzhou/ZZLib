@@ -79,7 +79,7 @@ open class ZZRefreshFooter: ZZRefreshView {
             } else {
                 height = abs(distance)
             }
-            frame = CGRect(x: 0, y: y, width: width, height: footerHeight - additionHeight)
+            frame = CGRect(x: 0, y: y, width: width, height: height - additionHeight)
         }
         
         if state == .refreshing || distance > 0 {
