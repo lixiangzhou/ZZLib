@@ -60,4 +60,7 @@ open class ZZRefreshHeader: ZZRefreshView {
             state = .refreshing
         }
     }
+    
+    // 自定义刷新控件时重写此方法
+    open override func setupUI() {  }
 }

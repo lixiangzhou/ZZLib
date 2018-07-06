@@ -94,6 +94,9 @@ open class ZZRefreshFooter: ZZRefreshView {
         }
         
     }
+ 
+    // 自定义刷新控件时重写此方法
+    open override func setupUI() {  }
     
     // 屏幕的情况
     private var notFull: Bool {
