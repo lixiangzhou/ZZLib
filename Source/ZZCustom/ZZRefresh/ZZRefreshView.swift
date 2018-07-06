@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ZZRefreshView: UIView {
+open class ZZRefreshView: UIView {
     // MARK: - 公共属性
     public var style = ZZRefreshViewPositionStyle.bottom
     
@@ -16,7 +16,7 @@ public class ZZRefreshView: UIView {
     
     public var originInset = UIEdgeInsets.zero
     
-    public var state: ZZRefreshState = ZZRefreshState.normal {
+    open var state: ZZRefreshState = ZZRefreshState.normal {
         didSet {
             if state == oldValue {
                 return
@@ -70,7 +70,7 @@ public class ZZRefreshView: UIView {
         setupUI()
     }
     
-    override public func willMove(toSuperview newSuperview: UIView?) {
+    override open func willMove(toSuperview newSuperview: UIView?) {
         if newSuperview == nil || newSuperview is UIScrollView == false {
             return
         }
