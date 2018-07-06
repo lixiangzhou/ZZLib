@@ -36,7 +36,12 @@ open class ZZRefreshFooter: ZZRefreshView {
         
         var y = max(scrollView.contentSize.height, scrollView.frame.height)
         
-        let footerHeight = zz_RefreshConstant.footerHeight
+        var additionHeight: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            additionHeight = scrollView.adjustedContentInset.bottom
+        }
+        
+        let footerHeight = zz_RefreshConstant.footerHeight + additionHeight
         
         var height: CGFloat = 0.0
         switch style {
@@ -51,7 +56,7 @@ open class ZZRefreshFooter: ZZRefreshView {
             } else {
                 height = footerHeight//min(abs(distance), footerHeight)
             }
-            frame = CGRect(x: 0, y: y, width: width, height: footerHeight)
+            frame = CGRect(x: 0, y: y, width: width, height: footerHeight - additionHeight)
         case .bottom:
             if notFull {  // 不满一屏幕的情况
                 if state == .refreshing {
@@ -66,7 +71,7 @@ open class ZZRefreshFooter: ZZRefreshView {
                 height = footerHeight//min(abs(distance), footerHeight)
             }
             
-            frame = CGRect(x: 0, y: y, width: width, height: footerHeight)
+            frame = CGRect(x: 0, y: y, width: width, height: footerHeight - additionHeight)
         case .scaleToFill:
             if notFull, state == .refreshing {
                 y = scrollView.frame.height - footerHeight
@@ -74,7 +79,7 @@ open class ZZRefreshFooter: ZZRefreshView {
             } else {
                 height = abs(distance)
             }
-            frame = CGRect(x: 0, y: y, width: width, height: height)
+            frame = CGRect(x: 0, y: y, width: width, height: footerHeight - additionHeight)
         }
         
         if state == .refreshing || distance > 0 {
