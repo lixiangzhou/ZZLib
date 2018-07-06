@@ -87,7 +87,7 @@ open class ZZRefreshView: UIView {
     }
     
     // 自定义刷新控件时重写此方法
-    func setupUI() {  }
+    open func setupUI() {  }
     
     // MARK: - 辅助属性
     var scrollView: UIScrollView! {
