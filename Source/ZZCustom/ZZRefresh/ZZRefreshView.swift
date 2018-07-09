@@ -16,7 +16,7 @@ open class ZZRefreshView: UIView {
     
     public var originInset = UIEdgeInsets.zero
     
-    /// 次变量值用在footerView 上
+    /// 此变量值用在footerView 上
     public var loadNoMoreData = false
     
     open var state: ZZRefreshState = ZZRefreshState.normal {
