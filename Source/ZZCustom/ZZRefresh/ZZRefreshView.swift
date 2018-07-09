@@ -16,8 +16,14 @@ open class ZZRefreshView: UIView {
     
     public var originInset = UIEdgeInsets.zero
     
+    /// 次变量值用在footerView 上
+    public var loadNoMoreData = false
+    
     open var state: ZZRefreshState = ZZRefreshState.normal {
         didSet {
+            if loadNoMoreData {
+                return
+            }
             if state == oldValue {
                 return
             }
@@ -71,6 +77,9 @@ open class ZZRefreshView: UIView {
     }
     
     override open func willMove(toSuperview newSuperview: UIView?) {
+        
+        superview?.removeObserver(self, forKeyPath: "contentOffset")
+        
         if newSuperview == nil || newSuperview is UIScrollView == false {
             return
         }

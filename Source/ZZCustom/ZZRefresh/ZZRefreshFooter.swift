@@ -11,6 +11,9 @@ import UIKit
 open class ZZRefreshFooter: ZZRefreshView {
     open override var state: ZZRefreshState {
         didSet {
+            if loadNoMoreData {
+                return
+            }
             switch state {
             case .refreshing:
                 UIView.animate(withDuration: zz_RefreshConstant.footerRefreshDuration, animations: {
@@ -56,7 +59,7 @@ open class ZZRefreshFooter: ZZRefreshView {
             } else {
                 height = footerHeight//min(abs(distance), footerHeight)
             }
-            frame = CGRect(x: 0, y: y, width: width, height: footerHeight - additionHeight)
+            frame = CGRect(x: 0, y: y, width: width, height: height - additionHeight)
         case .bottom:
             if notFull {  // 不满一屏幕的情况
                 if state == .refreshing {
@@ -71,7 +74,7 @@ open class ZZRefreshFooter: ZZRefreshView {
                 height = footerHeight//min(abs(distance), footerHeight)
             }
             
-            frame = CGRect(x: 0, y: y, width: width, height: footerHeight - additionHeight)
+            frame = CGRect(x: 0, y: y, width: width, height: height - additionHeight)
         case .scaleToFill:
             if notFull, state == .refreshing {
                 y = scrollView.frame.height - footerHeight
