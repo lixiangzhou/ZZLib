@@ -55,7 +55,7 @@ open class ZZRefreshView: UIView {
     }
     
     // MARK: - 生命周期方法
-    public init(target: AnyObject, action: Selector, style: ZZRefreshViewPositionStyle = .bottom) {
+    public init(target: AnyObject? = nil, action: Selector? = nil, style: ZZRefreshViewPositionStyle = .bottom) {
         super.init(frame: CGRect.zero)
         self.target = target
         self.action = action
@@ -89,10 +89,6 @@ open class ZZRefreshView: UIView {
         scrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
         
         originInset = scrollView.contentInset
-    }
-    
-    deinit {
-        (superview as? UIScrollView)?.removeObserver(self, forKeyPath: "contentOffset")
     }
     
     // 自定义刷新控件时重写此方法
