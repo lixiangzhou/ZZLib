@@ -91,10 +91,6 @@ open class ZZRefreshView: UIView {
         originInset = scrollView.contentInset
     }
     
-    deinit {
-        (superview as? UIScrollView)?.removeObserver(self, forKeyPath: "contentOffset")
-    }
-    
     // 自定义刷新控件时重写此方法
     open func setupUI() {  }
     
