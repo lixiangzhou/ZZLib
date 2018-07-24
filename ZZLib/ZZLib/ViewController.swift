@@ -8,69 +8,61 @@
 
 import UIKit
 
-class Test {
-    
-}
-
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
-        let btn = UIButton(frame: CGRect(x: 20, y: 80, width: 100, height: 40))
-        btn.backgroundColor = .blue
-        view.addSubview(btn)
-        btn.addTarget(self, action: #selector(click), for: .touchUpInside)
+    
+        /*
+         case none
+         
+         case decimal
+         
+         case currency
+         
+         case percent
+         
+         case scientific
+         
+         case spellOut
+         
+         @available(iOS 9.0, *)
+         case ordinal
+         
+         @available(iOS 9.0, *)
+         case currencyISOCode
+         
+         @available(iOS 9.0, *)
+         case currencyPlural
+         
+         @available(iOS 9.0, *)
+         case currencyAccounting
+         */
         
-        let b = Bundle(for: Test.self)
-        let bt = b.path(forResource: "Test", ofType: "bundle")
-        print(b, bt)
+        let nf = NumberFormatter()
+        let number = NSNumber(value: 123456789)
+        
+        nf.locale = Locale(identifier: "zh_Hans_CN")
+        nf.numberStyle = .currency
+        nf.positiveSuffix = "元"
+        nf.positivePrefix = "AA"
+        nf.maximumFractionDigits = 5
+        nf.minimumFractionDigits = 5
+        print(nf.string(from: number))
+        print("=============================")
+        
+        print(NumberFormatter.localizedString(from: number, number: .none))
+        print(NumberFormatter.localizedString(from: number, number: .decimal))
+        print(NumberFormatter.localizedString(from: number, number: .currency))
+        print(NumberFormatter.localizedString(from: number, number: .percent))
+        print(NumberFormatter.localizedString(from: number, number: .scientific))
+        print(NumberFormatter.localizedString(from: number, number: .spellOut))
+        print(NumberFormatter.localizedString(from: number, number: .ordinal))
+        print(NumberFormatter.localizedString(from: number, number: .currencyISOCode))
+        print(NumberFormatter.localizedString(from: number, number: .currencyPlural))
+        print(NumberFormatter.localizedString(from: number, number: .currencyAccounting))
     }
     
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        navigationController?.pushViewController(ViewController(), animated: true)
-        zz_application.open(URL(string: "https://itunes.apple.com/app/id444934666")!, options: ["": ""]) { (v) in
-            print(v)
-        }
-    }
-    var timer: Timer?
-    @objc func click() {
-        Timer.zz_scheduledTimer(timeInterval: 1, target: self, selector: #selector(run), userInfo: nil, repeats: true)
-    }
-    
-    @objc func run() {
-        print("----------")
-    }
     
 }
-
-
-class ZZSafeTimer {
-    weak var target: AnyObject?
-    var selector: Selector?
-    var timer: Timer?
-    
-    class func scheduledTimer(timeInterval ti: TimeInterval, target aTarget: Any, selector aSelector: Selector, userInfo: Any?, repeats yesOrNo: Bool) -> Timer {
-        let safeTimer = ZZSafeTimer()
-        safeTimer.target = aTarget as AnyObject
-        safeTimer.selector = aSelector
-        safeTimer.timer = Timer.scheduledTimer(timeInterval: ti, target: safeTimer, selector: #selector(fire), userInfo: userInfo, repeats: yesOrNo)
-        return safeTimer.timer!
-    }
-    
-    @objc func fire() {
-        if let target = target {
-            target.perform(selector, with: timer?.userInfo)
-        } else {
-            timer?.invalidate()
-        }
-    }
-}
-
