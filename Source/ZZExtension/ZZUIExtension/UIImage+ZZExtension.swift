@@ -51,7 +51,7 @@ public extension UIImage {
     /// - parameter finished:  回调返回图片的闭包
     func zz_asyncDrawImage(size: CGSize, isCircle: Bool = false, backColor: UIColor? = UIColor.white, finished: @escaping (_ image: UIImage) -> ()) {
         DispatchQueue.global().async {
-            let key = "" + size.width.description + size.height.description + (backColor != nil ? backColor!.description : UIColor.clear.description)
+            let key = "" + size.width.description + "_" + size.height.description + (backColor != nil ? backColor!.description : UIColor.clear.description)
             var backImg = cacheImageBg[key]
             let rect = CGRect(origin: CGPoint.zero, size: size)
             if backImg == nil && isCircle {
@@ -97,7 +97,7 @@ public extension UIImage {
         return result
     }
     
-    /// 生成一张渐变色图片
+    /// 生成一张横向的渐变色图片
     ///
     /// - Parameters:
     ///   - fromColor: 起始颜色

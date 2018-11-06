@@ -78,7 +78,6 @@ public extension UIApplication {
     /// 应用 identifier
     var zz_appID: String {
         return Bundle.main.bundleIdentifier!
-//        return Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String
     }
     
     /// 应用名称
@@ -119,5 +118,12 @@ public extension UIApplication {
                 self.openURL(url)
             }
         }
+    }
+}
+
+public extension UIApplication {
+    /// 是否可打电话
+    var zz_canMakePhoneCall: Bool {
+        return zz_application.canOpenURL(URL(string: "tel://")!)
     }
 }

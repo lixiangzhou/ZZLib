@@ -58,8 +58,9 @@ public extension Date {
     /// Z：          GMT（时区）
     /// - returns: 指定格式的时间字符串
     func zz_string(withDateFormat format: String = "yyyy-MM-dd HH:mm:ss") -> String {
-        zz_dateFormatter.dateFormat = format
-        return zz_dateFormatter.string(from: self)
+        let dateFormatter = DateFormatter()
+         dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
     }
 }
 
@@ -69,76 +70,77 @@ public extension Date {
     
     /// 获取年份
     var zz_year: Int {
-        return zz_calendar.component(.year, from: self)
+        return Calendar.current.component(.year, from: self)
     }
     
     /// 获取月份
     var zz_month: Int {
-        return zz_calendar.component(.month, from: self)
+        return Calendar.current.component(.month, from: self)
     }
     
     /// 获取天
     var zz_day: Int {
-        return zz_calendar.component(.day, from: self)
+        return Calendar.current.component(.day, from: self)
     }
     
     /// 获取小时
     var zz_hour: Int {
-        return zz_calendar.component(.hour, from: self)
+        return Calendar.current.component(.hour, from: self)
     }
     
     /// 获取分钟
     var zz_minute: Int {
-        return zz_calendar.component(.minute, from: self)
+        return Calendar.current.component(.minute, from: self)
     }
     
     /// 获取秒
     var zz_second: Int {
-        return zz_calendar.component(.second, from: self)
+        return Calendar.current.component(.second, from: self)
     }
     
     /// 获取纳秒
     var zz_nanosecond: Int {
-        return zz_calendar.component(.nanosecond, from: self)
+        return Calendar.current.component(.nanosecond, from: self)
     }
     
     /// 获取一周第几天，周日为0
     var zz_weekday: Int {
-        return zz_calendar.component(.weekday, from: self)
+        return Calendar.current.component(.weekday, from: self)
     }
     
     /// 获取一个月第几周，不包括不完整的第一周在这个月
     var zz_weekdayOrdinal: Int {
-        return zz_calendar.component(.weekdayOrdinal, from: self)
+        return Calendar.current.component(.weekdayOrdinal, from: self)
     }
     
     /// 获取一个月第几周，包括不完整的第一周在这个月
     var zz_weekOfMonth: Int {
-        return zz_calendar.component(.weekOfMonth, from: self)
+        return Calendar.current.component(.weekOfMonth, from: self)
     }
     
     /// 一年的第几周
     var zz_weekOfYear: Int {
-        return zz_calendar.component(.weekOfYear, from: self)
+        return Calendar.current.component(.weekOfYear, from: self)
     }
     
     /// 是否今天
     var zz_isToday: Bool {
-        return zz_calendar.isDateInToday(self)
+        return Calendar.current.isDateInToday(self)
     }
     
     /// 是否昨天
     var zz_isYestoday: Bool {
-        return zz_calendar.isDateInYesterday(self)
+        return Calendar.current.isDateInYesterday(self)
     }
     
     /// 是否明天
     var zz_isTomorrow: Bool {
-        return zz_calendar.isDateInTomorrow(self)
+        return Calendar.current.isDateInTomorrow(self)
     }
     
+    /// 是否周末
     var zz_isWeekend: Bool {
-        return zz_calendar.isDateInWeekend(self)
+        return Calendar.current.isDateInWeekend(self)
     }
     
     /// 是否闰年
@@ -149,7 +151,7 @@ public extension Date {
     
     /// 是否是周末，时间间隔 DateInterval，date 不是周末时返回 nil
     var zz_dateIntervalOfWeekend: DateInterval? {
-        return zz_calendar.dateIntervalOfWeekend(containing: self)
+        return Calendar.current.dateIntervalOfWeekend(containing: self)
     }
 }
 
@@ -164,8 +166,7 @@ public extension Date {
     ///
     /// - returns: 一个新的时间，无法计算时返回 nil
     func zz_date(byAdding component: Calendar.Component, value: Int) -> Date? {
-        
-        return zz_calendar.date(byAdding: component, value: value, to: self)
+        return Calendar.current.date(byAdding: component, value: value, to: self)
     }
     
     
@@ -175,8 +176,7 @@ public extension Date {
     ///
     /// - returns: 一个新的时间，无法计算时返回 nil
     func zz_date(byAdding components: DateComponents) -> Date? {
-        
-        return zz_calendar.date(byAdding: components, to: self)
+        return Calendar.current.date(byAdding: components, to: self)
     }
     
     
@@ -189,7 +189,7 @@ public extension Date {
     ///
     /// - returns: 一个新的时间，无法计算时返回 nil
     func zz_date(bySetting hour: Int, minute: Int, second: Int) -> Date? {
-        return zz_calendar.date(bySettingHour: hour, minute: minute, second: second, of: self)
+        return Calendar.current.date(bySettingHour: hour, minute: minute, second: second, of: self)
     }
     
     /// 是否同一天
@@ -198,7 +198,7 @@ public extension Date {
     ///
     /// - returns: 是否同一天
     func zz_isSameDay(asDate date: Date) -> Bool {
-        return zz_calendar.isDate(self, inSameDayAs: date)
+        return Calendar.current.isDate(self, inSameDayAs: date)
     }
 }
 

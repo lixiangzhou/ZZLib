@@ -34,7 +34,7 @@ public extension Int {
     }
     
     
-    /// 放回整数的长度，不包括正负符号
+    /// 返回整数的长度，不包括正负符号
     var zz_length: Int {
         return "\(self)".count - (self < 0 ? 1 : 0)
     }

@@ -23,7 +23,6 @@ public extension UIColor {
     ///
     /// - parameter stringHexValue: 16进制颜色值, 可包含前缀0x,#，颜色值可以是 RGB  RGBA  RRGGBB  RRGGBBAA
     convenience init?(stringHexValue: String) {
-        
         var hexValue = stringHexValue.zz_trim.uppercased()
         if hexValue.hasPrefix("#") {
             hexValue = String(hexValue[hexValue.index(hexValue.startIndex, offsetBy: 1)...])
@@ -72,6 +71,13 @@ public extension UIColor {
         }
         
         self.init(red: r, green: g, blue: b, alpha: a)
+    }
+    
+    /// 16进制rgb颜色值生成对应UIColor
+    ///
+    /// - parameter hexValue: 16进制颜色值, 前缀0x开头的颜色值
+    convenience init?(hexValue: Int) {
+        self.init(stringHexValue: String(hexValue, radix: 16))
     }
     
     /// 随机色

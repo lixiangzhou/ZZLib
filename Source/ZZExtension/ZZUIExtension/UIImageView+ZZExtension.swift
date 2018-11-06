@@ -33,7 +33,7 @@ public extension UIImageView {
             })
         } else if mode == .doubleImage {
             let size = frame.size
-            let key = "" + size.width.description + size.height.description + (backColor != nil ? backColor!.description : UIColor.clear.description)
+            let key = "" + size.width.description + "_" + size.height.description + (backColor != nil ? backColor!.description : UIColor.clear.description)
             
             var corverImg = cachedImage[key]
             

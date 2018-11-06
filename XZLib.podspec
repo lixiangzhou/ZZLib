@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "XZLib"
-  s.version      = "0.0.12"
+  s.version      = "0.0.13"
   s.summary      = "A lib for iOS use with Swift."
 
   # This description is used to generate tags and improve search results.
@@ -91,12 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Source/*",
-                    "Source/ZZCustom/*",
-                    "Source/ZZCustom/ZZRefresh/*",
-                    "Source/ZZExtension/*",
-                    "Source/ZZExtension/ZZNSExtension/*",
-                    "Source/ZZExtension/ZZUIExtension/*"
+  s.source_files  = "Source/**/*"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"

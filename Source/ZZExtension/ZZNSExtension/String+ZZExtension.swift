@@ -85,8 +85,9 @@ public extension String {
     ///
     /// - returns: 指定格式的时间对象
     func zz_date(withDateFormat format: String) -> Date? {
-        zz_dateFormatter.dateFormat = format
-        return zz_dateFormatter.date(from: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: self)
     }
 }
 
